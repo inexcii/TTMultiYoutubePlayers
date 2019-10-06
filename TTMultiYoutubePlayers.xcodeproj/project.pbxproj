@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0048DA92234A244300875758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DA91234A244300875758 /* AppDelegate.swift */; };
-		0048DA94234A244300875758 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DA93234A244300875758 /* ViewController.swift */; };
+		0048DA94234A244300875758 /* VideoPlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DA93234A244300875758 /* VideoPlayController.swift */; };
 		0048DA97234A244300875758 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0048DA95234A244300875758 /* Main.storyboard */; };
 		0048DA99234A244400875758 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0048DA98234A244400875758 /* Assets.xcassets */; };
 		0048DA9C234A244400875758 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0048DA9A234A244400875758 /* LaunchScreen.storyboard */; };
 		0048DAA7234A244400875758 /* TTMultiYoutubePlayersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAA6234A244400875758 /* TTMultiYoutubePlayersTests.swift */; };
 		0048DAB2234A244400875758 /* TTMultiYoutubePlayersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAB1234A244400875758 /* TTMultiYoutubePlayersUITests.swift */; };
 		0048DAC1234A264100875758 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAC0234A264100875758 /* R.generated.swift */; };
+		0048DAC3234AA8F000875758 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAC2234AA8F000875758 /* Constants.swift */; };
 		8D61EB7F2EFBF13F64B4946A /* Pods_TTMultiYoutubePlayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085F2037CADE28FA54728E3 /* Pods_TTMultiYoutubePlayers.framework */; };
 		B21AA067CE8EC3DE8B5D8E0A /* Pods_TTMultiYoutubePlayersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E6F21FBC2965A3C136A07E /* Pods_TTMultiYoutubePlayersTests.framework */; };
 		F10C6288874CB691A8F4E1EA /* Pods_TTMultiYoutubePlayers_TTMultiYoutubePlayersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10799088535B90DD910F487 /* Pods_TTMultiYoutubePlayers_TTMultiYoutubePlayersUITests.framework */; };
@@ -40,7 +41,7 @@
 /* Begin PBXFileReference section */
 		0048DA8E234A244300875758 /* TTMultiYoutubePlayers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTMultiYoutubePlayers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0048DA91234A244300875758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0048DA93234A244300875758 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0048DA93234A244300875758 /* VideoPlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayController.swift; sourceTree = "<group>"; };
 		0048DA96234A244300875758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0048DA98234A244400875758 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0048DA9B234A244400875758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		0048DAB1234A244400875758 /* TTMultiYoutubePlayersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTMultiYoutubePlayersUITests.swift; sourceTree = "<group>"; };
 		0048DAB3234A244400875758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0048DAC0234A264100875758 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		0048DAC2234AA8F000875758 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5D13480227628FF206DBF8E2 /* Pods-TTMultiYoutubePlayers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTMultiYoutubePlayers.debug.xcconfig"; path = "Target Support Files/Pods-TTMultiYoutubePlayers/Pods-TTMultiYoutubePlayers.debug.xcconfig"; sourceTree = "<group>"; };
 		6C40A180B29CB2E7790E4BD3 /* Pods-TTMultiYoutubePlayers-TTMultiYoutubePlayersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTMultiYoutubePlayers-TTMultiYoutubePlayersUITests.debug.xcconfig"; path = "Target Support Files/Pods-TTMultiYoutubePlayers-TTMultiYoutubePlayersUITests/Pods-TTMultiYoutubePlayers-TTMultiYoutubePlayersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7085F2037CADE28FA54728E3 /* Pods_TTMultiYoutubePlayers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTMultiYoutubePlayers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				0048DA91234A244300875758 /* AppDelegate.swift */,
-				0048DA93234A244300875758 /* ViewController.swift */,
+				0048DAC2234AA8F000875758 /* Constants.swift */,
+				0048DA93234A244300875758 /* VideoPlayController.swift */,
 				0048DA95234A244300875758 /* Main.storyboard */,
 				0048DA98234A244400875758 /* Assets.xcassets */,
 				0048DAC0234A264100875758 /* R.generated.swift */,
@@ -428,9 +431,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0048DA94234A244300875758 /* ViewController.swift in Sources */,
+				0048DA94234A244300875758 /* VideoPlayController.swift in Sources */,
 				0048DA92234A244300875758 /* AppDelegate.swift in Sources */,
 				0048DAC1234A264100875758 /* R.generated.swift in Sources */,
+				0048DAC3234AA8F000875758 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
