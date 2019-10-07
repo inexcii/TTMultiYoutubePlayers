@@ -18,6 +18,6 @@ struct Constants {
     }
     
     struct API {
-        static let accessKey = "AIzaSyBHzUp0hB5bCgNEpiIIyrrL6bkk0dqa6B0"
+        static let accessKey = "YOUR_ACCESS_KEY"
     }
 }
