@@ -9,6 +9,7 @@ A project that shows multiple youtube players that is natively(no Webview) imple
 ### Build Step
 1. Clone the project.
 1. Run `pod install` in command line at the root of the project path.
+1. Replace the access key of YouTube Data API [here](https://github.com/inexcii/TTMultiYoutubePlayers/blob/master/TTMultiYoutubePlayers/Constants.swift#L21) by yours.
 1. Hit 'Run' button in Xcode.
 
 ### Frameworks
