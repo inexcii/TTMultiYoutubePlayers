@@ -16,4 +16,8 @@ struct Constants {
             static let pause = "Pause"
         }
     }
+    
+    struct API {
+        static let accessKey = "AIzaSyBHzUp0hB5bCgNEpiIIyrrL6bkk0dqa6B0"
+    }
 }

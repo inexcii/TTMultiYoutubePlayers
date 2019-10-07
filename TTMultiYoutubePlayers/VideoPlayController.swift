@@ -8,37 +8,35 @@
 
 import UIKit
 import AVFoundation
+import GoogleAPIClientForREST
 
 class VideoPlayController: UIViewController {
     
-    @IBOutlet weak var videoContainer1: UIView!
-    @IBOutlet weak var videoContainer2: UIView!
+    @IBOutlet weak var videoContainer1: AVPlayerView!
+    @IBOutlet weak var videoContainer2: AVPlayerView!
     @IBOutlet weak var buttonPlay1: UIButton!
     @IBOutlet weak var buttonPlay2: UIButton!
+    @IBOutlet weak var buttonSource1: UIButton!
+    @IBOutlet weak var buttonSource2: UIButton!
     
     var player1 = AVQueuePlayer()
     var player2 = AVQueuePlayer()
+    var videoEntity1: GTLRYouTube_SearchResult?
+    var videoEntity2: GTLRYouTube_SearchResult?
     
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         buttonPlay1.setTitle(Constants.Title.Button.play, for: .normal)
         buttonPlay2.setTitle(Constants.Title.Button.play, for: .normal)
         
-        insertVideoLayer(AVPlayerLayer(player: player1), in: videoContainer1)
-        insertVideoLayer(AVPlayerLayer(player: player2), in: videoContainer2)
-        
+        insertVideoPlayer(player1, in: videoContainer1)
+        insertVideoPlayer(player2, in: videoContainer2)
     }
 
-    // MARK: IBActions
-    @IBAction func source1ButtonTapped(_ sender: Any) {
-        
-    }
-    
-    @IBAction func source2ButtonTapped(_ sender: Any) {
-        
-    }
+    // MARK: - IBActions
     
     @IBAction func play1ButtonTapped(_ sender: Any) {
         if player1.rate > 0.0 {
@@ -60,11 +58,76 @@ class VideoPlayController: UIViewController {
         }
     }
     
-    // MARK: Private
-    private func insertVideoLayer(_ layer: AVPlayerLayer, in view: UIView) {
-        layer.frame = view.bounds
-        layer.videoGravity = .resizeAspect
-        view.layer.addSublayer(layer)
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            print("segue's identifier is not set")
+            return
+        }
+        switch identifier {
+        case "VideoPlaytoVideoSearch":
+            guard let source = segue.source as? VideoPlayController,
+                let destination = segue.destination as? VideoSearchViewController,
+                let button = sender as? UIButton else {
+                    print("source/destination ViewController is invalid, or sender is not a UIButton object")
+                    return
+            }
+            
+            destination.delegate = source
+            destination.sourceButton = button
+            
+        default:
+            print("identifier:\(identifier) is not recognized")
+        }
+    }
+    
+    // MARK: - Private
+    
+    private func insertVideoPlayer(_ player: AVQueuePlayer, in container: AVPlayerView) {
+        let layer = container.layer as! AVPlayerLayer
+        layer.player = player
+    }
+    
+    private func replaceVideoEntity(_ entity: GTLRYouTube_SearchResult, in player: AVQueuePlayer) {
+        if let videoId = entity.identifier?.videoId {
+            let transfer = YoutubeStreamUrlTransfer(videoId: videoId)
+            transfer.transfer { (url) in
+                if let url = url {
+                    self.replaceVideo(in: player, with: url)
+                }
+            }
+        }
+    }
+    
+    private func replaceVideo(in player: AVQueuePlayer, with url: URL) {
+        player.removeAllItems()
+        let item = AVPlayerItem(url: url)
+        player.insert(item, after: nil)
+    }
+}
+
+// MARK: - VideoSearchViewControllerDelegate
+
+extension VideoPlayController: VideoSearchViewControllerDelegate {
+    
+    func didChooseVideo(_ entity: GTLRYouTube_SearchResult, source button: UIButton?) {
+        guard let button = button else {
+            print("source button is nil or unknown")
+            return
+        }
+        
+        switch button {
+        case buttonSource1:
+            videoEntity1 = entity
+            replaceVideoEntity(entity, in: player1)
+        case buttonSource2:
+            videoEntity2 = entity
+            replaceVideoEntity(entity, in: player2)
+            
+        default:
+            print("got some button not belongs to this ViewController")
+        }
     }
 }
 

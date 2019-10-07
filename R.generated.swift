@@ -16,6 +16,34 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `VideoSearchTableViewCell`.
+    static let videoSearchTableViewCell: Rswift.ReuseIdentifier<VideoSearchTableViewCell> = Rswift.ReuseIdentifier(identifier: "VideoSearchTableViewCell")
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  struct segue {
+    /// This struct is generated for `VideoPlayController`, and contains static references to 1 segues.
+    struct videoPlayController {
+      /// Segue identifier `VideoPlaytoVideoSearch`.
+      static let videoPlaytoVideoSearch: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, VideoPlayController, VideoSearchViewController> = Rswift.StoryboardSegueIdentifier(identifier: "VideoPlaytoVideoSearch")
+      
+      /// Optionally returns a typed version of segue `VideoPlaytoVideoSearch`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func videoPlaytoVideoSearch(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, VideoPlayController, VideoSearchViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.videoPlayController.videoPlaytoVideoSearch, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.

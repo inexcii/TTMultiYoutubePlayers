@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKI-zV-Z2m" userLabel="Container1">
                                 <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doW-lF-GC1" userLabel="Video">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doW-lF-GC1" userLabel="Video" customClass="AVPlayerView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -36,7 +36,7 @@
                                         </constraints>
                                         <state key="normal" title="Source"/>
                                         <connections>
-                                            <action selector="source1ButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DbV-00-gwt"/>
+                                            <segue destination="H53-X1-OKZ" kind="presentation" identifier="VideoPlaytoVideoSearch" id="acO-rs-JPB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URg-NP-bfP" userLabel="Play">
@@ -62,7 +62,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmo-Dx-fUO" userLabel="Container2">
                                 <rect key="frame" x="0.0" y="353.5" width="375" height="313.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-PT-Qkq" userLabel="Video">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-PT-Qkq" userLabel="Video" customClass="AVPlayerView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -77,7 +77,7 @@
                                         </constraints>
                                         <state key="normal" title="Source"/>
                                         <connections>
-                                            <action selector="source2ButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mBO-My-zNF"/>
+                                            <segue destination="H53-X1-OKZ" kind="presentation" identifier="VideoPlaytoVideoSearch" id="MmM-Bc-0se"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evj-hg-uNJ" userLabel="Play">
@@ -117,6 +117,8 @@
                     <connections>
                         <outlet property="buttonPlay1" destination="URg-NP-bfP" id="jfb-r5-rWk"/>
                         <outlet property="buttonPlay2" destination="Evj-hg-uNJ" id="0p2-NQ-6CB"/>
+                        <outlet property="buttonSource1" destination="win-nN-IXe" id="r8S-oK-xAD"/>
+                        <outlet property="buttonSource2" destination="vTH-60-p5b" id="x3O-MO-ehb"/>
                         <outlet property="videoContainer1" destination="doW-lF-GC1" id="qA7-yB-s8v"/>
                         <outlet property="videoContainer2" destination="aPE-PT-Qkq" id="IDX-A1-Q0d"/>
                     </connections>
@@ -125,5 +127,100 @@
             </objects>
             <point key="canvasLocation" x="278" y="41"/>
         </scene>
+        <!--Video Search View Controller-->
+        <scene sceneID="tjF-WY-z1g">
+            <objects>
+                <viewController id="H53-X1-OKZ" customClass="VideoSearchViewController" customModule="TTMultiYoutubePlayers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KsM-eI-I6F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebc-BL-JcM">
+                                <rect key="frame" x="8" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ebc-BL-JcM" secondAttribute="height" multiplier="1:1" id="98v-QV-rwE"/>
+                                    <constraint firstAttribute="width" constant="44" id="9YS-GA-3hP"/>
+                                </constraints>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="H53-X1-OKZ" eventType="touchUpInside" id="jep-uM-Bkw"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="バイク、音楽など" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKh-cS-2ce">
+                                <rect key="frame" x="60" y="20" width="307" height="44"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="H53-X1-OKZ" id="bZz-wA-gMo"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LeE-CU-BDJ">
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoSearchTableViewCell" rowHeight="240" id="EHT-Ij-lT5" customClass="VideoSearchTableViewCell" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="240"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EHT-Ij-lT5" id="QGH-PW-lWJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="239.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kPD-zv-yHl">
+                                                    <rect key="frame" x="15" y="11" width="345" height="172.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="kPD-zv-yHl" secondAttribute="height" multiplier="16:8" id="dBY-Ve-O2W"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4E-X0-wCZ">
+                                                    <rect key="frame" x="15" y="188.5" width="345" height="46"/>
+                                                    <string key="text">label
+aaa</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r4E-X0-wCZ" firstAttribute="leading" secondItem="kPD-zv-yHl" secondAttribute="leading" id="0JM-0t-0FN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kPD-zv-yHl" secondAttribute="trailing" id="68a-jr-tlF"/>
+                                                <constraint firstItem="kPD-zv-yHl" firstAttribute="top" secondItem="QGH-PW-lWJ" secondAttribute="topMargin" id="FEc-98-CkW"/>
+                                                <constraint firstItem="kPD-zv-yHl" firstAttribute="leading" secondItem="QGH-PW-lWJ" secondAttribute="leadingMargin" id="IFA-wJ-5fr"/>
+                                                <constraint firstItem="r4E-X0-wCZ" firstAttribute="top" secondItem="kPD-zv-yHl" secondAttribute="bottom" constant="5" id="Ogn-lf-7W4"/>
+                                                <constraint firstItem="r4E-X0-wCZ" firstAttribute="trailing" secondItem="kPD-zv-yHl" secondAttribute="trailing" id="mmP-Bs-cmR"/>
+                                                <constraint firstAttribute="bottom" secondItem="r4E-X0-wCZ" secondAttribute="bottom" constant="5" id="oUS-s6-c93"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="thumbnailImageView" destination="kPD-zv-yHl" id="NFN-go-ks6"/>
+                                            <outlet property="titleLabel" destination="r4E-X0-wCZ" id="3ze-ia-DFi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ebc-BL-JcM" firstAttribute="leading" secondItem="P8X-Yk-ZPK" secondAttribute="leading" constant="8" id="4YB-21-AdI"/>
+                            <constraint firstItem="aKh-cS-2ce" firstAttribute="centerY" secondItem="Ebc-BL-JcM" secondAttribute="centerY" id="EAT-xQ-Rph"/>
+                            <constraint firstItem="P8X-Yk-ZPK" firstAttribute="trailing" secondItem="aKh-cS-2ce" secondAttribute="trailing" constant="8" id="IZG-z0-Lha"/>
+                            <constraint firstItem="Ebc-BL-JcM" firstAttribute="top" secondItem="P8X-Yk-ZPK" secondAttribute="top" id="Ji3-JR-FbR"/>
+                            <constraint firstItem="aKh-cS-2ce" firstAttribute="top" secondItem="P8X-Yk-ZPK" secondAttribute="top" id="VWn-dt-Qtw"/>
+                            <constraint firstItem="aKh-cS-2ce" firstAttribute="leading" secondItem="Ebc-BL-JcM" secondAttribute="trailing" constant="8" id="Wat-UT-u9e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="P8X-Yk-ZPK"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="LeE-CU-BDJ" id="8Nq-dg-jDB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p2z-JU-qIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103.2" y="40.929535232383813"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="acO-rs-JPB"/>
+    </inferredMetricsTieBreakers>
 </document>

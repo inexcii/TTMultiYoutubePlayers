@@ -16,6 +16,11 @@
 		0048DAB2234A244400875758 /* TTMultiYoutubePlayersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAB1234A244400875758 /* TTMultiYoutubePlayersUITests.swift */; };
 		0048DAC1234A264100875758 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAC0234A264100875758 /* R.generated.swift */; };
 		0048DAC3234AA8F000875758 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAC2234AA8F000875758 /* Constants.swift */; };
+		0048DAC6234AAB6F00875758 /* VideoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAC5234AAB6F00875758 /* VideoSearchViewController.swift */; };
+		0048DAC9234AABD300875758 /* VideoPlaylistFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DAC8234AABD300875758 /* VideoPlaylistFactory.swift */; };
+		0048DACB234ACD9800875758 /* VideoSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACA234ACD9800875758 /* VideoSearchTableViewCell.swift */; };
+		0048DACD234ADEC600875758 /* YoutubeStreamUrlTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACC234ADEC600875758 /* YoutubeStreamUrlTransfer.swift */; };
+		0048DAD0234B1F8200875758 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACF234B1F8200875758 /* AVPlayerView.swift */; };
 		8D61EB7F2EFBF13F64B4946A /* Pods_TTMultiYoutubePlayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085F2037CADE28FA54728E3 /* Pods_TTMultiYoutubePlayers.framework */; };
 		B21AA067CE8EC3DE8B5D8E0A /* Pods_TTMultiYoutubePlayersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E6F21FBC2965A3C136A07E /* Pods_TTMultiYoutubePlayersTests.framework */; };
 		F10C6288874CB691A8F4E1EA /* Pods_TTMultiYoutubePlayers_TTMultiYoutubePlayersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10799088535B90DD910F487 /* Pods_TTMultiYoutubePlayers_TTMultiYoutubePlayersUITests.framework */; };
@@ -54,6 +59,11 @@
 		0048DAB3234A244400875758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0048DAC0234A264100875758 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		0048DAC2234AA8F000875758 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0048DAC5234AAB6F00875758 /* VideoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchViewController.swift; sourceTree = "<group>"; };
+		0048DAC8234AABD300875758 /* VideoPlaylistFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlaylistFactory.swift; sourceTree = "<group>"; };
+		0048DACA234ACD9800875758 /* VideoSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchTableViewCell.swift; sourceTree = "<group>"; };
+		0048DACC234ADEC600875758 /* YoutubeStreamUrlTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeStreamUrlTransfer.swift; sourceTree = "<group>"; };
+		0048DACF234B1F8200875758 /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
 		5D13480227628FF206DBF8E2 /* Pods-TTMultiYoutubePlayers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTMultiYoutubePlayers.debug.xcconfig"; path = "Target Support Files/Pods-TTMultiYoutubePlayers/Pods-TTMultiYoutubePlayers.debug.xcconfig"; sourceTree = "<group>"; };
 		6C40A180B29CB2E7790E4BD3 /* Pods-TTMultiYoutubePlayers-TTMultiYoutubePlayersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTMultiYoutubePlayers-TTMultiYoutubePlayersUITests.debug.xcconfig"; path = "Target Support Files/Pods-TTMultiYoutubePlayers-TTMultiYoutubePlayersUITests/Pods-TTMultiYoutubePlayers-TTMultiYoutubePlayersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7085F2037CADE28FA54728E3 /* Pods_TTMultiYoutubePlayers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTMultiYoutubePlayers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +131,9 @@
 				0048DA91234A244300875758 /* AppDelegate.swift */,
 				0048DAC2234AA8F000875758 /* Constants.swift */,
 				0048DA93234A244300875758 /* VideoPlayController.swift */,
+				0048DACE234B1F7300875758 /* UI */,
+				0048DAC7234AABBA00875758 /* Helper */,
+				0048DAC4234AAB5200875758 /* VideoSearch */,
 				0048DA95234A244300875758 /* Main.storyboard */,
 				0048DA98234A244400875758 /* Assets.xcassets */,
 				0048DAC0234A264100875758 /* R.generated.swift */,
@@ -146,6 +159,32 @@
 				0048DAB3234A244400875758 /* Info.plist */,
 			);
 			path = TTMultiYoutubePlayersUITests;
+			sourceTree = "<group>";
+		};
+		0048DAC4234AAB5200875758 /* VideoSearch */ = {
+			isa = PBXGroup;
+			children = (
+				0048DAC5234AAB6F00875758 /* VideoSearchViewController.swift */,
+				0048DACA234ACD9800875758 /* VideoSearchTableViewCell.swift */,
+			);
+			path = VideoSearch;
+			sourceTree = "<group>";
+		};
+		0048DAC7234AABBA00875758 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0048DAC8234AABD300875758 /* VideoPlaylistFactory.swift */,
+				0048DACC234ADEC600875758 /* YoutubeStreamUrlTransfer.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		0048DACE234B1F7300875758 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0048DACF234B1F8200875758 /* AVPlayerView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		090BCFA59BCA23247D21578B /* Frameworks */ = {
@@ -431,10 +470,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0048DAC6234AAB6F00875758 /* VideoSearchViewController.swift in Sources */,
 				0048DA94234A244300875758 /* VideoPlayController.swift in Sources */,
+				0048DACD234ADEC600875758 /* YoutubeStreamUrlTransfer.swift in Sources */,
+				0048DAC9234AABD300875758 /* VideoPlaylistFactory.swift in Sources */,
 				0048DA92234A244300875758 /* AppDelegate.swift in Sources */,
 				0048DAC1234A264100875758 /* R.generated.swift in Sources */,
+				0048DAD0234B1F8200875758 /* AVPlayerView.swift in Sources */,
 				0048DAC3234AA8F000875758 /* Constants.swift in Sources */,
+				0048DACB234ACD9800875758 /* VideoSearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
