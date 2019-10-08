@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 import GoogleAPIClientForREST
 
 class VideoPlayController: UIViewController {
@@ -19,43 +18,31 @@ class VideoPlayController: UIViewController {
     @IBOutlet weak var buttonSource1: UIButton!
     @IBOutlet weak var buttonSource2: UIButton!
     
-    var player1 = AVQueuePlayer()
-    var player2 = AVQueuePlayer()
-    var videoEntity1: GTLRYouTube_SearchResult?
-    var videoEntity2: GTLRYouTube_SearchResult?
+    var videoPlayer1: VideoPlayer!
+    var videoPlayer2: VideoPlayer!
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonPlay1.setTitle(Constants.Title.Button.play, for: .normal)
-        buttonPlay2.setTitle(Constants.Title.Button.play, for: .normal)
+        videoPlayer1 = VideoPlayer(container: videoContainer1)
+        videoPlayer2 = VideoPlayer(container: videoContainer2)
         
-        insertVideoPlayer(player1, in: videoContainer1)
-        insertVideoPlayer(player2, in: videoContainer2)
+        videoPlayer1.connectUIs(buttonPlay: buttonPlay1)
+        videoPlayer1.setupUIs()
+        videoPlayer2.connectUIs(buttonPlay: buttonPlay2)
+        videoPlayer2.setupUIs()
     }
 
     // MARK: - IBActions
     
     @IBAction func play1ButtonTapped(_ sender: Any) {
-        if player1.rate > 0.0 {
-            player1.pause()
-            buttonPlay1.setTitle(Constants.Title.Button.play, for: .normal)
-        } else {
-            player1.play()
-            buttonPlay1.setTitle(Constants.Title.Button.pause, for: .normal)
-        }
+        videoPlayer1.handleTapAction()
     }
     
     @IBAction func play2ButtonTapped(_ sender: Any) {
-        if player2.rate > 0.0 {
-            player2.pause()
-            buttonPlay2.setTitle(Constants.Title.Button.play, for: .normal)
-        } else {
-            player2.play()
-            buttonPlay2.setTitle(Constants.Title.Button.pause, for: .normal)
-        }
+        videoPlayer2.handleTapAction()
     }
     
     // MARK: - Navigation
@@ -84,27 +71,6 @@ class VideoPlayController: UIViewController {
     
     // MARK: - Private
     
-    private func insertVideoPlayer(_ player: AVQueuePlayer, in container: AVPlayerView) {
-        let layer = container.layer as! AVPlayerLayer
-        layer.player = player
-    }
-    
-    private func replaceVideoEntity(_ entity: GTLRYouTube_SearchResult, in player: AVQueuePlayer) {
-        if let videoId = entity.identifier?.videoId {
-            let transfer = YoutubeStreamUrlTransfer(videoId: videoId)
-            transfer.transfer { (url) in
-                if let url = url {
-                    self.replaceVideo(in: player, with: url)
-                }
-            }
-        }
-    }
-    
-    private func replaceVideo(in player: AVQueuePlayer, with url: URL) {
-        player.removeAllItems()
-        let item = AVPlayerItem(url: url)
-        player.insert(item, after: nil)
-    }
 }
 
 // MARK: - VideoSearchViewControllerDelegate
@@ -119,12 +85,9 @@ extension VideoPlayController: VideoSearchViewControllerDelegate {
         
         switch button {
         case buttonSource1:
-            videoEntity1 = entity
-            replaceVideoEntity(entity, in: player1)
+            videoPlayer1.entity = entity
         case buttonSource2:
-            videoEntity2 = entity
-            replaceVideoEntity(entity, in: player2)
-            
+            videoPlayer2.entity = entity
         default:
             print("got some button not belongs to this ViewController")
         }
