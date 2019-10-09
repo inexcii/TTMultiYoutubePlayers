@@ -45,12 +45,28 @@
                                             <action selector="play1ButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OWQ-ZV-ggn"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtU-w9-MUv" userLabel="Current Time">
+                                        <rect key="frame" x="8" y="216" width="61" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttq-dF-Tb4" userLabel="Duration">
+                                        <rect key="frame" x="306.5" y="216" width="60.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="URg-NP-bfP" firstAttribute="height" secondItem="win-nN-IXe" secondAttribute="height" id="0QU-NZ-Sy3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ttq-dF-Tb4" secondAttribute="trailing" constant="8" id="3V2-hl-5K1"/>
                                     <constraint firstItem="doW-lF-GC1" firstAttribute="top" secondItem="eKI-zV-Z2m" secondAttribute="top" id="4nq-RH-dKH"/>
+                                    <constraint firstItem="UtU-w9-MUv" firstAttribute="top" secondItem="doW-lF-GC1" secondAttribute="bottom" constant="5" id="HZj-Bl-97X"/>
+                                    <constraint firstItem="Ttq-dF-Tb4" firstAttribute="top" secondItem="UtU-w9-MUv" secondAttribute="top" id="Nhn-rC-AaJ"/>
                                     <constraint firstItem="win-nN-IXe" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" constant="8" id="SBZ-Rc-AzI"/>
+                                    <constraint firstItem="UtU-w9-MUv" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" constant="8" id="avk-Ey-TN6"/>
                                     <constraint firstAttribute="trailing" secondItem="doW-lF-GC1" secondAttribute="trailing" id="bCX-jZ-p47"/>
                                     <constraint firstItem="doW-lF-GC1" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" id="geX-6s-LVl"/>
                                     <constraint firstItem="URg-NP-bfP" firstAttribute="width" secondItem="win-nN-IXe" secondAttribute="width" id="h41-EU-xrR"/>
@@ -86,6 +102,18 @@
                                             <action selector="play2ButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t5T-kg-KsZ"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-Z7-z1h">
+                                        <rect key="frame" x="8" y="216" width="61" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfo-GI-fhu">
+                                        <rect key="frame" x="306.5" y="216" width="60.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -93,11 +121,15 @@
                                     <constraint firstItem="Evj-hg-uNJ" firstAttribute="centerX" secondItem="rmo-Dx-fUO" secondAttribute="centerX" id="62V-xq-q1z"/>
                                     <constraint firstItem="Evj-hg-uNJ" firstAttribute="centerY" secondItem="vTH-60-p5b" secondAttribute="centerY" id="9ad-v5-jMd"/>
                                     <constraint firstItem="vTH-60-p5b" firstAttribute="leading" secondItem="rmo-Dx-fUO" secondAttribute="leading" constant="8" id="DqB-fu-fLG"/>
+                                    <constraint firstItem="oXe-Z7-z1h" firstAttribute="top" secondItem="aPE-PT-Qkq" secondAttribute="bottom" constant="5" id="Jma-JM-dVF"/>
                                     <constraint firstAttribute="bottom" secondItem="vTH-60-p5b" secondAttribute="bottom" constant="8" id="LcX-8z-StV"/>
                                     <constraint firstItem="aPE-PT-Qkq" firstAttribute="top" secondItem="rmo-Dx-fUO" secondAttribute="top" id="NZG-P2-4z4"/>
+                                    <constraint firstItem="oXe-Z7-z1h" firstAttribute="leading" secondItem="rmo-Dx-fUO" secondAttribute="leading" constant="8" id="Rg9-sn-IHF"/>
                                     <constraint firstItem="aPE-PT-Qkq" firstAttribute="leading" secondItem="rmo-Dx-fUO" secondAttribute="leading" id="cCk-Nh-W0i"/>
                                     <constraint firstItem="Evj-hg-uNJ" firstAttribute="width" secondItem="vTH-60-p5b" secondAttribute="width" id="eKM-OJ-ABH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rfo-GI-fhu" secondAttribute="trailing" constant="8" id="iPX-ve-tW4"/>
                                     <constraint firstAttribute="trailing" secondItem="aPE-PT-Qkq" secondAttribute="trailing" id="nTI-Ss-lbX"/>
+                                    <constraint firstItem="Rfo-GI-fhu" firstAttribute="top" secondItem="oXe-Z7-z1h" secondAttribute="top" id="ugi-q6-rvm"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -119,6 +151,10 @@
                         <outlet property="buttonPlay2" destination="Evj-hg-uNJ" id="0p2-NQ-6CB"/>
                         <outlet property="buttonSource1" destination="win-nN-IXe" id="r8S-oK-xAD"/>
                         <outlet property="buttonSource2" destination="vTH-60-p5b" id="x3O-MO-ehb"/>
+                        <outlet property="labelCurrentTime1" destination="UtU-w9-MUv" id="TDP-EO-xpz"/>
+                        <outlet property="labelCurrentTime2" destination="oXe-Z7-z1h" id="tg9-XH-WTv"/>
+                        <outlet property="labelDuration1" destination="Ttq-dF-Tb4" id="tYd-2y-Oj5"/>
+                        <outlet property="labelDuration2" destination="Rfo-GI-fhu" id="7BD-n9-NfD"/>
                         <outlet property="videoContainer1" destination="doW-lF-GC1" id="qA7-yB-s8v"/>
                         <outlet property="videoContainer2" destination="aPE-PT-Qkq" id="IDX-A1-Q0d"/>
                     </connections>

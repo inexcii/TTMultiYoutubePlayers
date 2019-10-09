@@ -12,14 +12,18 @@ import GoogleAPIClientForREST
 
 class VideoPlayer {
     
+    // UIs
     var buttonPlay: UIButton!
+    var labelCurrentTime: UILabel!
+    var labelDuration: UILabel!
 
     var entity: GTLRYouTube_SearchResult? {
         didSet {
-            updatePlayer()
+            resetPlayer()
         }
     }
     var player = AVQueuePlayer()
+    var timeObserverToken: Any?
     
     // MARK: - Life Cycle
     
@@ -30,8 +34,10 @@ class VideoPlayer {
     
     // MARK: - Internal
     
-    func connectUIs(buttonPlay: UIButton) {
+    func connectUIs(buttonPlay: UIButton, labelCurrentTime: UILabel, labelDuration: UILabel) {
         self.buttonPlay = buttonPlay
+        self.labelCurrentTime = labelCurrentTime
+        self.labelDuration = labelDuration
     }
     
     func setupUIs() {
@@ -50,26 +56,29 @@ class VideoPlayer {
     
     // MARK: - Private
     
-    private func updatePlayer() {
+    private func resetPlayer() {
+        // remove all the old things
+        player.removeAllItems()
+        if let token = timeObserverToken {
+            player.removeTimeObserver(token)
+            timeObserverToken = nil
+        }
+        
+        // set new things
         if let videoId = entity?.identifier?.videoId {
             let transfer = YoutubeStreamUrlTransfer(videoId: videoId)
             transfer.transfer { (url) in
                 if let url = url {
-                    self.replaceAsset(with: url)
+                    // setup AVAsset
+                    let asset = AVURLAsset(url: url)
+                    self.loadValuesInAsset(asset) {
+                        // setup AVPlayer
+                        let item = AVPlayerItem(asset: asset)
+                        self.player.insert(item, after: nil)
+                        self.addPeriodicTimeObserver()
+                    }
                 }
             }
-        }
-    }
-    
-    private func replaceAsset(with url: URL) {
-        player.removeAllItems()
-        NSLog("asset begins")
-        
-        let asset = AVURLAsset(url: url)
-        NSLog("asset finshed setup")
-        loadValuesInAsset(asset) {
-            let item = AVPlayerItem(asset: asset)
-            self.player.insert(item, after: nil)
         }
     }
     
@@ -86,7 +95,9 @@ class VideoPlayer {
                     if key == keyPlayable {
                         NSLog("playable key finished loading")
                     } else if key == keyDuration {
-                        NSLog("asset finished loading with duration: \(asset.duration.toDisplay())")
+                        DispatchQueue.main.async {
+                            self.labelDuration.text = asset.duration.toDisplay()
+                        }
                     } else {
                         print("else to be loaded")
                     }
@@ -99,6 +110,14 @@ class VideoPlayer {
                 }
             }
             completion()
+        }
+    }
+    
+    private func addPeriodicTimeObserver() {
+        // Invoke callback every 0.5 second
+        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
+            self?.labelCurrentTime.text = time.toDisplay()
         }
     }
 }

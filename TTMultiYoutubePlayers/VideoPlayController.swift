@@ -17,6 +17,10 @@ class VideoPlayController: UIViewController {
     @IBOutlet weak var buttonPlay2: UIButton!
     @IBOutlet weak var buttonSource1: UIButton!
     @IBOutlet weak var buttonSource2: UIButton!
+    @IBOutlet weak var labelCurrentTime1: UILabel!
+    @IBOutlet weak var labelDuration1: UILabel!
+    @IBOutlet weak var labelCurrentTime2: UILabel!
+    @IBOutlet weak var labelDuration2: UILabel!
     
     var videoPlayer1: VideoPlayer!
     var videoPlayer2: VideoPlayer!
@@ -29,9 +33,9 @@ class VideoPlayController: UIViewController {
         videoPlayer1 = VideoPlayer(container: videoContainer1)
         videoPlayer2 = VideoPlayer(container: videoContainer2)
         
-        videoPlayer1.connectUIs(buttonPlay: buttonPlay1)
+        videoPlayer1.connectUIs(buttonPlay: buttonPlay1, labelCurrentTime: labelCurrentTime1, labelDuration: labelDuration1)
         videoPlayer1.setupUIs()
-        videoPlayer2.connectUIs(buttonPlay: buttonPlay2)
+        videoPlayer2.connectUIs(buttonPlay: buttonPlay2, labelCurrentTime: labelCurrentTime2, labelDuration: labelDuration2)
         videoPlayer2.setupUIs()
     }
 
