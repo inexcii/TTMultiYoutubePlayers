@@ -16,6 +16,7 @@ class VideoPlayer {
     var buttonPlay: UIButton!
     var labelCurrentTime: UILabel!
     var labelDuration: UILabel!
+    var seekBar: UISlider!
 
     var entity: GTLRYouTube_SearchResult? {
         didSet {
@@ -24,6 +25,9 @@ class VideoPlayer {
     }
     var player = AVQueuePlayer()
     var timeObserverToken: Any?
+    
+    // Status Control
+    var isSeekBarBeingTouched = false
     
     // MARK: - Life Cycle
     
@@ -34,17 +38,18 @@ class VideoPlayer {
     
     // MARK: - Internal
     
-    func connectUIs(buttonPlay: UIButton, labelCurrentTime: UILabel, labelDuration: UILabel) {
+    func connectUIs(buttonPlay: UIButton, labelCurrentTime: UILabel, labelDuration: UILabel, seekBar: UISlider) {
         self.buttonPlay = buttonPlay
         self.labelCurrentTime = labelCurrentTime
         self.labelDuration = labelDuration
+        self.seekBar = seekBar
     }
     
     func setupUIs() {
         buttonPlay.setTitle(Constants.Title.Button.play, for: .normal)
     }
     
-    func handleTapAction() {
+    func handlePlayPauseTapAction() {
         if player.rate > 0.0 {
             player.pause()
             buttonPlay.setTitle(Constants.Title.Button.play, for: .normal)
@@ -52,6 +57,24 @@ class VideoPlayer {
             player.play()
             buttonPlay.setTitle(Constants.Title.Button.pause, for: .normal)
         }
+    }
+    
+    func handleSeekBarChangeValue() {
+        guard let duration = player.currentItem?.duration else { return }
+        let seekTime = getSeekTime(seekBar.value, by: duration)
+        labelCurrentTime.text = seekTime.toDisplay()
+    }
+    
+    func handleSeekBarTouchUp() {
+        isSeekBarBeingTouched = false
+        
+        guard let duration = player.currentItem?.duration else { return }
+        let seekTime = getSeekTime(seekBar.value, by: duration)
+        player.seek(to: seekTime, completionHandler: { (_) in })
+    }
+    
+    func handleSeekBarTouchDown() {
+        isSeekBarBeingTouched = true
     }
     
     // MARK: - Private
@@ -117,7 +140,24 @@ class VideoPlayer {
         // Invoke callback every 0.5 second
         let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
-            self?.labelCurrentTime.text = time.toDisplay()
+            // Do not update some UI when user is trying to seek video.
+            if !(self?.isSeekBarBeingTouched ?? true) {
+                self?.labelCurrentTime.text = time.toDisplay()
+                self?.setSeekBarValue(progress: time)
+            }
         }
+    }
+    
+    private func setSeekBarValue(progress: CMTime) {
+        guard let duration = player.currentItem?.duration else { return }
+        let totalSeconds = CMTimeGetSeconds(duration)
+        let progressSeconds = CMTimeGetSeconds(progress)
+        seekBar.value = Float(progressSeconds / totalSeconds)
+    }
+    
+    private func getSeekTime(_ seekBarValue: Float, by duration: CMTime) -> CMTime {
+        let totalSeconds = CMTimeGetSeconds(duration)
+        let value = Float64(seekBarValue) * totalSeconds
+        return CMTime(value: Int64(value), timescale: 1)
     }
 }

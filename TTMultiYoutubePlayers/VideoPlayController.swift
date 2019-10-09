@@ -21,6 +21,8 @@ class VideoPlayController: UIViewController {
     @IBOutlet weak var labelDuration1: UILabel!
     @IBOutlet weak var labelCurrentTime2: UILabel!
     @IBOutlet weak var labelDuration2: UILabel!
+    @IBOutlet weak var seekBar1: UISlider!
+    @IBOutlet weak var seekBar2: UISlider!
     
     var videoPlayer1: VideoPlayer!
     var videoPlayer2: VideoPlayer!
@@ -33,21 +35,53 @@ class VideoPlayController: UIViewController {
         videoPlayer1 = VideoPlayer(container: videoContainer1)
         videoPlayer2 = VideoPlayer(container: videoContainer2)
         
-        videoPlayer1.connectUIs(buttonPlay: buttonPlay1, labelCurrentTime: labelCurrentTime1, labelDuration: labelDuration1)
+        videoPlayer1.connectUIs(buttonPlay: buttonPlay1, labelCurrentTime: labelCurrentTime1, labelDuration: labelDuration1, seekBar: seekBar1)
         videoPlayer1.setupUIs()
-        videoPlayer2.connectUIs(buttonPlay: buttonPlay2, labelCurrentTime: labelCurrentTime2, labelDuration: labelDuration2)
+        videoPlayer2.connectUIs(buttonPlay: buttonPlay2, labelCurrentTime: labelCurrentTime2, labelDuration: labelDuration2, seekBar: seekBar2)
         videoPlayer2.setupUIs()
     }
 
     // MARK: - IBActions
     
-    @IBAction func play1ButtonTapped(_ sender: Any) {
-        videoPlayer1.handleTapAction()
+    @IBAction func playPauseButtonTapped(_ sender: Any) {
+        if let button = sender as? UIButton {
+            if button == buttonPlay1 {
+                videoPlayer1.handlePlayPauseTapAction()
+            } else if button == buttonPlay2 {
+                videoPlayer2.handlePlayPauseTapAction()
+            }
+        }
     }
     
-    @IBAction func play2ButtonTapped(_ sender: Any) {
-        videoPlayer2.handleTapAction()
+    @IBAction func seekBarValueChanged(_ sender: Any) {
+        if let slider = sender as? UISlider {
+            if slider == seekBar1 {
+                videoPlayer1.handleSeekBarChangeValue()
+            } else if slider == seekBar2 {
+                videoPlayer2.handleSeekBarChangeValue()
+            }
+        }
     }
+    @IBAction func seekBarTouchUp(_ sender: Any) {
+        if let slider = sender as? UISlider {
+            if slider == seekBar1 {
+                videoPlayer1.handleSeekBarTouchUp()
+            } else if slider == seekBar2 {
+                videoPlayer2.handleSeekBarTouchUp()
+            }
+        }
+    }
+    @IBAction func seekBarTouchDown(_ sender: Any) {
+        if let slider = sender as? UISlider {
+            if slider == seekBar1 {
+                videoPlayer1.handleSeekBarTouchDown()
+            } else if slider == seekBar2 {
+                videoPlayer2.handleSeekBarTouchDown()
+            }
+        }
+    }
+    
+    
     
     // MARK: - Navigation
     
