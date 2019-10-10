@@ -17,6 +17,8 @@ class VideoPlayController: UIViewController {
     @IBOutlet weak var buttonPlay2: UIButton!
     @IBOutlet weak var buttonSource1: UIButton!
     @IBOutlet weak var buttonSource2: UIButton!
+    @IBOutlet weak var buttonSound1: UIButton!
+    @IBOutlet weak var buttonSound2: UIButton!
     @IBOutlet weak var labelCurrentTime1: UILabel!
     @IBOutlet weak var labelDuration1: UILabel!
     @IBOutlet weak var labelCurrentTime2: UILabel!
@@ -35,9 +37,9 @@ class VideoPlayController: UIViewController {
         videoPlayer1 = VideoPlayer(container: videoContainer1)
         videoPlayer2 = VideoPlayer(container: videoContainer2)
         
-        videoPlayer1.connectUIs(buttonPlay: buttonPlay1, labelCurrentTime: labelCurrentTime1, labelDuration: labelDuration1, seekBar: seekBar1)
+        videoPlayer1.connectUIs(buttonPlay: buttonPlay1, buttonSound: buttonSound1, labelCurrentTime: labelCurrentTime1, labelDuration: labelDuration1, seekBar: seekBar1)
         videoPlayer1.setupUIs()
-        videoPlayer2.connectUIs(buttonPlay: buttonPlay2, labelCurrentTime: labelCurrentTime2, labelDuration: labelDuration2, seekBar: seekBar2)
+        videoPlayer2.connectUIs(buttonPlay: buttonPlay2, buttonSound: buttonSound2, labelCurrentTime: labelCurrentTime2, labelDuration: labelDuration2, seekBar: seekBar2)
         videoPlayer2.setupUIs()
     }
 
@@ -49,6 +51,15 @@ class VideoPlayController: UIViewController {
                 videoPlayer1.handlePlayPauseTapAction()
             } else if button == buttonPlay2 {
                 videoPlayer2.handlePlayPauseTapAction()
+            }
+        }
+    }
+    @IBAction func soundButtonTapped(_ sender: Any) {
+        if let button = sender as? UIButton {
+            if button == buttonSound1 {
+                videoPlayer1.handleSoundButtonTapped()
+            } else if button == buttonSound2 {
+                videoPlayer2.handleSoundButtonTapped()
             }
         }
     }

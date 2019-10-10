@@ -14,6 +14,7 @@ class VideoPlayer {
     
     // UIs
     var buttonPlay: UIButton!
+    var buttonSound: UIButton!
     var labelCurrentTime: UILabel!
     var labelDuration: UILabel!
     var seekBar: UISlider!
@@ -38,8 +39,9 @@ class VideoPlayer {
     
     // MARK: - Internal
     
-    func connectUIs(buttonPlay: UIButton, labelCurrentTime: UILabel, labelDuration: UILabel, seekBar: UISlider) {
+    func connectUIs(buttonPlay: UIButton, buttonSound: UIButton, labelCurrentTime: UILabel, labelDuration: UILabel, seekBar: UISlider) {
         self.buttonPlay = buttonPlay
+        self.buttonSound = buttonSound
         self.labelCurrentTime = labelCurrentTime
         self.labelDuration = labelDuration
         self.seekBar = seekBar
@@ -47,6 +49,7 @@ class VideoPlayer {
     
     func setupUIs() {
         buttonPlay.setTitle(Constants.Title.Button.play, for: .normal)
+        buttonSound.setTitle(Constants.Title.Button.soundOn, for: .normal)
     }
     
     func handlePlayPauseTapAction() {
@@ -57,6 +60,12 @@ class VideoPlayer {
             player.play()
             buttonPlay.setTitle(Constants.Title.Button.pause, for: .normal)
         }
+    }
+    
+    func handleSoundButtonTapped() {
+        player.volume = player.volume == 0.0 ? 1.0: 0.0
+        buttonSound.setTitle(player.volume == 0.0 ? Constants.Title.Button.soundOff: Constants.Title.Button.soundOn,
+                             for: .normal)
     }
     
     func handleSeekBarChangeValue() {

@@ -66,6 +66,16 @@
                                             <action selector="seekBarValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="kKz-qm-XYx"/>
                                         </connections>
                                     </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vat-XO-kEn">
+                                        <rect key="frame" x="317" y="249.5" width="50" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Nzk-fr-bzd"/>
+                                            <constraint firstAttribute="height" constant="44" id="dED-0e-awp"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="soundButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A9z-v5-w26"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -74,12 +84,14 @@
                                     <constraint firstItem="doW-lF-GC1" firstAttribute="top" secondItem="eKI-zV-Z2m" secondAttribute="top" id="4nq-RH-dKH"/>
                                     <constraint firstItem="UtU-w9-MUv" firstAttribute="top" secondItem="doW-lF-GC1" secondAttribute="bottom" constant="6" id="HZj-Bl-97X"/>
                                     <constraint firstItem="Ttq-dF-Tb4" firstAttribute="top" secondItem="UtU-w9-MUv" secondAttribute="top" id="Nhn-rC-AaJ"/>
+                                    <constraint firstItem="vat-XO-kEn" firstAttribute="top" secondItem="win-nN-IXe" secondAttribute="top" id="OAL-Li-NV6"/>
                                     <constraint firstItem="win-nN-IXe" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" constant="8" id="SBZ-Rc-AzI"/>
                                     <constraint firstItem="UtU-w9-MUv" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" constant="8" id="avk-Ey-TN6"/>
                                     <constraint firstAttribute="trailing" secondItem="doW-lF-GC1" secondAttribute="trailing" id="bCX-jZ-p47"/>
                                     <constraint firstItem="Ttq-dF-Tb4" firstAttribute="leading" secondItem="9xx-kD-thb" secondAttribute="trailing" constant="8" id="fj0-zc-Tju"/>
                                     <constraint firstItem="doW-lF-GC1" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" id="geX-6s-LVl"/>
                                     <constraint firstItem="URg-NP-bfP" firstAttribute="width" secondItem="win-nN-IXe" secondAttribute="width" id="h41-EU-xrR"/>
+                                    <constraint firstAttribute="trailing" secondItem="vat-XO-kEn" secondAttribute="trailing" constant="8" id="hwC-Og-cBI"/>
                                     <constraint firstItem="9xx-kD-thb" firstAttribute="centerY" secondItem="UtU-w9-MUv" secondAttribute="centerY" id="iSR-co-ATN"/>
                                     <constraint firstItem="URg-NP-bfP" firstAttribute="centerX" secondItem="eKI-zV-Z2m" secondAttribute="centerX" id="sWQ-Mz-Xsg"/>
                                     <constraint firstItem="URg-NP-bfP" firstAttribute="centerY" secondItem="win-nN-IXe" secondAttribute="centerY" id="wEB-Z8-msg"/>
@@ -135,6 +147,16 @@
                                             <action selector="seekBarValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="S1j-z9-QfG"/>
                                         </connections>
                                     </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOx-3j-GFq">
+                                        <rect key="frame" x="317" y="261.5" width="50" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Hnz-yt-o4e"/>
+                                            <constraint firstAttribute="width" constant="50" id="RIN-Iz-8Vl"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="soundButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MGf-2F-eqK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -151,8 +173,10 @@
                                     <constraint firstItem="Evj-hg-uNJ" firstAttribute="width" secondItem="vTH-60-p5b" secondAttribute="width" id="eKM-OJ-ABH"/>
                                     <constraint firstItem="Rfo-GI-fhu" firstAttribute="leading" secondItem="rbc-cU-Owh" secondAttribute="trailing" constant="8" id="hO6-Dn-sIJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Rfo-GI-fhu" secondAttribute="trailing" constant="8" id="iPX-ve-tW4"/>
+                                    <constraint firstAttribute="trailing" secondItem="VOx-3j-GFq" secondAttribute="trailing" constant="8" id="k9N-rJ-XvM"/>
                                     <constraint firstAttribute="trailing" secondItem="aPE-PT-Qkq" secondAttribute="trailing" id="nTI-Ss-lbX"/>
                                     <constraint firstItem="Rfo-GI-fhu" firstAttribute="top" secondItem="oXe-Z7-z1h" secondAttribute="top" id="ugi-q6-rvm"/>
+                                    <constraint firstItem="VOx-3j-GFq" firstAttribute="top" secondItem="vTH-60-p5b" secondAttribute="top" id="vaw-cM-Oi7"/>
                                     <constraint firstItem="rbc-cU-Owh" firstAttribute="leading" secondItem="oXe-Z7-z1h" secondAttribute="trailing" constant="8" id="w01-eM-74o"/>
                                 </constraints>
                             </view>
@@ -173,6 +197,8 @@
                     <connections>
                         <outlet property="buttonPlay1" destination="URg-NP-bfP" id="jfb-r5-rWk"/>
                         <outlet property="buttonPlay2" destination="Evj-hg-uNJ" id="0p2-NQ-6CB"/>
+                        <outlet property="buttonSound1" destination="vat-XO-kEn" id="D1f-zg-LPR"/>
+                        <outlet property="buttonSound2" destination="VOx-3j-GFq" id="9QB-fw-pUq"/>
                         <outlet property="buttonSource1" destination="win-nN-IXe" id="r8S-oK-xAD"/>
                         <outlet property="buttonSource2" destination="vTH-60-p5b" id="x3O-MO-ehb"/>
                         <outlet property="labelCurrentTime1" destination="UtU-w9-MUv" id="TDP-EO-xpz"/>

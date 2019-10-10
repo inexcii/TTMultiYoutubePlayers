@@ -14,6 +14,8 @@ struct Constants {
         struct Button {
             static let play = "Play"
             static let pause = "Pause"
+            static let soundOn = "Vol:On"
+            static let soundOff = "Vol:Off"
         }
     }
     
