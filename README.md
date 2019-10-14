@@ -29,3 +29,4 @@ A project that shows multiple youtube players that is natively(no Webview) imple
 - [ ] user can seek video at a rate as low as 1 frame / 0.1(?) second
 - [ ] a single play/pause button and a seek-bar to control multiple videos at the same time
 - [ ] each video can be played in slow-mode
+- [ ] Low priority - the line degree is entered either from keyboard or by tracing a line on a video player with a finger. Calculate the degree between start x,y and end x,y.
