@@ -23,9 +23,19 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doW-lF-GC1" userLabel="Video" customClass="AVPlayerView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPL-GB-W3a" customClass="PaintView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="cPL-GB-W3a" firstAttribute="leading" secondItem="doW-lF-GC1" secondAttribute="leading" id="KUS-5I-Mtr"/>
                                             <constraint firstAttribute="width" secondItem="doW-lF-GC1" secondAttribute="height" multiplier="16:9" id="SXt-n7-Nsd"/>
+                                            <constraint firstItem="cPL-GB-W3a" firstAttribute="top" secondItem="doW-lF-GC1" secondAttribute="top" id="UB4-lt-Usf"/>
+                                            <constraint firstAttribute="bottom" secondItem="cPL-GB-W3a" secondAttribute="bottom" id="YQl-3K-60s"/>
+                                            <constraint firstAttribute="trailing" secondItem="cPL-GB-W3a" secondAttribute="trailing" id="mP8-fH-9Rs"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="win-nN-IXe">
@@ -76,16 +86,27 @@
                                             <action selector="soundButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A9z-v5-w26"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-zE-cUY">
+                                        <rect key="frame" x="227.5" y="249.5" width="60" height="44"/>
+                                        <state key="normal" title="Undo"/>
+                                        <connections>
+                                            <action selector="undoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="snh-CS-aOk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="URg-NP-bfP" firstAttribute="height" secondItem="win-nN-IXe" secondAttribute="height" id="0QU-NZ-Sy3"/>
+                                    <constraint firstItem="n2J-zE-cUY" firstAttribute="centerY" secondItem="win-nN-IXe" secondAttribute="centerY" id="34c-kO-ZC4"/>
                                     <constraint firstAttribute="trailing" secondItem="Ttq-dF-Tb4" secondAttribute="trailing" constant="8" id="3V2-hl-5K1"/>
                                     <constraint firstItem="doW-lF-GC1" firstAttribute="top" secondItem="eKI-zV-Z2m" secondAttribute="top" id="4nq-RH-dKH"/>
+                                    <constraint firstItem="n2J-zE-cUY" firstAttribute="width" secondItem="win-nN-IXe" secondAttribute="width" id="9AS-8h-qAY"/>
                                     <constraint firstItem="UtU-w9-MUv" firstAttribute="top" secondItem="doW-lF-GC1" secondAttribute="bottom" constant="6" id="HZj-Bl-97X"/>
+                                    <constraint firstItem="n2J-zE-cUY" firstAttribute="height" secondItem="win-nN-IXe" secondAttribute="height" id="MrW-8J-N5t"/>
                                     <constraint firstItem="Ttq-dF-Tb4" firstAttribute="top" secondItem="UtU-w9-MUv" secondAttribute="top" id="Nhn-rC-AaJ"/>
                                     <constraint firstItem="vat-XO-kEn" firstAttribute="top" secondItem="win-nN-IXe" secondAttribute="top" id="OAL-Li-NV6"/>
                                     <constraint firstItem="win-nN-IXe" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" constant="8" id="SBZ-Rc-AzI"/>
+                                    <constraint firstItem="n2J-zE-cUY" firstAttribute="leading" secondItem="URg-NP-bfP" secondAttribute="trailing" constant="10" id="XE9-bk-48F"/>
                                     <constraint firstItem="UtU-w9-MUv" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" constant="8" id="avk-Ey-TN6"/>
                                     <constraint firstAttribute="trailing" secondItem="doW-lF-GC1" secondAttribute="trailing" id="bCX-jZ-p47"/>
                                     <constraint firstItem="Ttq-dF-Tb4" firstAttribute="leading" secondItem="9xx-kD-thb" secondAttribute="trailing" constant="8" id="fj0-zc-Tju"/>
@@ -104,9 +125,19 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-PT-Qkq" userLabel="Video" customClass="AVPlayerView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9b-Hy-mcB" customClass="PaintView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="p9b-Hy-mcB" secondAttribute="trailing" id="3ZE-Ej-JAV"/>
+                                            <constraint firstAttribute="bottom" secondItem="p9b-Hy-mcB" secondAttribute="bottom" id="7J2-FM-Bgx"/>
+                                            <constraint firstItem="p9b-Hy-mcB" firstAttribute="top" secondItem="aPE-PT-Qkq" secondAttribute="top" id="8nb-gS-Ajg"/>
                                             <constraint firstAttribute="width" secondItem="aPE-PT-Qkq" secondAttribute="height" multiplier="16:9" id="IQT-Ds-HeD"/>
+                                            <constraint firstItem="p9b-Hy-mcB" firstAttribute="leading" secondItem="aPE-PT-Qkq" secondAttribute="leading" id="Ign-Ej-nQ7"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTH-60-p5b">
@@ -157,6 +188,13 @@
                                             <action selector="soundButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MGf-2F-eqK"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5d-vw-hxb">
+                                        <rect key="frame" x="227.5" y="261.5" width="60" height="44"/>
+                                        <state key="normal" title="Undo"/>
+                                        <connections>
+                                            <action selector="undoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BLR-dl-p5v"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -165,13 +203,17 @@
                                     <constraint firstItem="Evj-hg-uNJ" firstAttribute="centerY" secondItem="vTH-60-p5b" secondAttribute="centerY" id="9ad-v5-jMd"/>
                                     <constraint firstItem="vTH-60-p5b" firstAttribute="leading" secondItem="rmo-Dx-fUO" secondAttribute="leading" constant="8" id="DqB-fu-fLG"/>
                                     <constraint firstItem="oXe-Z7-z1h" firstAttribute="top" secondItem="aPE-PT-Qkq" secondAttribute="bottom" constant="6" id="Jma-JM-dVF"/>
+                                    <constraint firstItem="T5d-vw-hxb" firstAttribute="width" secondItem="vTH-60-p5b" secondAttribute="width" id="KAO-O1-1mr"/>
                                     <constraint firstAttribute="bottom" secondItem="vTH-60-p5b" secondAttribute="bottom" constant="8" id="LcX-8z-StV"/>
                                     <constraint firstItem="aPE-PT-Qkq" firstAttribute="top" secondItem="rmo-Dx-fUO" secondAttribute="top" id="NZG-P2-4z4"/>
+                                    <constraint firstItem="T5d-vw-hxb" firstAttribute="leading" secondItem="Evj-hg-uNJ" secondAttribute="trailing" constant="10" id="PNa-xu-pzo"/>
                                     <constraint firstItem="rbc-cU-Owh" firstAttribute="centerY" secondItem="oXe-Z7-z1h" secondAttribute="centerY" id="R3f-VB-XEM"/>
                                     <constraint firstItem="oXe-Z7-z1h" firstAttribute="leading" secondItem="rmo-Dx-fUO" secondAttribute="leading" constant="8" id="Rg9-sn-IHF"/>
+                                    <constraint firstItem="T5d-vw-hxb" firstAttribute="centerY" secondItem="vTH-60-p5b" secondAttribute="centerY" id="bmr-W3-EAJ"/>
                                     <constraint firstItem="aPE-PT-Qkq" firstAttribute="leading" secondItem="rmo-Dx-fUO" secondAttribute="leading" id="cCk-Nh-W0i"/>
                                     <constraint firstItem="Evj-hg-uNJ" firstAttribute="width" secondItem="vTH-60-p5b" secondAttribute="width" id="eKM-OJ-ABH"/>
                                     <constraint firstItem="Rfo-GI-fhu" firstAttribute="leading" secondItem="rbc-cU-Owh" secondAttribute="trailing" constant="8" id="hO6-Dn-sIJ"/>
+                                    <constraint firstItem="T5d-vw-hxb" firstAttribute="height" secondItem="vTH-60-p5b" secondAttribute="height" id="iH5-k3-zby"/>
                                     <constraint firstAttribute="trailing" secondItem="Rfo-GI-fhu" secondAttribute="trailing" constant="8" id="iPX-ve-tW4"/>
                                     <constraint firstAttribute="trailing" secondItem="VOx-3j-GFq" secondAttribute="trailing" constant="8" id="k9N-rJ-XvM"/>
                                     <constraint firstAttribute="trailing" secondItem="aPE-PT-Qkq" secondAttribute="trailing" id="nTI-Ss-lbX"/>
@@ -201,10 +243,14 @@
                         <outlet property="buttonSound2" destination="VOx-3j-GFq" id="9QB-fw-pUq"/>
                         <outlet property="buttonSource1" destination="win-nN-IXe" id="r8S-oK-xAD"/>
                         <outlet property="buttonSource2" destination="vTH-60-p5b" id="x3O-MO-ehb"/>
+                        <outlet property="buttonUndo1" destination="n2J-zE-cUY" id="YhP-ZO-h8Q"/>
+                        <outlet property="buttonUndo2" destination="T5d-vw-hxb" id="g4e-wg-7vF"/>
                         <outlet property="labelCurrentTime1" destination="UtU-w9-MUv" id="TDP-EO-xpz"/>
                         <outlet property="labelCurrentTime2" destination="oXe-Z7-z1h" id="tg9-XH-WTv"/>
                         <outlet property="labelDuration1" destination="Ttq-dF-Tb4" id="tYd-2y-Oj5"/>
                         <outlet property="labelDuration2" destination="Rfo-GI-fhu" id="7BD-n9-NfD"/>
+                        <outlet property="paintView1" destination="cPL-GB-W3a" id="8i2-96-X5S"/>
+                        <outlet property="paintView2" destination="p9b-Hy-mcB" id="CUD-JD-fns"/>
                         <outlet property="seekBar1" destination="9xx-kD-thb" id="tk9-AX-U9q"/>
                         <outlet property="seekBar2" destination="rbc-cU-Owh" id="jC0-gA-jd1"/>
                         <outlet property="videoContainer1" destination="doW-lF-GC1" id="qA7-yB-s8v"/>
@@ -213,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="41"/>
+            <point key="canvasLocation" x="277.60000000000002" y="40.929535232383813"/>
         </scene>
         <!--Video Search View Controller-->
         <scene sceneID="tjF-WY-z1g">

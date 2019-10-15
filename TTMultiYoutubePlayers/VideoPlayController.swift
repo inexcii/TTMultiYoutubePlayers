@@ -13,10 +13,14 @@ class VideoPlayController: UIViewController {
     
     @IBOutlet weak var videoContainer1: AVPlayerView!
     @IBOutlet weak var videoContainer2: AVPlayerView!
+    @IBOutlet weak var paintView1: PaintView!
+    @IBOutlet weak var paintView2: PaintView!
     @IBOutlet weak var buttonPlay1: UIButton!
     @IBOutlet weak var buttonPlay2: UIButton!
     @IBOutlet weak var buttonSource1: UIButton!
     @IBOutlet weak var buttonSource2: UIButton!
+    @IBOutlet weak var buttonUndo1: UIButton!
+    @IBOutlet weak var buttonUndo2: UIButton!
     @IBOutlet weak var buttonSound1: UIButton!
     @IBOutlet weak var buttonSound2: UIButton!
     @IBOutlet weak var labelCurrentTime1: UILabel!
@@ -60,6 +64,15 @@ class VideoPlayController: UIViewController {
                 videoPlayer1.handleSoundButtonTapped()
             } else if button == buttonSound2 {
                 videoPlayer2.handleSoundButtonTapped()
+            }
+        }
+    }
+    @IBAction func undoButtonTapped(_ sender: Any) {
+        if let button = sender as? UIButton {
+            if button == buttonUndo1 {
+                paintView1.undo()
+            } else if button == buttonUndo2 {
+                paintView2.undo()
             }
         }
     }
