@@ -39,7 +39,7 @@ class VideoPlayController: UIViewController {
         super.viewDidLoad()
         
         videoPlayer1 = VideoPlayer(container: videoContainer1, videoId: Constants.sampleVideoId1)
-        videoPlayer2 = VideoPlayer(container: videoContainer2)
+        videoPlayer2 = VideoPlayer(container: videoContainer2, videoId: Constants.sampleVideoId2)
         
         videoPlayer1.connectUIs(buttonPlay: buttonPlay1, buttonSound: buttonSound1, labelCurrentTime: labelCurrentTime1, labelDuration: labelDuration1, seekBar: seekBar1)
         videoPlayer1.setupUIs()

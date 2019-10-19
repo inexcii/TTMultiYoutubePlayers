@@ -11,6 +11,7 @@ import Foundation
 struct Constants {
     
     static let sampleVideoId1 = "T7aUU2I0cwc"
+    static let sampleVideoId2 = "jwiK9UHPOR4"
     
     struct Title {
         struct Button {
