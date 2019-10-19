@@ -8,24 +8,47 @@
 
 import UIKit
 
+protocol PaintViewDelegate: class {
+    func didGenerateLineAngle(angle: Double, view: PaintView)
+}
+
 class PaintView: UIView {
     
+    weak var delegate: PaintViewDelegate?
+    
     private var pointBegin: CGPoint?
-    private var pointEnd: CGPoint?
+    private var layerLine: CAShapeLayer?
     private var drawedLayers = [CAShapeLayer]()
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            let point = touch.location(in: self)
-            
-            if pointBegin == nil && pointEnd == nil {
-                pointBegin = point
-            } else if pointEnd == nil {
-                pointEnd = point
-                drawLine()
-                pointBegin = nil
-                pointEnd = nil
+            pointBegin = touch.location(in: self)
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let end = touch.location(in: self)
+            if let begin = pointBegin {
+                layerLine?.removeFromSuperlayer()
+                drawLine(from: begin, to: end)
+                
+                let angle = Utility.calculateAngle(from: begin, to: end)
+                self.delegate?.didGenerateLineAngle(angle: angle, view: self)
+            } else {
+                print("not enough info for creating a path")
             }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let _ = touches.first {
+            if let layer = layerLine {
+                drawedLayers.append(layer)
+            }
+            
+            pointBegin = nil
+            layerLine = nil
         }
     }
     
@@ -39,25 +62,19 @@ class PaintView: UIView {
     
     // MARK: - Private
     
-    private func drawLine() {
-        let layer = CAShapeLayer()
-        layer.path = getPath().cgPath
-        layer.strokeColor = UIColor.red.cgColor
-        layer.lineWidth = 2.0
-        self.layer.addSublayer(layer)
+    private func drawLine(from begin: CGPoint, to end: CGPoint) {
+        layerLine = CAShapeLayer()
         
-        drawedLayers.append(layer)
-    }
-    
-    private func getPath() -> UIBezierPath {
-        if let begin = pointBegin, let end = pointEnd {
-            let aPath = UIBezierPath()
-            aPath.move(to: begin)
-            aPath.addLine(to: end)
-            return aPath
+        let path = UIBezierPath()
+        path.move(to: begin)
+        path.addLine(to: end)
+        
+        layerLine?.path = path.cgPath
+        layerLine?.strokeColor = UIColor.red.cgColor
+        layerLine?.lineWidth = 2.0
+        
+        if let layer = layerLine {
+            self.layer.addSublayer(layer)
         }
-        
-        print("not enough info for creating a path")
-        return UIBezierPath()
     }
 }

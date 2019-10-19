@@ -27,6 +27,8 @@ class VideoPlayController: UIViewController {
     @IBOutlet weak var labelDuration1: UILabel!
     @IBOutlet weak var labelCurrentTime2: UILabel!
     @IBOutlet weak var labelDuration2: UILabel!
+    @IBOutlet weak var labelAngle1: UILabel!
+    @IBOutlet weak var labelAngle2: UILabel!
     @IBOutlet weak var seekBar1: UISlider!
     @IBOutlet weak var seekBar2: UISlider!
     
@@ -45,6 +47,9 @@ class VideoPlayController: UIViewController {
         videoPlayer1.setupUIs()
         videoPlayer2.connectUIs(buttonPlay: buttonPlay2, buttonSound: buttonSound2, labelCurrentTime: labelCurrentTime2, labelDuration: labelDuration2, seekBar: seekBar2)
         videoPlayer2.setupUIs()
+        
+        paintView1.delegate = self
+        paintView2.delegate = self
     }
 
     // MARK: - IBActions
@@ -71,8 +76,10 @@ class VideoPlayController: UIViewController {
         if let button = sender as? UIButton {
             if button == buttonUndo1 {
                 paintView1.undo()
+                labelAngle1.text = "0.0"
             } else if button == buttonUndo2 {
                 paintView2.undo()
+                labelAngle2.text = "0.0"
             }
         }
     }
@@ -152,6 +159,17 @@ extension VideoPlayController: VideoSearchViewControllerDelegate {
             videoPlayer2.entity = entity
         default:
             print("got some button not belongs to this ViewController")
+        }
+    }
+}
+
+extension VideoPlayController: PaintViewDelegate {
+    
+    func didGenerateLineAngle(angle: Double, view: PaintView) {
+        if view == paintView1 {
+            labelAngle1.text = String(angle)
+        } else if view == paintView2 {
+            labelAngle2.text = String(angle)
         }
     }
 }

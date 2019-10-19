@@ -49,6 +49,12 @@
                                             <segue destination="H53-X1-OKZ" kind="presentation" identifier="VideoPlaytoVideoSearch" id="acO-rs-JPB"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TC-mA-PZU" userLabel="Angle">
+                                        <rect key="frame" x="76" y="261.5" width="24" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URg-NP-bfP" userLabel="Play">
                                         <rect key="frame" x="157.5" y="249.5" width="60" height="44"/>
                                         <connections>
@@ -102,10 +108,12 @@
                                     <constraint firstItem="doW-lF-GC1" firstAttribute="top" secondItem="eKI-zV-Z2m" secondAttribute="top" id="4nq-RH-dKH"/>
                                     <constraint firstItem="n2J-zE-cUY" firstAttribute="width" secondItem="win-nN-IXe" secondAttribute="width" id="9AS-8h-qAY"/>
                                     <constraint firstItem="UtU-w9-MUv" firstAttribute="top" secondItem="doW-lF-GC1" secondAttribute="bottom" constant="6" id="HZj-Bl-97X"/>
+                                    <constraint firstItem="2TC-mA-PZU" firstAttribute="leading" secondItem="win-nN-IXe" secondAttribute="trailing" constant="8" id="K8Q-c6-Fx2"/>
                                     <constraint firstItem="n2J-zE-cUY" firstAttribute="height" secondItem="win-nN-IXe" secondAttribute="height" id="MrW-8J-N5t"/>
                                     <constraint firstItem="Ttq-dF-Tb4" firstAttribute="top" secondItem="UtU-w9-MUv" secondAttribute="top" id="Nhn-rC-AaJ"/>
                                     <constraint firstItem="vat-XO-kEn" firstAttribute="top" secondItem="win-nN-IXe" secondAttribute="top" id="OAL-Li-NV6"/>
                                     <constraint firstItem="win-nN-IXe" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" constant="8" id="SBZ-Rc-AzI"/>
+                                    <constraint firstItem="2TC-mA-PZU" firstAttribute="centerY" secondItem="win-nN-IXe" secondAttribute="centerY" id="U1Z-jj-cHB"/>
                                     <constraint firstItem="n2J-zE-cUY" firstAttribute="leading" secondItem="URg-NP-bfP" secondAttribute="trailing" constant="10" id="XE9-bk-48F"/>
                                     <constraint firstItem="UtU-w9-MUv" firstAttribute="leading" secondItem="eKI-zV-Z2m" secondAttribute="leading" constant="8" id="avk-Ey-TN6"/>
                                     <constraint firstAttribute="trailing" secondItem="doW-lF-GC1" secondAttribute="trailing" id="bCX-jZ-p47"/>
@@ -151,6 +159,12 @@
                                             <segue destination="H53-X1-OKZ" kind="presentation" identifier="VideoPlaytoVideoSearch" id="MmM-Bc-0se"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIZ-uF-dFy" userLabel="Angle">
+                                        <rect key="frame" x="76" y="273.5" width="24" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evj-hg-uNJ" userLabel="Play">
                                         <rect key="frame" x="157.5" y="261.5" width="60" height="44"/>
                                         <connections>
@@ -213,10 +227,12 @@
                                     <constraint firstItem="aPE-PT-Qkq" firstAttribute="leading" secondItem="rmo-Dx-fUO" secondAttribute="leading" id="cCk-Nh-W0i"/>
                                     <constraint firstItem="Evj-hg-uNJ" firstAttribute="width" secondItem="vTH-60-p5b" secondAttribute="width" id="eKM-OJ-ABH"/>
                                     <constraint firstItem="Rfo-GI-fhu" firstAttribute="leading" secondItem="rbc-cU-Owh" secondAttribute="trailing" constant="8" id="hO6-Dn-sIJ"/>
+                                    <constraint firstItem="pIZ-uF-dFy" firstAttribute="leading" secondItem="vTH-60-p5b" secondAttribute="trailing" constant="8" id="hrG-0M-ifN"/>
                                     <constraint firstItem="T5d-vw-hxb" firstAttribute="height" secondItem="vTH-60-p5b" secondAttribute="height" id="iH5-k3-zby"/>
                                     <constraint firstAttribute="trailing" secondItem="Rfo-GI-fhu" secondAttribute="trailing" constant="8" id="iPX-ve-tW4"/>
                                     <constraint firstAttribute="trailing" secondItem="VOx-3j-GFq" secondAttribute="trailing" constant="8" id="k9N-rJ-XvM"/>
                                     <constraint firstAttribute="trailing" secondItem="aPE-PT-Qkq" secondAttribute="trailing" id="nTI-Ss-lbX"/>
+                                    <constraint firstItem="pIZ-uF-dFy" firstAttribute="centerY" secondItem="vTH-60-p5b" secondAttribute="centerY" id="qOK-un-M5C"/>
                                     <constraint firstItem="Rfo-GI-fhu" firstAttribute="top" secondItem="oXe-Z7-z1h" secondAttribute="top" id="ugi-q6-rvm"/>
                                     <constraint firstItem="VOx-3j-GFq" firstAttribute="top" secondItem="vTH-60-p5b" secondAttribute="top" id="vaw-cM-Oi7"/>
                                     <constraint firstItem="rbc-cU-Owh" firstAttribute="leading" secondItem="oXe-Z7-z1h" secondAttribute="trailing" constant="8" id="w01-eM-74o"/>
@@ -245,6 +261,8 @@
                         <outlet property="buttonSource2" destination="vTH-60-p5b" id="x3O-MO-ehb"/>
                         <outlet property="buttonUndo1" destination="n2J-zE-cUY" id="YhP-ZO-h8Q"/>
                         <outlet property="buttonUndo2" destination="T5d-vw-hxb" id="g4e-wg-7vF"/>
+                        <outlet property="labelAngle1" destination="2TC-mA-PZU" id="5Sd-bm-nBs"/>
+                        <outlet property="labelAngle2" destination="pIZ-uF-dFy" id="WKH-ay-eZf"/>
                         <outlet property="labelCurrentTime1" destination="UtU-w9-MUv" id="TDP-EO-xpz"/>
                         <outlet property="labelCurrentTime2" destination="oXe-Z7-z1h" id="tg9-XH-WTv"/>
                         <outlet property="labelDuration1" destination="Ttq-dF-Tb4" id="tYd-2y-Oj5"/>
