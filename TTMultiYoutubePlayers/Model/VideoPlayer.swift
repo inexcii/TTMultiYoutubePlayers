@@ -32,9 +32,12 @@ class VideoPlayer {
     
     // MARK: - Life Cycle
     
-    init(container: AVPlayerView) {
+    init(container: AVPlayerView, videoId: String? = nil) {
         let layer = container.layer as! AVPlayerLayer
         layer.player = player
+        if let videoId = videoId {
+            setupPlayer(by: videoId)
+        }
     }
     
     // MARK: - Internal
@@ -98,17 +101,21 @@ class VideoPlayer {
         
         // set new things
         if let videoId = entity?.identifier?.videoId {
-            let transfer = YoutubeStreamUrlTransfer(videoId: videoId)
-            transfer.transfer { (url) in
-                if let url = url {
-                    // setup AVAsset
-                    let asset = AVURLAsset(url: url)
-                    self.loadValuesInAsset(asset) {
-                        // setup AVPlayer
-                        let item = AVPlayerItem(asset: asset)
-                        self.player.insert(item, after: nil)
-                        self.addPeriodicTimeObserver()
-                    }
+            setupPlayer(by: videoId)
+        }
+    }
+    
+    private func setupPlayer(by videoId: String) {
+        let transfer = YoutubeStreamUrlTransfer(videoId: videoId)
+        transfer.transfer { (url) in
+            if let url = url {
+                // setup AVAsset
+                let asset = AVURLAsset(url: url)
+                self.loadValuesInAsset(asset) {
+                    // setup AVPlayer
+                    let item = AVPlayerItem(asset: asset)
+                    self.player.insert(item, after: nil)
+                    self.addPeriodicTimeObserver()
                 }
             }
         }
