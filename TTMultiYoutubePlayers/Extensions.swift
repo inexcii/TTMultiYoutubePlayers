@@ -13,8 +13,10 @@ extension CMTime {
     func toDisplay() -> String {
         let totalSeconds = CMTimeGetSeconds(self)
         let secondsText = String(format: "%02d", Int(totalSeconds) % 60)
+        let decimal = totalSeconds.truncatingRemainder(dividingBy: 1)
+        let secondsDecimal = String(format: "%02d", Int(round(decimal * 100)))
         let minutesText = String(format: "%02d", Int(totalSeconds) / 60)
         let hoursText = String(format: "%02d", Int(totalSeconds) / 60 / 60)
-        return  "\(hoursText):\(minutesText):\(secondsText)"
+        return  "\(hoursText):\(minutesText):\(secondsText).\(secondsDecimal)"
     }
 }

@@ -11,6 +11,13 @@ import AVFoundation
 import GoogleAPIClientForREST
 
 class VideoPlayer {
+
+    enum SeekType {
+        case rewind, fastForward
+    }
+
+    /// calculate as 30fps
+    private static let oneFrame: Float64 = 0.033
     
     // UIs
     var buttonPlay: UIButton!
@@ -69,6 +76,24 @@ class VideoPlayer {
         player.volume = player.volume == 0.0 ? 1.0: 0.0
         buttonSound.setTitle(player.volume == 0.0 ? Constants.Title.Button.soundOff: Constants.Title.Button.soundOn,
                              for: .normal)
+    }
+
+    func handleOneFrameSeekButtonTapped(_ type: SeekType) {
+        guard let duration = player.currentItem?.duration else { return }
+
+        let seekValue = currentSeekValue(seekBar.value, duration: duration)
+        var toBeSeekValue: Float64
+        switch type {
+        case .rewind:
+            toBeSeekValue = seekValue - VideoPlayer.oneFrame
+        case .fastForward:
+            toBeSeekValue = seekValue + VideoPlayer.oneFrame
+        }
+        let time = seekTime(toBeSeekValue)
+        player.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero) { _ in
+            // update seekbar's value
+            self.seekBar.value = Float(toBeSeekValue / CMTimeGetSeconds(duration))
+        }
     }
     
     func handleSeekBarChangeValue() {
@@ -153,8 +178,8 @@ class VideoPlayer {
     }
     
     private func addPeriodicTimeObserver() {
-        // Invoke callback every 0.5 second
-        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        // Invoke callback every x second
+        let interval = CMTime(seconds: 0.01, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
             // Do not update some UI when user is trying to seek video.
             if !(self?.isSeekBarBeingTouched ?? true) {
@@ -170,10 +195,20 @@ class VideoPlayer {
         let progressSeconds = CMTimeGetSeconds(progress)
         seekBar.value = Float(progressSeconds / totalSeconds)
     }
-    
+
     private func getSeekTime(_ seekBarValue: Float, by duration: CMTime) -> CMTime {
+        let value = currentSeekValue(seekBarValue, duration: duration)
+        return seekTime(value)
+    }
+
+    private func currentSeekValue(_ seekBarValue: Float, duration: CMTime) -> Float64 {
         let totalSeconds = CMTimeGetSeconds(duration)
         let value = Float64(seekBarValue) * totalSeconds
-        return CMTime(value: Int64(value), timescale: 1)
+        return value
+    }
+
+    private func seekTime(_ value: Float64) -> CMTime {
+        // specified to 3-digit point
+        return CMTime(value: Int64(value * 1000), timescale: 1000)
     }
 }

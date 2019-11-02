@@ -15,6 +15,7 @@ class VideoPlayController: UIViewController {
     @IBOutlet weak var videoContainer2: AVPlayerView!
     @IBOutlet weak var paintView1: PaintView!
     @IBOutlet weak var paintView2: PaintView!
+
     @IBOutlet weak var buttonPlay1: UIButton!
     @IBOutlet weak var buttonPlay2: UIButton!
     @IBOutlet weak var buttonSource1: UIButton!
@@ -23,12 +24,18 @@ class VideoPlayController: UIViewController {
     @IBOutlet weak var buttonUndo2: UIButton!
     @IBOutlet weak var buttonSound1: UIButton!
     @IBOutlet weak var buttonSound2: UIButton!
+    @IBOutlet weak var buttonOneFrameRewind1: UIButton!
+    @IBOutlet weak var buttonOneFrameRewind2: UIButton!
+    @IBOutlet weak var buttonOneFrameFastForward1: UIButton!
+    @IBOutlet weak var buttonOneFrameFastForward2: UIButton!
+
     @IBOutlet weak var labelCurrentTime1: UILabel!
     @IBOutlet weak var labelDuration1: UILabel!
     @IBOutlet weak var labelCurrentTime2: UILabel!
     @IBOutlet weak var labelDuration2: UILabel!
     @IBOutlet weak var labelAngle1: UILabel!
     @IBOutlet weak var labelAngle2: UILabel!
+
     @IBOutlet weak var seekBar1: UISlider!
     @IBOutlet weak var seekBar2: UISlider!
     
@@ -80,6 +87,25 @@ class VideoPlayController: UIViewController {
             } else if button == buttonUndo2 {
                 paintView2.undo()
                 labelAngle2.text = "0.0"
+            }
+        }
+    }
+
+    @IBAction func oneFrameRewindButtonTapped(_ sender: Any) {
+        if let button = sender as? UIButton {
+            if button == buttonOneFrameRewind1 {
+                videoPlayer1.handleOneFrameSeekButtonTapped(.rewind)
+            } else if button == buttonOneFrameRewind2 {
+                videoPlayer2.handleOneFrameSeekButtonTapped(.rewind)
+            }
+        }
+    }
+    @IBAction func oneFrameFastForwardButtonTapped(_ sender: Any) {
+        if let button = sender as? UIButton {
+            if button == buttonOneFrameFastForward1 {
+                videoPlayer1.handleOneFrameSeekButtonTapped(.fastForward)
+            } else if button == buttonOneFrameFastForward2 {
+                videoPlayer2.handleOneFrameSeekButtonTapped(.fastForward)
             }
         }
     }
