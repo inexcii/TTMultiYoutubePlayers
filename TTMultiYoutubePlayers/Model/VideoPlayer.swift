@@ -16,9 +16,18 @@ class VideoPlayer {
         case rewind, fastForward
     }
 
-    /// calculate as 30fps
-    private static let oneFrame: Float64 = 0.033
-    
+    /// calculate as 30fps as default if the video frame rate cannot be retrieved
+    private static let oneFrameDefault: Float64 = 0.033
+
+    private var videoFrameRate: Float?
+    private var oneFrame: Float64 {
+        if let frameRate = videoFrameRate {
+            return Float64(1.0 / frameRate)
+        } else {
+            return VideoPlayer.oneFrameDefault
+        }
+    }
+
     // UIs
     var buttonPlay: UIButton!
     var buttonSound: UIButton!
@@ -85,9 +94,9 @@ class VideoPlayer {
         var toBeSeekValue: Float64
         switch type {
         case .rewind:
-            toBeSeekValue = seekValue - VideoPlayer.oneFrame
+            toBeSeekValue = seekValue - oneFrame
         case .fastForward:
-            toBeSeekValue = seekValue + VideoPlayer.oneFrame
+            toBeSeekValue = seekValue + oneFrame
         }
         let time = seekTime(toBeSeekValue)
         player.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero) { _ in
@@ -136,6 +145,7 @@ class VideoPlayer {
             if let url = url {
                 // setup AVAsset
                 let asset = AVURLAsset(url: url)
+                self.videoFrameRate = asset.frameRate
                 self.loadValuesInAsset(asset) {
                     // setup AVPlayer
                     let item = AVPlayerItem(asset: asset)

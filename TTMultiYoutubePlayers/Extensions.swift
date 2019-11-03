@@ -20,3 +20,9 @@ extension CMTime {
         return  "\(hoursText):\(minutesText):\(secondsText).\(secondsDecimal)"
     }
 }
+
+extension AVAsset {
+    var frameRate: Float? {
+        return self.tracks(withMediaType: .video).last?.nominalFrameRate
+    }
+}
