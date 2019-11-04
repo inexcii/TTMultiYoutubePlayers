@@ -6,12 +6,15 @@ target 'TTMultiYoutubePlayers' do
   use_frameworks!
 
   # Pods for TTMultiYoutubePlayers
-  pod 'GoogleAPIClientForREST/YouTube'
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
+
+# change to use Carthage to manage these dependencies
+#  pod 'RxSwift', '~> 5'
+#  pod 'RxCocoa', '~> 5'
+#  pod 'Nuke'
+#  pod 'XCDYouTubeKit', '~> 2.8'
+
   pod 'R.swift'
-  pod 'Nuke'
-  pod 'XCDYouTubeKit', '~> 2.8'
+  pod 'GoogleAPIClientForREST/YouTube'
 
   target 'TTMultiYoutubePlayersTests' do
     inherit! :search_paths
