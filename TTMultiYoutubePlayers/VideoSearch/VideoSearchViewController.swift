@@ -18,7 +18,8 @@ protocol VideoSearchViewControllerDelegate: class {
 class VideoSearchViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
-    
+    @IBOutlet weak var searchTextField: UITextField!
+
     let disposeBag = DisposeBag()
     let playlistFactory = VideoPlaylistFactory()
     var selectedVideoEntity: GTLRYouTube_SearchResult!
@@ -29,7 +30,14 @@ class VideoSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // dark-mode対応
+        if #available(iOS 13, *) {
+            searchTextField.backgroundColor = UIColor.systemGray5
+            searchTextField.attributedPlaceholder = NSAttributedString(string: searchTextField.placeholder ?? "",
+                                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        }
+
         bindData()
         bindUI()
     }
