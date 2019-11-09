@@ -31,3 +31,4 @@ A project that shows multiple youtube players that is natively(no Webview) imple
 - [ ] each video can be played in slow-mode
 - [ ] Low priority - the line degree is entered either from keyboard or by tracing a line on a video player with a finger. Calculate the degree between start x,y and end x,y.
 - [ ] user can access to the watched-video history, and quickly replay it from there
+- [ ] support dark-mode
