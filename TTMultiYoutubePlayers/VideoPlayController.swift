@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleAPIClientForREST
 
 class VideoPlayController: UIViewController {
     
@@ -46,6 +45,9 @@ class VideoPlayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // left For Debug
+//        UserDefaultsStore.clearAll()
         
         videoPlayer1 = VideoPlayer(container: videoContainer1, videoId: Constants.sampleVideoId1)
         videoPlayer2 = VideoPlayer(container: videoContainer2, videoId: Constants.sampleVideoId2)
@@ -172,7 +174,7 @@ class VideoPlayController: UIViewController {
 
 extension VideoPlayController: VideoSearchViewControllerDelegate {
     
-    func didChooseVideo(_ entity: GTLRYouTube_SearchResult, source button: UIButton?) {
+    func didChooseVideo(_ entity: YoutubeEntity, source button: UIButton?) {
         guard let button = button else {
             print("source button is nil or unknown")
             return

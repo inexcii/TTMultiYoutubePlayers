@@ -9,10 +9,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import GoogleAPIClientForREST
 
 protocol VideoSearchViewControllerDelegate: class {
-    func didChooseVideo(_ entity: GTLRYouTube_SearchResult, source button: UIButton?)
+    func didChooseVideo(_ entity: YoutubeEntity, source button: UIButton?)
 }
 
 class VideoSearchViewController: UIViewController {
@@ -22,7 +21,7 @@ class VideoSearchViewController: UIViewController {
 
     let disposeBag = DisposeBag()
     let playlistFactory = VideoPlaylistFactory()
-    var selectedVideoEntity: GTLRYouTube_SearchResult!
+    var selectedVideoEntity: YoutubeEntity!
     weak var delegate: VideoSearchViewControllerDelegate?
     var sourceButton: UIButton?
     
@@ -58,12 +57,11 @@ class VideoSearchViewController: UIViewController {
             .bind(to: self.tableview.rx.items) { tableView, row, element in
                 guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: R.reuseIdentifier.videoSearchTableViewCell,
-                    for: IndexPath(row: row, section: 0)),
-                    let entity: GTLRYouTube_SearchResultSnippet = element.snippet else {
+                    for: IndexPath(row: row, section: 0)) else {
                         return UITableViewCell()
                 }
                 
-                cell.configure(entity: entity)
+                cell.configure(by: element)
                 return cell
             }
             .disposed(by: disposeBag)
@@ -72,7 +70,7 @@ class VideoSearchViewController: UIViewController {
     private func bindUI() {
         self.tableview
             .rx
-            .modelSelected(GTLRYouTube_SearchResult.self)
+            .modelSelected(YoutubeEntity.self)
             .bind { [weak self](element) in
                 
                 self?.selectedVideoEntity = element

@@ -10,7 +10,7 @@ import RxSwift
 import GoogleAPIClientForREST
 
 class VideoPlaylistFactory {
-    let result = BehaviorSubject<[GTLRYouTube_SearchResult]>(value: [])
+    let result = BehaviorSubject<[YoutubeEntity]>(value: [])
     
     func search(keyword: String? = "バイク", maxResult: UInt = 50) {
         let query = GTLRYouTubeQuery_SearchList.query(withPart: "snippet")
@@ -30,8 +30,7 @@ class VideoPlaylistFactory {
                     self.result.onNext([])
                     return
             }
-            
-            self.result.onNext(playlist)
+            self.result.onNext(playlist.compactMap { YoutubeEntity(searchResult: $0) })
         }
     }
 }

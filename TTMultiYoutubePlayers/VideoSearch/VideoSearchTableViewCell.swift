@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleAPIClientForREST
 import Nuke
 
 class VideoSearchTableViewCell: UITableViewCell {
@@ -15,9 +14,8 @@ class VideoSearchTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    func configure(entity: GTLRYouTube_SearchResultSnippet) {
-        if let urlString = entity.thumbnails?.medium?.url,
-            let url = URL(string: urlString) {
+    func configure(by entity: YoutubeEntity) {
+        if let url = entity.thumbnailImageUrl {
             Nuke.loadImage(with: url, into: thumbnailImageView)
         }
         if let title = entity.title {

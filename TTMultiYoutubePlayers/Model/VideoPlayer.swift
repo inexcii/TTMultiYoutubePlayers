@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import GoogleAPIClientForREST
 
 class VideoPlayer {
 
@@ -35,7 +34,7 @@ class VideoPlayer {
     var labelDuration: UILabel!
     var seekBar: UISlider!
 
-    var entity: GTLRYouTube_SearchResult? {
+    var entity: YoutubeEntity? {
         didSet {
             resetPlayer()
         }
@@ -134,7 +133,7 @@ class VideoPlayer {
         }
         
         // set new things
-        if let videoId = entity?.identifier?.videoId {
+        if let videoId = entity?.videoId {
             setupPlayer(by: videoId)
         }
     }
