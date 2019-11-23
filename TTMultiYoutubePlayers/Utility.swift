@@ -19,3 +19,37 @@ class Utility {
     }
     
 }
+
+class UserDefaultsStore {
+
+    static let instance = UserDefaults.standard
+
+    #if DEBUG
+    /// - Attention: use only for debug
+    static func clearAll() {
+        let appDomain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: appDomain)
+    }
+    #endif
+
+    static var youtubeEntities: [YoutubeEntity] {
+        get {
+            let key = UserDefaultsKey.playedYoutubeEntity
+            if let storedDatas = instance.object(forKey: key) as? [Data] {
+                return storedDatas.map { try! PropertyListDecoder().decode(YoutubeEntity.self, from: $0) }
+            } else {
+                return [YoutubeEntity]()
+            }
+        }
+
+        set {
+            let key = UserDefaultsKey.playedYoutubeEntity
+            instance.set(newValue.map { try! PropertyListEncoder().encode($0) }, forKey: key)
+            instance.synchronize()
+        }
+    }
+}
+
+struct UserDefaultsKey {
+    static let playedYoutubeEntity = "playedYoutubeEntity"
+}

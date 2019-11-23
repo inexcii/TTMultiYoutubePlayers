@@ -10,7 +10,7 @@ import RxSwift
 import GoogleAPIClientForREST
 
 class VideoPlaylistFactory {
-    let result = BehaviorSubject<[YoutubeEntity]>(value: [])
+    let result = BehaviorSubject<[YoutubeEntity]>(value: UserDefaultsStore.youtubeEntities)
     
     func search(keyword: String? = "バイク", maxResult: UInt = 50) {
         let query = GTLRYouTubeQuery_SearchList.query(withPart: "snippet")

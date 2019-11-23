@@ -31,3 +31,11 @@ struct YoutubeEntity: Codable {
         }
     }
 }
+
+extension YoutubeEntity: Equatable {
+    static func == (lhs: YoutubeEntity, rhs: YoutubeEntity) -> Bool {
+        return  lhs.videoId == rhs.videoId &&
+                lhs.title == rhs.title &&
+                lhs.thumbnailImageUrl == rhs.thumbnailImageUrl
+    }
+}

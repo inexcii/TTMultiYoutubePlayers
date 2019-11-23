@@ -75,6 +75,9 @@ class VideoSearchViewController: UIViewController {
                 
                 self?.selectedVideoEntity = element
                 self?.delegate?.didChooseVideo(element, source: self?.sourceButton)
+
+                self?.saveSelectedVideoToUserDefaultsIfNeeded(element)
+
                 self?.dismiss(animated: true, completion: {
                     print("finish seach and close search VC")
                 })
@@ -85,7 +88,16 @@ class VideoSearchViewController: UIViewController {
     private func fetchPlaylist(by keyword: String?) {
         playlistFactory.search(keyword: keyword)
     }
-    
+
+    private func saveSelectedVideoToUserDefaultsIfNeeded(_ element: YoutubeEntity) {
+        let entities = UserDefaultsStore.youtubeEntities
+
+        // insert element into UserDefaults only if the latest (up-to)three elements are not the same
+        let count = entities.count < 3 ? entities.count: 3
+        guard !entities.prefix(upTo: count).contains(where: { $0 == element }) else { return }
+
+        UserDefaultsStore.youtubeEntities.insert(element, at: 0)
+    }
 }
 
 // MARK: - UITextFieldDelegate
