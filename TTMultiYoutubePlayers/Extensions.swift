@@ -6,7 +6,7 @@
 //  Copyright © 2019 GEN SHU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import AVFoundation
 
 extension CMTime {
@@ -24,5 +24,26 @@ extension CMTime {
 extension AVAsset {
     var frameRate: Float? {
         return self.tracks(withMediaType: .video).last?.nominalFrameRate
+    }
+}
+
+extension UIView {
+    func loadNib(nibName: String? = nil) {
+
+        backgroundColor = .clear
+
+        let bundle = Bundle(for: type(of: self))
+        let nibName = nibName ?? "\(type(of: self))"
+        let view = bundle.loadNibNamed(nibName, owner: self, options: nil)!.first as! UIView
+        addSubview(view)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            view.leftAnchor.constraint(equalTo: leftAnchor),
+            view.topAnchor.constraint(equalTo: topAnchor),
+            view.rightAnchor.constraint(equalTo: rightAnchor),
+            view.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 }

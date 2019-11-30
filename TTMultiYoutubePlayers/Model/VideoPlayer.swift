@@ -28,8 +28,6 @@ class VideoPlayer {
     }
 
     // UIs
-    var buttonPlay: UIButton!
-    var buttonSound: UIButton!
     var labelCurrentTime: UILabel!
     var labelDuration: UILabel!
     var seekBar: UISlider!
@@ -46,97 +44,25 @@ class VideoPlayer {
     var isSeekBarBeingTouched = false
     
     // MARK: - Life Cycle
-    
-    init(container: AVPlayerView, videoId: String? = nil) {
-        let layer = container.layer as! AVPlayerLayer
+
+    init(videoView: VideoView, videoId: String? = nil) {
+        connectUIs(with: videoView)
+
+        let layer = videoView.playerView.layer as! AVPlayerLayer
         layer.player = player
         if let videoId = videoId {
             setupPlayer(by: videoId)
         }
     }
-    
-    // MARK: - Internal
-    
-    func connectUIs(buttonPlay: UIButton, buttonSound: UIButton, labelCurrentTime: UILabel, labelDuration: UILabel, seekBar: UISlider) {
-        self.buttonPlay = buttonPlay
-        self.buttonSound = buttonSound
-        self.labelCurrentTime = labelCurrentTime
-        self.labelDuration = labelDuration
-        self.seekBar = seekBar
-    }
-    
-    func setupUIs() {
-        buttonPlay.setTitle(Constants.Title.Button.play, for: .normal)
-        buttonSound.setTitle(Constants.Title.Button.soundOn, for: .normal)
-    }
-    
-    func handlePlayPauseTapAction() {
-        if player.rate > 0.0 {
-            player.pause()
-            buttonPlay.setTitle(Constants.Title.Button.play, for: .normal)
-        } else {
-            player.play()
-            buttonPlay.setTitle(Constants.Title.Button.pause, for: .normal)
-        }
-    }
-    
-    func handleSoundButtonTapped() {
-        player.volume = player.volume == 0.0 ? 1.0: 0.0
-        buttonSound.setTitle(player.volume == 0.0 ? Constants.Title.Button.soundOff: Constants.Title.Button.soundOn,
-                             for: .normal)
-    }
+    private func connectUIs(with videoView: VideoView) {
+        self.labelCurrentTime = videoView.labelCurrentTime
+        self.labelDuration = videoView.labelDuration
+        self.seekBar = videoView.seekbar
 
-    func handleOneFrameSeekButtonTapped(_ type: SeekType) {
-        guard let duration = player.currentItem?.duration else { return }
-
-        let seekValue = currentSeekValue(seekBar.value, duration: duration)
-        var toBeSeekValue: Float64
-        switch type {
-        case .rewind:
-            toBeSeekValue = seekValue - oneFrame
-        case .fastForward:
-            toBeSeekValue = seekValue + oneFrame
-        }
-        let time = seekTime(toBeSeekValue)
-        player.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero) { _ in
-            // update seekbar's value
-            self.seekBar.value = Float(toBeSeekValue / CMTimeGetSeconds(duration))
-        }
-    }
-    
-    func handleSeekBarChangeValue() {
-        guard let duration = player.currentItem?.duration else { return }
-        let seekTime = getSeekTime(seekBar.value, by: duration)
-        labelCurrentTime.text = seekTime.toDisplay()
-    }
-    
-    func handleSeekBarTouchUp() {
-        isSeekBarBeingTouched = false
-        
-        guard let duration = player.currentItem?.duration else { return }
-        let seekTime = getSeekTime(seekBar.value, by: duration)
-        player.seek(to: seekTime, completionHandler: { (_) in })
-    }
-    
-    func handleSeekBarTouchDown() {
-        isSeekBarBeingTouched = true
+        videoView.delegate = self
     }
     
     // MARK: - Private
-    
-    private func resetPlayer() {
-        // remove all the old things
-        player.removeAllItems()
-        if let token = timeObserverToken {
-            player.removeTimeObserver(token)
-            timeObserverToken = nil
-        }
-        
-        // set new things
-        if let videoId = entity?.videoId {
-            setupPlayer(by: videoId)
-        }
-    }
     
     private func setupPlayer(by videoId: String) {
         let transfer = YoutubeStreamUrlTransfer(videoId: videoId)
@@ -152,6 +78,20 @@ class VideoPlayer {
                     self.addPeriodicTimeObserver()
                 }
             }
+        }
+    }
+
+    private func resetPlayer() {
+        // remove all the old things
+        player.removeAllItems()
+        if let token = timeObserverToken {
+            player.removeTimeObserver(token)
+            timeObserverToken = nil
+        }
+
+        // set new things
+        if let videoId = entity?.videoId {
+            setupPlayer(by: videoId)
         }
     }
     
@@ -175,7 +115,7 @@ class VideoPlayer {
                         print("else to be loaded")
                     }
                 case .failed:
-                    print("fails to load \(key) with error:\(error)")
+                    print("fails to load \(key) with error:\(String(describing: error))")
                 case .cancelled:
                     print("fails to load \(key) due to cancelled operation")
                 default:
@@ -219,5 +159,86 @@ class VideoPlayer {
     private func seekTime(_ value: Float64) -> CMTime {
         // specified to 3-digit point
         return CMTime(value: Int64(value * 1000), timescale: 1000)
+    }
+
+    private func handleOneFrameSeek(_ type: SeekType) {
+        guard let duration = player.currentItem?.duration else { return }
+
+        let seekValue = currentSeekValue(seekBar.value, duration: duration)
+        var toBeSeekValue: Float64
+        switch type {
+        case .rewind:
+            toBeSeekValue = seekValue - oneFrame
+        case .fastForward:
+            toBeSeekValue = seekValue + oneFrame
+        }
+        let time = seekTime(toBeSeekValue)
+        player.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero) { _ in
+            // update seekbar's value
+            self.seekBar.value = Float(toBeSeekValue / CMTimeGetSeconds(duration))
+        }
+    }
+
+    private func handlePlayPause(_ button: UIButton) {
+        if player.rate > 0.0 {
+            player.pause()
+            button.setTitle(Constants.Title.Button.play, for: .normal)
+        } else {
+            player.play()
+            button.setTitle(Constants.Title.Button.pause, for: .normal)
+        }
+    }
+
+    private func handleMute(_ button: UIButton) {
+        player.volume = player.volume == 0.0 ? 1.0: 0.0
+        button.setTitle(player.volume == 0.0 ? Constants.Title.Button.soundOff: Constants.Title.Button.soundOn,
+                        for: .normal)
+    }
+
+    private func handleSeekbarValueChanged(_ seekbar: UISlider) {
+        guard let duration = player.currentItem?.duration else { return }
+        let seekTime = getSeekTime(seekbar.value, by: duration)
+        labelCurrentTime.text = seekTime.toDisplay()
+    }
+    private func handleSeekbarTouchup(_ seekbar: UISlider) {
+        isSeekBarBeingTouched = false
+
+        guard let duration = player.currentItem?.duration else { return }
+        let seekTime = getSeekTime(seekbar.value, by: duration)
+        player.seek(to: seekTime, completionHandler: { (_) in })
+    }
+    private func handleSeekbarTouchDown(_ seekbar: UISlider) {
+        isSeekBarBeingTouched = true
+    }
+}
+
+// MARK: - Delegate
+
+// MARK: VideoViewDelegate
+extension VideoPlayer : VideoViewDelegate {
+
+    func didTapPlayButton(_ button: UIButton) {
+        handlePlayPause(button)
+    }
+
+    func didTapMuteButton(_ button: UIButton) {
+        handleMute(button)
+    }
+
+    func didChangedSeekbarValue(_ seekbar: UISlider) {
+        handleSeekbarValueChanged(seekbar)
+    }
+    func didTouchUpSeekbar(_ seekbar: UISlider) {
+        handleSeekbarTouchup(seekbar)
+    }
+    func didTouchDownSeekbar(_ seekbar: UISlider) {
+        handleSeekbarTouchDown(seekbar)
+    }
+
+    func didTapOneFrameRewindButton(_ button: UIButton) {
+        handleOneFrameSeek(.rewind)
+    }
+    func didTapOneFrameForwardButton(_ button: UIButton) {
+        handleOneFrameSeek(.fastForward)
     }
 }

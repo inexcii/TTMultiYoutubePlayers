@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol VideoSearchViewControllerDelegate: class {
-    func didChooseVideo(_ entity: YoutubeEntity, source button: UIButton?)
+    func didChooseVideo(_ entity: YoutubeEntity, source: Any?)
 }
 
 class VideoSearchViewController: UIViewController {
@@ -24,6 +24,7 @@ class VideoSearchViewController: UIViewController {
     var selectedVideoEntity: YoutubeEntity!
     weak var delegate: VideoSearchViewControllerDelegate?
     var sourceButton: UIButton?
+    var source: Any?
     
     // MARK: - View Life Cycle
     
@@ -74,7 +75,7 @@ class VideoSearchViewController: UIViewController {
             .bind { [weak self](element) in
                 
                 self?.selectedVideoEntity = element
-                self?.delegate?.didChooseVideo(element, source: self?.sourceButton)
+                self?.delegate?.didChooseVideo(element, source: self?.source)
 
                 self?.saveSelectedVideoToUserDefaultsIfNeeded(element)
 

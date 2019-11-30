@@ -89,30 +89,6 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
-  struct segue {
-    /// This struct is generated for `VideoPlayController`, and contains static references to 1 segues.
-    struct videoPlayController {
-      /// Segue identifier `VideoPlaytoVideoSearch`.
-      static let videoPlaytoVideoSearch: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, VideoPlayController, VideoSearchViewController> = Rswift.StoryboardSegueIdentifier(identifier: "VideoPlaytoVideoSearch")
-
-      #if os(iOS) || os(tvOS)
-      /// Optionally returns a typed version of segue `VideoPlaytoVideoSearch`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func videoPlaytoVideoSearch(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, VideoPlayController, VideoSearchViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.videoPlayController.videoPlaytoVideoSearch, segue: segue)
-      }
-      #endif
-
-      fileprivate init() {}
-    }
-
-    fileprivate init() {}
-  }
-  #endif
-
-  #if os(iOS) || os(tvOS)
   /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
@@ -137,6 +113,26 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   #endif
+
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `VideoView`.
+    static let videoView = _R.nib._VideoView()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "VideoView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.videoView) instead")
+    static func videoView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.videoView)
+    }
+    #endif
+
+    static func videoView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.videoView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    fileprivate init() {}
+  }
 
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
@@ -167,6 +163,23 @@ struct _R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
+  struct nib {
+    struct _VideoView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "VideoView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
+
+  #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
@@ -195,14 +208,20 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = VideoPlayController
+      typealias InitialController = VideoPlayViewController
 
       let bundle = R.hostingBundle
       let name = "Main"
+      let videoSearchViewController = StoryboardViewControllerResource<VideoSearchViewController>(identifier: "VideoSearchViewController")
+
+      func videoSearchViewController(_: Void = ()) -> VideoSearchViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: videoSearchViewController)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().videoSearchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'videoSearchViewController' could not be loaded from storyboard 'Main' as 'VideoSearchViewController'.") }
       }
 
       fileprivate init() {}
