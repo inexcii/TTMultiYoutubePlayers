@@ -36,6 +36,11 @@ class VideoView: UIView {
 
     @IBOutlet private weak var labelAngle: UILabel!
 
+    @IBOutlet private weak var doubleTapToMinusOneFrameArea: UIView!
+    @IBOutlet private weak var doubleTapToPlayArea: UIView!
+    @IBOutlet private weak var doubleTapToPlusOneFrameArea: UIView!
+
+
     // MARK: - Override
 
     required init?(coder: NSCoder) {
@@ -58,17 +63,11 @@ class VideoView: UIView {
         buttonPlay.setTitle(Constants.Title.Button.play, for: .normal)
         buttonMute.setTitle(Constants.Title.Button.soundOn, for: .normal)
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapOnPlayerView(_:)))
-        playerView.addGestureRecognizer(tap)
-
+        addTapGestures()
         paintView.delegate = self
     }
 
-    // MARK: - Gestures & IBActions
-
-    @objc private func handleTapOnPlayerView(_ sender: UITapGestureRecognizer? = nil) {
-        self.controlPanel.isHidden = !self.controlPanel.isHidden
-    }
+    // MARK: - IBActions
 
     @IBAction func playButtonTapped(_ sender: UIButton) {
         self.delegate?.didTapPlayButton(sender)
@@ -85,12 +84,6 @@ class VideoView: UIView {
     @IBAction func seekbarTouchDown(_ sender: UISlider) {
         self.delegate?.didTouchDownSeekbar(sender)
     }
-    @IBAction func oneFrameRewindButtonTapped(_ sender: UIButton) {
-        self.delegate?.didTapOneFrameRewindButton(sender)
-    }
-    @IBAction func oneFrameForwardButtonTapped(_ sender: UIButton) {
-        self.delegate?.didTapOneFrameForwardButton(sender)
-    }
 
     @IBAction func videoSourceButtonTapped(_ sender: UIButton) {
         NotificationCenter.default.post(name: VideoView.didTapSourceButtonNotification, object: self, userInfo: nil)
@@ -99,6 +92,28 @@ class VideoView: UIView {
     @IBAction func undoPaintButtonTapped(_ sender: UIButton) {
         paintView.undo()
         labelAngle.text = "0.0"
+    }
+}
+
+// MARK: - Gestures
+
+extension VideoView {
+
+    @objc private func handleSingleTapOnPlayerView(_ sender: UITapGestureRecognizer? = nil) {
+        controlPanel.isHidden = !controlPanel.isHidden
+    }
+
+    @objc private func handleDoubleTapOnPlayerView(_ sender: UITapGestureRecognizer? = nil) {
+        guard let doubleTap = sender, controlPanel.isHidden else { return }
+
+        let point = doubleTap.location(in: playerView)
+        if doubleTapToPlayArea.frame.contains(point) {
+            self.delegate?.didTapPlayButton(self.buttonPlay)
+        } else if doubleTapToMinusOneFrameArea.frame.contains(point) {
+            self.delegate?.didTapOneFrameRewindButton(UIButton())
+        } else if doubleTapToPlusOneFrameArea.frame.contains(point) {
+            self.delegate?.didTapOneFrameForwardButton(UIButton())
+        }
     }
 }
 
@@ -112,4 +127,20 @@ extension VideoView: PaintViewDelegate {
         labelAngle.text = String(angle)
     }
 
+}
+
+// MARK: - Private
+
+extension VideoView {
+
+    func addTapGestures() {
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapOnPlayerView(_:)))
+        doubleTap.numberOfTapsRequired = 2
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTapOnPlayerView(_:)))
+        singleTap.numberOfTapsRequired = 1
+        singleTap.require(toFail: doubleTap)
+
+        playerView.addGestureRecognizer(singleTap)
+        playerView.addGestureRecognizer(doubleTap)
+    }
 }

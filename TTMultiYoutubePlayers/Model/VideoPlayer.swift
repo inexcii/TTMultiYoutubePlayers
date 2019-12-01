@@ -180,7 +180,7 @@ class VideoPlayer {
     }
 
     private func handlePlayPause(_ button: UIButton) {
-        if player.rate > 0.0 {
+        if isPlaying {
             player.pause()
             button.setTitle(Constants.Title.Button.play, for: .normal)
         } else {
@@ -240,5 +240,14 @@ extension VideoPlayer : VideoViewDelegate {
     }
     func didTapOneFrameForwardButton(_ button: UIButton) {
         handleOneFrameSeek(.fastForward)
+    }
+}
+
+// MARK: Status
+
+extension VideoPlayer {
+
+    private var isPlaying: Bool {
+        return player.rate > 0.0
     }
 }
