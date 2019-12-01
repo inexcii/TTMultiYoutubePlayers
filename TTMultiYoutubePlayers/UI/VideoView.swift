@@ -62,6 +62,7 @@ class VideoView: UIView {
 
         buttonPlay.setTitle(Constants.Title.Button.play, for: .normal)
         buttonMute.setTitle(Constants.Title.Button.soundOn, for: .normal)
+        labelAngle.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
 
         addTapGestures()
         paintView.delegate = self
