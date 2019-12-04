@@ -40,6 +40,8 @@ class VideoView: UIView {
     @IBOutlet private weak var doubleTapToPlayArea: UIView!
     @IBOutlet private weak var doubleTapToPlusOneFrameArea: UIView!
 
+    private var singleTapGesture: UITapGestureRecognizer!
+    private var doubleTapGesture: UITapGestureRecognizer!
 
     // MARK: - Override
 
@@ -64,7 +66,9 @@ class VideoView: UIView {
         buttonMute.setTitle(Constants.Title.Button.soundOn, for: .normal)
         labelAngle.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
 
-        addTapGestures()
+        initTapGestures()
+        playerView.addGestureRecognizer(singleTapGesture)
+
         paintView.delegate = self
     }
 
@@ -102,6 +106,18 @@ extension VideoView {
 
     @objc private func handleSingleTapOnPlayerView(_ sender: UITapGestureRecognizer? = nil) {
         controlPanel.isHidden = !controlPanel.isHidden
+
+        // add double-tap gesture depends on control panel's appearance
+        if controlPanel.isHidden {
+            // prevent to add double tap gesture twice
+            if doubleTapGesture.view == nil {
+                playerView.addGestureRecognizer(doubleTapGesture)
+            }
+        } else {
+            if let view = doubleTapGesture.view {
+                view.removeGestureRecognizer(doubleTapGesture)
+            }
+        }
     }
 
     @objc private func handleDoubleTapOnPlayerView(_ sender: UITapGestureRecognizer? = nil) {
@@ -134,14 +150,14 @@ extension VideoView: PaintViewDelegate {
 
 extension VideoView {
 
-    func addTapGestures() {
+    func initTapGestures() {
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapOnPlayerView(_:)))
         doubleTap.numberOfTapsRequired = 2
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTapOnPlayerView(_:)))
         singleTap.numberOfTapsRequired = 1
         singleTap.require(toFail: doubleTap)
 
-        playerView.addGestureRecognizer(singleTap)
-        playerView.addGestureRecognizer(doubleTap)
+        singleTapGesture = singleTap
+        doubleTapGesture = doubleTap
     }
 }
