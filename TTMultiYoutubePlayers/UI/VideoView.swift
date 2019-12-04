@@ -105,23 +105,28 @@ class VideoView: UIView {
 extension VideoView {
 
     @objc private func handleSingleTapOnPlayerView(_ sender: UITapGestureRecognizer? = nil) {
-        controlPanel.isHidden = !controlPanel.isHidden
 
-        // add double-tap gesture depends on control panel's appearance
-        if controlPanel.isHidden {
-            // prevent to add double tap gesture twice
-            if doubleTapGesture.view == nil {
-                playerView.addGestureRecognizer(doubleTapGesture)
+        // when control panel is hidden: enable double-tap gesture
+        // when control panel shows up: disable double-tap gesture
+        if controlPanel.alpha > 0 {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.controlPanel.alpha = 0.0
+            }) { finished in
+                // prevent to add double tap gesture twice
+                if self.doubleTapGesture.view == nil {
+                    self.playerView.addGestureRecognizer(self.doubleTapGesture)
+                }
             }
         } else {
             if let view = doubleTapGesture.view {
                 view.removeGestureRecognizer(doubleTapGesture)
             }
+            controlPanel.alpha = 1.0
         }
     }
 
     @objc private func handleDoubleTapOnPlayerView(_ sender: UITapGestureRecognizer? = nil) {
-        guard let doubleTap = sender, controlPanel.isHidden else { return }
+        guard let doubleTap = sender, controlPanel.alpha == 0.0 else { return }
 
         let point = doubleTap.location(in: playerView)
         if doubleTapToPlayArea.frame.contains(point) {
