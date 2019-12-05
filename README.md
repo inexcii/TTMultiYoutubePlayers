@@ -29,6 +29,7 @@ Major:
 - [X] user can seek video at a rate as low as 1 frame
 - [X] support dark-mode
 - [X] user can access to the watched-video history, and quickly replay it from there
+- [ ] when in landscape mode, app should also support two video players side-by-side
 
 Minor:
 - [ ] User can pick a color to draw lines on the screen. Also, the lines drawn by user before should be shown again once the same video is selected later.
