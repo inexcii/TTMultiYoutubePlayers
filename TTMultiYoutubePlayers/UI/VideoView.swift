@@ -151,6 +151,19 @@ extension VideoView: PaintViewDelegate {
 
 }
 
+// MARK: UIGestureRecognizerDelegate
+
+extension VideoView: UIGestureRecognizerDelegate {
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view is UISlider) {
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
 // MARK: - Private
 
 extension VideoView {
@@ -164,5 +177,7 @@ extension VideoView {
 
         singleTapGesture = singleTap
         doubleTapGesture = doubleTap
+
+        singleTapGesture.delegate = self
     }
 }
