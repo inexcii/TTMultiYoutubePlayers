@@ -62,8 +62,8 @@ class VideoView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        buttonPlay.setTitle(Constants.Title.Button.play, for: .normal)
-        buttonMute.setTitle(Constants.Title.Button.soundOn, for: .normal)
+        buttonPlay.setBackgroundImage(R.image.play(), for: .normal)
+        buttonMute.setBackgroundImage(R.image.unmute(), for: .normal)
         labelAngle.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
 
         initTapGestures()

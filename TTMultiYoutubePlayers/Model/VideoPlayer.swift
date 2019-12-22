@@ -182,17 +182,17 @@ class VideoPlayer {
     private func handlePlayPause(_ button: UIButton) {
         if isPlaying {
             player.pause()
-            button.setTitle(Constants.Title.Button.play, for: .normal)
+            button.setBackgroundImage(R.image.play(), for: .normal)
         } else {
             player.play()
-            button.setTitle(Constants.Title.Button.pause, for: .normal)
+            button.setBackgroundImage(R.image.pause(), for: .normal)
         }
     }
 
     private func handleMute(_ button: UIButton) {
         player.volume = player.volume == 0.0 ? 1.0: 0.0
-        button.setTitle(player.volume == 0.0 ? Constants.Title.Button.soundOff: Constants.Title.Button.soundOn,
-                        for: .normal)
+        button.setBackgroundImage(player.volume == 0.0 ? R.image.mute(): R.image.unmute(),
+                                  for: .normal)
     }
 
     private func handleSeekbarValueChanged(_ seekbar: UISlider) {

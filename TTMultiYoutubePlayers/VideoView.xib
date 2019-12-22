@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -69,7 +69,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bpc-M8-U9T">
                                     <rect key="frame" x="5" y="5" width="0.0" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -82,18 +82,18 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pD9-rA-NF0" userLabel="Control Panel">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                             <subviews>
-                                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-ge-w9T" userLabel="Background">
+                                <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-ge-w9T" userLabel="Background">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tib-gd-NZv">
-                                    <rect key="frame" x="5" y="10" width="49" height="44"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tib-gd-NZv" userLabel="Video Source">
+                                    <rect key="frame" x="5" y="10" width="33" height="33"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="GmN-gR-sTz"/>
-                                        <constraint firstAttribute="height" constant="44" id="i9L-7a-ln6"/>
+                                        <constraint firstAttribute="width" secondItem="Tib-gd-NZv" secondAttribute="height" multiplier="1:1" id="bAR-oJ-duK"/>
+                                        <constraint firstAttribute="height" constant="33" id="i9L-7a-ln6"/>
                                     </constraints>
-                                    <state key="normal" title="Source"/>
+                                    <state key="normal" backgroundImage="source"/>
                                     <connections>
                                         <action selector="videoSourceButtonTapped:" destination="-1" eventType="touchUpInside" id="YOF-Oi-xRB"/>
                                     </connections>
@@ -115,18 +115,18 @@
                                         <constraint firstAttribute="height" constant="60" id="H9v-Yr-Cr2"/>
                                         <constraint firstAttribute="width" constant="60" id="jjc-SC-CpF"/>
                                     </constraints>
-                                    <state key="normal" title="Play"/>
+                                    <state key="normal" backgroundImage="play"/>
                                     <connections>
                                         <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="0zV-7f-FZE"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-vf-11T" userLabel="Mute">
-                                    <rect key="frame" x="365" y="10" width="44" height="44"/>
+                                    <rect key="frame" x="376" y="10" width="33" height="33"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="Ckr-43-Esj"/>
-                                        <constraint firstAttribute="height" constant="44" id="Hiu-lf-iBi"/>
+                                        <constraint firstAttribute="height" constant="33" id="Hiu-lf-iBi"/>
+                                        <constraint firstAttribute="width" secondItem="XJs-vf-11T" secondAttribute="height" multiplier="1:1" id="cjv-G8-WX1"/>
                                     </constraints>
-                                    <state key="normal" title="Mute"/>
+                                    <state key="normal" backgroundImage="mute"/>
                                     <connections>
                                         <action selector="muteButtonTapped:" destination="-1" eventType="touchUpInside" id="gk6-9V-Uh1"/>
                                     </connections>
@@ -143,13 +143,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8OS-Ek-W5V" userLabel="Current Time">
                                     <rect key="frame" x="5" y="185" width="75.5" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lT2-uh-ckQ" userLabel="Duration">
                                     <rect key="frame" x="333" y="185" width="76" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -203,4 +203,9 @@
             <point key="canvasLocation" x="321.73913043478262" y="67.633928571428569"/>
         </view>
     </objects>
+    <resources>
+        <image name="mute" width="44" height="44"/>
+        <image name="play" width="60" height="60"/>
+        <image name="source" width="50" height="50"/>
+    </resources>
 </document>
