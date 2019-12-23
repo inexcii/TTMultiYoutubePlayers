@@ -87,24 +87,24 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tib-gd-NZv" userLabel="Video Source">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tib-gd-NZv" userLabel="Video Search">
                                     <rect key="frame" x="5" y="10" width="33" height="33"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="Tib-gd-NZv" secondAttribute="height" multiplier="1:1" id="bAR-oJ-duK"/>
                                         <constraint firstAttribute="height" constant="33" id="i9L-7a-ln6"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="source"/>
+                                    <state key="normal" backgroundImage="search"/>
                                     <connections>
                                         <action selector="videoSourceButtonTapped:" destination="-1" eventType="touchUpInside" id="YOF-Oi-xRB"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gj1-ia-nYu" userLabel="Undo Paint">
-                                    <rect key="frame" x="185" y="10" width="44" height="44"/>
+                                    <rect key="frame" x="192" y="10" width="30" height="30"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="44" id="KWv-el-DIO"/>
-                                        <constraint firstAttribute="height" constant="44" id="nak-YT-Krb"/>
+                                        <constraint firstAttribute="width" constant="30" id="KWv-el-DIO"/>
+                                        <constraint firstAttribute="width" secondItem="gj1-ia-nYu" secondAttribute="height" multiplier="1:1" id="cpW-Za-FB0"/>
                                     </constraints>
-                                    <state key="normal" title="Undo"/>
+                                    <state key="normal" backgroundImage="undo"/>
                                     <connections>
                                         <action selector="undoPaintButtonTapped:" destination="-1" eventType="touchUpInside" id="Wlk-HO-kgW"/>
                                     </connections>
@@ -206,6 +206,7 @@
     <resources>
         <image name="mute" width="44" height="44"/>
         <image name="play" width="60" height="60"/>
-        <image name="source" width="50" height="50"/>
+        <image name="search" width="44" height="44"/>
+        <image name="undo" width="30" height="30"/>
     </resources>
 </document>

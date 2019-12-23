@@ -114,7 +114,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 5 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `mute`.
     static let mute = Rswift.ImageResource(bundle: R.hostingBundle, name: "mute")
@@ -122,8 +122,10 @@ struct R: Rswift.Validatable {
     static let pause = Rswift.ImageResource(bundle: R.hostingBundle, name: "pause")
     /// Image `play`.
     static let play = Rswift.ImageResource(bundle: R.hostingBundle, name: "play")
-    /// Image `source`.
-    static let source = Rswift.ImageResource(bundle: R.hostingBundle, name: "source")
+    /// Image `search`.
+    static let search = Rswift.ImageResource(bundle: R.hostingBundle, name: "search")
+    /// Image `undo`.
+    static let undo = Rswift.ImageResource(bundle: R.hostingBundle, name: "undo")
     /// Image `unmute`.
     static let unmute = Rswift.ImageResource(bundle: R.hostingBundle, name: "unmute")
 
@@ -149,9 +151,16 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "source", bundle: ..., traitCollection: ...)`
-    static func source(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.source, compatibleWith: traitCollection)
+    /// `UIImage(named: "search", bundle: ..., traitCollection: ...)`
+    static func search(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.search, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "undo", bundle: ..., traitCollection: ...)`
+    static func undo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.undo, compatibleWith: traitCollection)
     }
     #endif
 
@@ -233,7 +242,8 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "mute", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'mute' is used in nib 'VideoView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "play", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'play' is used in nib 'VideoView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "source", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'source' is used in nib 'VideoView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search' is used in nib 'VideoView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "undo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'undo' is used in nib 'VideoView', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
