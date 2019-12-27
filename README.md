@@ -29,11 +29,13 @@ Major:
 - [X] user can seek video at a rate as low as 1 frame
 - [X] support dark-mode
 - [X] user can access to the watched-video history, and quickly replay it from there
+- [ ] a single play/pause button to control both players
+- [ ] user can input a time value and video should be played from that point
 - [ ] when in landscape mode, app should also support two video players side-by-side
 
 Minor:
 - [ ] User can pick a color to draw lines on the screen. Also, the lines drawn by user before should be shown again once the same video is selected later.
 - [ ] The app remembers the angle and the color of the lines. This is an app-based parameter, not a video based parameter.
 - [ ] the playback rate can be set to 0.5x, 1.0x ~ 10.0x at a gap per 0.5x to play video as slow as 0.5x and as fast till 10.0x
-- [ ] a single play/pause button and a seek-bar to control multiple videos at the same time
+- [ ] a seek-bar to control multiple videos at the same time
 - [ ] each video can be played in slow-mode
