@@ -29,7 +29,7 @@ Major:
 - [X] user can seek video at a rate as low as 1 frame
 - [X] support dark-mode
 - [X] user can access to the watched-video history, and quickly replay it from there
-- [ ] a single play/pause button to control both players
+- [X] a single play/pause button to control both players
 - [ ] user can input a time value and video should be played from that point
 - [ ] when in landscape mode, app should also support two video players side-by-side
 
