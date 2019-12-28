@@ -13,6 +13,8 @@ final class VideoPlayViewController: UIViewController {
     @IBOutlet weak var videoView1: VideoView!
     @IBOutlet weak var videoView2: VideoView!
 
+    @IBOutlet private weak var commonPlayButton: UIButton!
+
     var videoPlayer1: VideoPlayer!
     var videoPlayer2: VideoPlayer!
 
@@ -28,6 +30,17 @@ final class VideoPlayViewController: UIViewController {
 
         videoPlayer1 = VideoPlayer(videoView: videoView1, videoId: Constants.sampleVideoId1)
         videoPlayer2 = VideoPlayer(videoView: videoView2, videoId: Constants.sampleVideoId2)
+    }
+
+    @IBAction func commonPlayButtonTapped(_ sender: Any) {
+        videoPlayer1.handlePlayPause(videoView1.buttonPlay)
+        videoPlayer2.handlePlayPause(videoView2.buttonPlay)
+
+        if videoPlayer1.isPlaying {
+            commonPlayButton.setBackgroundImage(R.image.common_pause(), for: .normal)
+        } else {
+            commonPlayButton.setBackgroundImage(R.image.common_play(), for: .normal)
+        }
     }
 
     @objc private func handleNavigation(_ notification: Notification) {

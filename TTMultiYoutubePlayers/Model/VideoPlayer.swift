@@ -179,7 +179,7 @@ class VideoPlayer {
         }
     }
 
-    private func handlePlayPause(_ button: UIButton) {
+    func handlePlayPause(_ button: UIButton) {
         if isPlaying {
             player.pause()
             button.setBackgroundImage(R.image.play(), for: .normal)
@@ -247,7 +247,7 @@ extension VideoPlayer : VideoViewDelegate {
 
 extension VideoPlayer {
 
-    private var isPlaying: Bool {
+    var isPlaying: Bool {
         return player.rate > 0.0
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Nh-hV-QnB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Nh-hV-QnB">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,19 +30,45 @@
                                     <constraint firstAttribute="width" secondItem="cwZ-jz-Ph8" secondAttribute="height" multiplier="16:9" id="rIv-BH-Y2Y"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3R0-ex-fc3" userLabel="Common Control">
+                                <rect key="frame" x="0.0" y="469.66666666666674" width="414" height="266.33333333333326"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56V-6z-R3W" userLabel="Play">
+                                        <rect key="frame" x="192" y="25" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="1hM-p5-xz8"/>
+                                            <constraint firstAttribute="width" secondItem="56V-6z-R3W" secondAttribute="height" multiplier="1:1" id="o5j-D8-YkP"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="common_play"/>
+                                        <connections>
+                                            <action selector="commonPlayButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="bu7-JS-A8G"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="56V-6z-R3W" firstAttribute="top" secondItem="3R0-ex-fc3" secondAttribute="top" constant="25" id="mQ9-T7-aKo"/>
+                                    <constraint firstItem="56V-6z-R3W" firstAttribute="centerX" secondItem="3R0-ex-fc3" secondAttribute="centerX" id="pRI-I3-A4V"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="3R0-ex-fc3" firstAttribute="top" secondItem="cwZ-jz-Ph8" secondAttribute="bottom" constant="2" id="19o-u1-gSZ"/>
                             <constraint firstItem="cwZ-jz-Ph8" firstAttribute="top" secondItem="Uvs-pf-kCA" secondAttribute="bottom" constant="2" id="3l0-P5-g5W"/>
+                            <constraint firstItem="3R0-ex-fc3" firstAttribute="leading" secondItem="uPM-xO-ddy" secondAttribute="leading" id="80o-47-KnR"/>
+                            <constraint firstItem="uPM-xO-ddy" firstAttribute="bottom" secondItem="3R0-ex-fc3" secondAttribute="bottom" id="OmK-AO-N2w"/>
                             <constraint firstItem="uPM-xO-ddy" firstAttribute="trailing" secondItem="cwZ-jz-Ph8" secondAttribute="trailing" id="P3R-0S-ZxG"/>
                             <constraint firstItem="cwZ-jz-Ph8" firstAttribute="leading" secondItem="uPM-xO-ddy" secondAttribute="leading" id="RvH-Wt-w0c"/>
                             <constraint firstItem="Uvs-pf-kCA" firstAttribute="trailing" secondItem="uPM-xO-ddy" secondAttribute="trailing" id="Rxg-QY-zFN"/>
                             <constraint firstItem="Uvs-pf-kCA" firstAttribute="top" secondItem="uPM-xO-ddy" secondAttribute="top" id="a0I-9t-jNx"/>
+                            <constraint firstItem="uPM-xO-ddy" firstAttribute="trailing" secondItem="3R0-ex-fc3" secondAttribute="trailing" id="nHT-ak-lI9"/>
                             <constraint firstItem="Uvs-pf-kCA" firstAttribute="leading" secondItem="uPM-xO-ddy" secondAttribute="leading" id="zI1-ws-VZ8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uPM-xO-ddy"/>
                     </view>
                     <connections>
+                        <outlet property="commonPlayButton" destination="56V-6z-R3W" id="09M-oa-Qgp"/>
                         <outlet property="videoView1" destination="Uvs-pf-kCA" id="0dz-dd-SjV"/>
                         <outlet property="videoView2" destination="cwZ-jz-Ph8" id="z5k-Jh-9go"/>
                     </connections>
@@ -150,4 +176,7 @@ aaa</string>
             <point key="canvasLocation" x="1103.2" y="40.929535232383813"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="common_play" width="16" height="16"/>
+    </resources>
 </document>

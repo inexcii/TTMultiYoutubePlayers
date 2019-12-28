@@ -28,10 +28,10 @@ class VideoView: UIView {
     @IBOutlet private(set) weak var labelCurrentTime: UILabel!
     @IBOutlet private(set) weak var labelDuration: UILabel!
     @IBOutlet private(set) weak var seekbar: UISlider!
+    @IBOutlet private(set) weak var buttonPlay: UIButton!
 
     @IBOutlet private weak var paintView: PaintView!
     @IBOutlet private weak var controlPanel: UIView!
-    @IBOutlet private weak var buttonPlay: UIButton!
     @IBOutlet private weak var buttonMute: UIButton!
 
     @IBOutlet private weak var labelAngle: UILabel!

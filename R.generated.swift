@@ -114,8 +114,12 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
+    /// Image `common_pause`.
+    static let common_pause = Rswift.ImageResource(bundle: R.hostingBundle, name: "common_pause")
+    /// Image `common_play`.
+    static let common_play = Rswift.ImageResource(bundle: R.hostingBundle, name: "common_play")
     /// Image `mute`.
     static let mute = Rswift.ImageResource(bundle: R.hostingBundle, name: "mute")
     /// Image `pause`.
@@ -128,6 +132,20 @@ struct R: Rswift.Validatable {
     static let undo = Rswift.ImageResource(bundle: R.hostingBundle, name: "undo")
     /// Image `unmute`.
     static let unmute = Rswift.ImageResource(bundle: R.hostingBundle, name: "unmute")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "common_pause", bundle: ..., traitCollection: ...)`
+    static func common_pause(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.common_pause, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "common_play", bundle: ..., traitCollection: ...)`
+    static func common_play(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.common_play, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "mute", bundle: ..., traitCollection: ...)`
@@ -295,6 +313,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "common_play", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'common_play' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().videoSearchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'videoSearchViewController' could not be loaded from storyboard 'Main' as 'VideoSearchViewController'.") }
