@@ -177,6 +177,6 @@ aaa</string>
         </scene>
     </scenes>
     <resources>
-        <image name="common_play" width="16" height="16"/>
+        <image name="common_play" width="30" height="30"/>
     </resources>
 </document>

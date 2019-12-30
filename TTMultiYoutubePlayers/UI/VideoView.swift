@@ -29,9 +29,9 @@ class VideoView: UIView {
     @IBOutlet private(set) weak var labelDuration: UILabel!
     @IBOutlet private(set) weak var seekbar: UISlider!
     @IBOutlet private(set) weak var buttonPlay: UIButton!
+    @IBOutlet private(set) weak var controlPanel: UIView!
 
     @IBOutlet private weak var paintView: PaintView!
-    @IBOutlet private weak var controlPanel: UIView!
     @IBOutlet private weak var buttonMute: UIButton!
 
     @IBOutlet private weak var labelAngle: UILabel!
@@ -42,6 +42,8 @@ class VideoView: UIView {
 
     private var singleTapGesture: UITapGestureRecognizer!
     private var doubleTapGesture: UITapGestureRecognizer!
+
+    private var autoHideTimer: Timer?
 
     // MARK: - Override
 
@@ -76,6 +78,8 @@ class VideoView: UIView {
 
     @IBAction func playButtonTapped(_ sender: UIButton) {
         self.delegate?.didTapPlayButton(sender)
+
+        addAutoHideTimer()
     }
     @IBAction func muteButtonTapped(_ sender: UIButton) {
         self.delegate?.didTapMuteButton(sender)
@@ -108,7 +112,10 @@ extension VideoView {
 
         // when control panel is hidden: enable double-tap gesture
         // when control panel shows up: disable double-tap gesture
-        if controlPanel.alpha > 0 {
+        if controlPanel.alpha > 0.0 {
+            // display -> hidden
+            Utility.removeTimer(&autoHideTimer)
+
             UIView.animate(withDuration: 0.3, animations: {
                 self.controlPanel.alpha = 0.0
             }) { finished in
@@ -118,10 +125,12 @@ extension VideoView {
                 }
             }
         } else {
+            // hidden -> display
             if let view = doubleTapGesture.view {
                 view.removeGestureRecognizer(doubleTapGesture)
             }
             controlPanel.alpha = 1.0
+            addAutoHideTimer()
         }
     }
 
@@ -168,7 +177,7 @@ extension VideoView: UIGestureRecognizerDelegate {
 
 extension VideoView {
 
-    func initTapGestures() {
+    private func initTapGestures() {
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapOnPlayerView(_:)))
         doubleTap.numberOfTapsRequired = 2
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTapOnPlayerView(_:)))
@@ -179,5 +188,20 @@ extension VideoView {
         doubleTapGesture = doubleTap
 
         singleTapGesture.delegate = self
+    }
+
+    private func addAutoHideTimer() {
+        // remove if it exists
+        Utility.removeTimer(&autoHideTimer)
+
+        autoHideTimer = Timer.scheduledTimer(timeInterval: 2.5,
+                                             target: self,
+                                             selector: #selector(autoHideTimerAction(timer:)),
+                                             userInfo: nil,
+                                             repeats: false)
+    }
+
+    @objc private func autoHideTimerAction(timer: Timer) {
+        handleSingleTapOnPlayerView()
     }
 }

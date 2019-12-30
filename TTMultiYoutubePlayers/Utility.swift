@@ -17,7 +17,13 @@ class Utility {
         
         return digit2Angle
     }
-    
+
+    static func removeTimer(_ timer: inout Timer?) {
+        if let aTimer = timer {
+            aTimer.invalidate()
+            timer = nil
+        }
+    }
 }
 
 class UserDefaultsStore {
