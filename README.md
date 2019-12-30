@@ -30,6 +30,8 @@ Major:
 - [X] support dark-mode
 - [X] user can access to the watched-video history, and quickly replay it from there
 - [X] a single play/pause button to control both players
+---
+v2.0.0
 - [ ] user can input a time value and video should be played from that point
 - [ ] when in landscape mode, app should also support two video players side-by-side
 
