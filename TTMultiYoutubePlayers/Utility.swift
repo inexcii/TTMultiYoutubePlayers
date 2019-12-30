@@ -8,6 +8,19 @@
 
 import UIKit
 
+/// Print out debug message during development
+///
+/// - Parameters:
+///   - message: message to print out
+///   - filename: source file name(e.g. VideoPlayer.swift)
+///   - function: function name where the message located(e.g. loadValuesInAsset(_:completion:) )
+///   - line: line number(e.g. 109)
+func DLog(_ message: String, filename: String = #file, function: String = #function, line: Int = #line) {
+    #if DEBUG
+    NSLog("[%@:%ld] %@ - %@", (filename as NSString).lastPathComponent, line, function, message)
+    #endif
+}
+
 class Utility {
     
     static func calculateAngle(from begin: CGPoint, to end: CGPoint) -> Double {

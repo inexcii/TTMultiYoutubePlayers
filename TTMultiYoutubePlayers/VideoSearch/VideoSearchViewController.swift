@@ -46,7 +46,7 @@ class VideoSearchViewController: UIViewController {
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         dismiss(animated: true) {
-            print("search VC dismissed")
+            DLog("search VC dismissed")
         }
     }
     
@@ -80,7 +80,7 @@ class VideoSearchViewController: UIViewController {
                 self?.saveSelectedVideoToUserDefaultsIfNeeded(element)
 
                 self?.dismiss(animated: true, completion: {
-                    print("finish seach and close search VC")
+                    DLog("finish seach and close search VC")
                 })
                 
             }.disposed(by: disposeBag)

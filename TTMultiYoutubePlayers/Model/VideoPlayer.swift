@@ -106,7 +106,7 @@ class VideoPlayer {
                 switch status {
                 case .loaded:
                     if key == keyPlayable {
-                        NSLog("playable key finished loading")
+                        DLog("playable key finished loading")
                     } else if key == keyDuration {
                         DispatchQueue.main.async {
                             self.labelDuration.text = asset.duration.toDisplay()

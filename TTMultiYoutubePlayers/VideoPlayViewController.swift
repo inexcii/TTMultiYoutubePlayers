@@ -48,7 +48,7 @@ final class VideoPlayViewController: UIViewController {
         videoSearchVC.delegate = self
         videoSearchVC.source = notification.object
         self.present(videoSearchVC, animated: true) {
-            print("finish presenting search VC")
+            DLog("finish presenting search VC")
         }
     }
 }
