@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             DLog("error in setting AVAudioSession's category: \(error)")
         }
+
+        FirebaseApp.configure()
 
         return true
     }

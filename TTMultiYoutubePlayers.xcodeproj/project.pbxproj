@@ -20,6 +20,7 @@
 		0048DACB234ACD9800875758 /* VideoSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACA234ACD9800875758 /* VideoSearchTableViewCell.swift */; };
 		0048DACD234ADEC600875758 /* YoutubeStreamUrlTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACC234ADEC600875758 /* YoutubeStreamUrlTransfer.swift */; };
 		0048DAD0234B1F8200875758 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACF234B1F8200875758 /* AVPlayerView.swift */; };
+		0057D74B23BAC2FD00ABAF4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0057D74A23BAC2FC00ABAF4A /* GoogleService-Info.plist */; };
 		005C0BBB2388F89D0044E02F /* YoutubeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0BBA2388F89D0044E02F /* YoutubeEntity.swift */; };
 		005C6EC1235B08AF002A165B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C6EC0235B08AE002A165B /* Utility.swift */; };
 		0061E161234D3EF400740069 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061E160234D3EF400740069 /* Extensions.swift */; };
@@ -75,6 +76,7 @@
 		0048DACA234ACD9800875758 /* VideoSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchTableViewCell.swift; sourceTree = "<group>"; };
 		0048DACC234ADEC600875758 /* YoutubeStreamUrlTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeStreamUrlTransfer.swift; sourceTree = "<group>"; };
 		0048DACF234B1F8200875758 /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
+		0057D74A23BAC2FC00ABAF4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		005C0BBA2388F89D0044E02F /* YoutubeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeEntity.swift; sourceTree = "<group>"; };
 		005C6EC0235B08AE002A165B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		0061E160234D3EF400740069 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				0048DAC0234A264100875758 /* R.generated.swift */,
 				0048DA9A234A244400875758 /* LaunchScreen.storyboard */,
 				0048DA9D234A244400875758 /* Info.plist */,
+				0057D74A23BAC2FC00ABAF4A /* GoogleService-Info.plist */,
 			);
 			path = TTMultiYoutubePlayers;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				0048DA8B234A244300875758 /* Frameworks */,
 				0048DA8C234A244300875758 /* Resources */,
 				D2D98F7068DE8A7405EF0DBD /* [CP] Embed Pods Frameworks */,
+				0057D74D23BCD33800ABAF4A /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -362,6 +366,7 @@
 			files = (
 				00BF2DC4238C1BDA00D2FA94 /* VideoView.xib in Resources */,
 				0048DA9C234A244400875758 /* LaunchScreen.storyboard in Resources */,
+				0057D74B23BAC2FD00ABAF4A /* GoogleService-Info.plist in Resources */,
 				0048DA99234A244400875758 /* Assets.xcassets in Resources */,
 				0048DA97234A244300875758 /* Main.storyboard in Resources */,
 			);
@@ -423,6 +428,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		0057D74D23BCD33800ABAF4A /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Fabric;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		1B56B6AEB78E9FF4275883D3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -723,6 +747,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 58F85N59D3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
