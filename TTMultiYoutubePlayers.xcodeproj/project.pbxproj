@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003C69F823C0033100FD7C76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 003C69F723C0033100FD7C76 /* GoogleService-Info.plist */; };
 		0048DA92234A244300875758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DA91234A244300875758 /* AppDelegate.swift */; };
 		0048DA97234A244300875758 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0048DA95234A244300875758 /* Main.storyboard */; };
 		0048DA99234A244400875758 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0048DA98234A244400875758 /* Assets.xcassets */; };
@@ -20,7 +21,6 @@
 		0048DACB234ACD9800875758 /* VideoSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACA234ACD9800875758 /* VideoSearchTableViewCell.swift */; };
 		0048DACD234ADEC600875758 /* YoutubeStreamUrlTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACC234ADEC600875758 /* YoutubeStreamUrlTransfer.swift */; };
 		0048DAD0234B1F8200875758 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACF234B1F8200875758 /* AVPlayerView.swift */; };
-		0057D74B23BAC2FD00ABAF4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0057D74A23BAC2FC00ABAF4A /* GoogleService-Info.plist */; };
 		005C0BBB2388F89D0044E02F /* YoutubeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0BBA2388F89D0044E02F /* YoutubeEntity.swift */; };
 		005C6EC1235B08AF002A165B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C6EC0235B08AE002A165B /* Utility.swift */; };
 		0061E161234D3EF400740069 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061E160234D3EF400740069 /* Extensions.swift */; };
@@ -57,6 +57,7 @@
 		0022DE87236F92AB00479231 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		0022DE8B236FAE4400479231 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		0022DE8E2370587300479231 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
+		003C69F723C0033100FD7C76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0048DA8E234A244300875758 /* TTMultiYoutubePlayers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTMultiYoutubePlayers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0048DA91234A244300875758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0048DA96234A244300875758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		0048DACA234ACD9800875758 /* VideoSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchTableViewCell.swift; sourceTree = "<group>"; };
 		0048DACC234ADEC600875758 /* YoutubeStreamUrlTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeStreamUrlTransfer.swift; sourceTree = "<group>"; };
 		0048DACF234B1F8200875758 /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
-		0057D74A23BAC2FC00ABAF4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		005C0BBA2388F89D0044E02F /* YoutubeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeEntity.swift; sourceTree = "<group>"; };
 		005C6EC0235B08AE002A165B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		0061E160234D3EF400740069 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				0048DAC0234A264100875758 /* R.generated.swift */,
 				0048DA9A234A244400875758 /* LaunchScreen.storyboard */,
 				0048DA9D234A244400875758 /* Info.plist */,
-				0057D74A23BAC2FC00ABAF4A /* GoogleService-Info.plist */,
+				003C69F723C0033100FD7C76 /* GoogleService-Info.plist */,
 			);
 			path = TTMultiYoutubePlayers;
 			sourceTree = "<group>";
@@ -366,9 +366,9 @@
 			files = (
 				00BF2DC4238C1BDA00D2FA94 /* VideoView.xib in Resources */,
 				0048DA9C234A244400875758 /* LaunchScreen.storyboard in Resources */,
-				0057D74B23BAC2FD00ABAF4A /* GoogleService-Info.plist in Resources */,
 				0048DA99234A244400875758 /* Assets.xcassets in Resources */,
 				0048DA97234A244300875758 /* Main.storyboard in Resources */,
+				003C69F823C0033100FD7C76 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,7 +760,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = work.zhouyuan.ttmultiyoutubeplayers;
+				PRODUCT_BUNDLE_IDENTIFIER = work.zhouyuan.multiyoutube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -786,7 +786,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = work.zhouyuan.ttmultiyoutubeplayers;
+				PRODUCT_BUNDLE_IDENTIFIER = work.zhouyuan.multiyoutube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
