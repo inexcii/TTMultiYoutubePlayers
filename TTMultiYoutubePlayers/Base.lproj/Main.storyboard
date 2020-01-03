@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Nh-hV-QnB">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -13,42 +13,42 @@
             <objects>
                 <viewController id="2Nh-hV-QnB" customClass="VideoPlayViewController" customModule="TTMultiYoutubePlayers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nw0-qi-YCf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjR-HM-W9V" userLabel="RefRight">
-                                <rect key="frame" x="207.33333333333337" y="0.0" width="206.66666666666663" height="116.33333333333333"/>
+                                <rect key="frame" x="284.5" y="0.0" width="283.5" height="159.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qjR-HM-W9V" secondAttribute="height" multiplier="16:9" id="znK-W7-pcU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKc-vC-qDE" userLabel="RefLeft">
-                                <rect key="frame" x="0.0" y="0.0" width="206.66666666666666" height="116.33333333333333"/>
+                                <rect key="frame" x="0.0" y="0.0" width="283.5" height="159.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qKc-vC-qDE" secondAttribute="height" multiplier="16:9" id="pGz-Ce-Kff"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvs-pf-kCA" customClass="VideoView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                <rect key="frame" x="0.0" y="0.0" width="283.5" height="159.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Uvs-pf-kCA" secondAttribute="height" multiplier="16:9" id="Wwt-14-2qI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-jz-Ph8" userLabel="Video View 2" customClass="VideoView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="235" width="414" height="232.66666666666663"/>
+                                <rect key="frame" x="284.5" y="0.0" width="283.5" height="159.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cwZ-jz-Ph8" secondAttribute="height" multiplier="16:9" id="rIv-BH-Y2Y"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3R0-ex-fc3" userLabel="Common Control">
-                                <rect key="frame" x="0.0" y="469.66666666666674" width="414" height="266.33333333333326"/>
+                                <rect key="frame" x="0.0" y="161.5" width="568" height="158.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56V-6z-R3W" userLabel="Play">
-                                        <rect key="frame" x="177" y="30" width="60" height="60"/>
+                                        <rect key="frame" x="254" y="30" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="1hM-p5-xz8"/>
                                             <constraint firstAttribute="width" secondItem="56V-6z-R3W" secondAttribute="height" multiplier="1:1" id="o5j-D8-YkP"/>
@@ -136,7 +136,7 @@
             <objects>
                 <viewController storyboardIdentifier="VideoSearchViewController" id="H53-X1-OKZ" customClass="VideoSearchViewController" customModule="TTMultiYoutubePlayers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KsM-eI-I6F">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebc-BL-JcM">
@@ -151,7 +151,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="バイク、音楽など" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKh-cS-2ce">
-                                <rect key="frame" x="60" y="5" width="346" height="44"/>
+                                <rect key="frame" x="60" y="5" width="500" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ElE-wD-mtw"/>
                                 </constraints>
@@ -162,34 +162,40 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LeE-CU-BDJ">
-                                <rect key="frame" x="0.0" y="57" width="414" height="679"/>
+                                <rect key="frame" x="0.0" y="57" width="568" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoSearchTableViewCell" rowHeight="240" id="EHT-Ij-lT5" customClass="VideoSearchTableViewCell" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="240"/>
+                                        <rect key="frame" x="0.0" y="28" width="568" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EHT-Ij-lT5" id="QGH-PW-lWJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="240"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kPD-zv-yHl">
-                                                    <rect key="frame" x="20" y="11" width="374" height="187"/>
+                                                    <rect key="frame" x="204" y="11" width="160" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="kPD-zv-yHl" secondAttribute="height" multiplier="16:8" id="dBY-Ve-O2W"/>
+                                                        <constraint firstAttribute="height" constant="80" id="uQE-ce-BlD"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="dBY-Ve-O2W"/>
+                                                            <exclude reference="uQE-ce-BlD"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=compact-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="dBY-Ve-O2W"/>
+                                                            <include reference="uQE-ce-BlD"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=compact-widthClass=regular">
+                                                        <mask key="constraints">
+                                                            <include reference="uQE-ce-BlD"/>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4E-X0-wCZ">
-                                                    <rect key="frame" x="20" y="203" width="374" height="32"/>
+                                                    <rect key="frame" x="30" y="96" width="508" height="139"/>
                                                     <string key="text">label
 aaa</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -198,14 +204,27 @@ aaa</string>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="r4E-X0-wCZ" firstAttribute="leading" secondItem="kPD-zv-yHl" secondAttribute="leading" id="0JM-0t-0FN"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kPD-zv-yHl" secondAttribute="trailing" id="68a-jr-tlF"/>
                                                 <constraint firstItem="kPD-zv-yHl" firstAttribute="top" secondItem="QGH-PW-lWJ" secondAttribute="topMargin" id="FEc-98-CkW"/>
+                                                <constraint firstItem="r4E-X0-wCZ" firstAttribute="leading" secondItem="QGH-PW-lWJ" secondAttribute="leading" constant="30" id="HUg-K2-9sL"/>
                                                 <constraint firstItem="kPD-zv-yHl" firstAttribute="leading" secondItem="QGH-PW-lWJ" secondAttribute="leadingMargin" id="IFA-wJ-5fr"/>
                                                 <constraint firstItem="r4E-X0-wCZ" firstAttribute="top" secondItem="kPD-zv-yHl" secondAttribute="bottom" constant="5" id="Ogn-lf-7W4"/>
-                                                <constraint firstItem="r4E-X0-wCZ" firstAttribute="trailing" secondItem="kPD-zv-yHl" secondAttribute="trailing" id="mmP-Bs-cmR"/>
+                                                <constraint firstAttribute="trailing" secondItem="r4E-X0-wCZ" secondAttribute="trailing" constant="30" id="ixR-t9-HZo"/>
                                                 <constraint firstAttribute="bottom" secondItem="r4E-X0-wCZ" secondAttribute="bottom" constant="5" id="oUS-s6-c93"/>
+                                                <constraint firstItem="kPD-zv-yHl" firstAttribute="centerX" secondItem="QGH-PW-lWJ" secondAttribute="centerX" id="vdT-q8-EtT"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="68a-jr-tlF"/>
+                                                    <exclude reference="IFA-wJ-5fr"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="68a-jr-tlF"/>
+                                                    <include reference="IFA-wJ-5fr"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="kPD-zv-yHl" id="NFN-go-ks6"/>
