@@ -88,9 +88,11 @@ class VideoView: UIView {
         self.delegate?.didChangedSeekbarValue(sender)
     }
     @IBAction func seekbarTouchUp(_ sender: UISlider) {
+        addAutoHideTimer()
         self.delegate?.didTouchUpSeekbar(sender)
     }
     @IBAction func seekbarTouchDown(_ sender: UISlider) {
+        removeAutoHideTimer()
         self.delegate?.didTouchDownSeekbar(sender)
     }
 
@@ -192,13 +194,17 @@ extension VideoView {
 
     private func addAutoHideTimer() {
         // remove if it exists
-        Utility.removeTimer(&autoHideTimer)
+        removeAutoHideTimer()
 
         autoHideTimer = Timer.scheduledTimer(timeInterval: 2.5,
                                              target: self,
                                              selector: #selector(autoHideTimerAction(timer:)),
                                              userInfo: nil,
                                              repeats: false)
+    }
+
+    private func removeAutoHideTimer() {
+        Utility.removeTimer(&autoHideTimer)
     }
 
     @objc private func autoHideTimerAction(timer: Timer) {
