@@ -43,6 +43,56 @@ final class VideoPlayViewController: UIViewController {
         }
     }
 
+    @IBAction func play1ButtonTapped(_ sender: UIButton) {
+        videoPlayer1.didTapPlayButton(sender)
+    }
+    @IBAction func play2ButtonTapped(_ sender: UIButton) {
+        videoPlayer2.didTapPlayButton(sender)
+    }
+    @IBAction func oneFrameForward1ButtonTapped(_ sender: UIButton) {
+        videoPlayer1.didTapOneFrameForwardButton(sender)
+    }
+    @IBAction func oneFrameRewind1ButtonTapped(_ sender: UIButton) {
+        videoPlayer1.didTapOneFrameRewindButton(sender)
+    }
+    @IBAction func oneFrameForward2ButtonTapped(_ sender: UIButton) {
+        videoPlayer2.didTapOneFrameForwardButton(sender)
+    }
+    @IBAction func oneFrameRewind2ButtonTapped(_ sender: UIButton) {
+        videoPlayer2.didTapOneFrameRewindButton(sender)
+    }
+    @IBAction func mute1ButtonTapped(_ sender: UIButton) {
+        videoPlayer1.didTapMuteButton(sender)
+    }
+    @IBAction func mute2ButtonTapped(_ sender: UIButton) {
+        videoPlayer2.didTapMuteButton(sender)
+    }
+
+    @IBAction func search1ButtonTapped(_ sender: UIButton) {
+        videoView1.videoSourceButtonTapped(sender)
+    }
+    @IBAction func search2ButtonTapped(_ sender: UIButton) {
+        videoView2.videoSourceButtonTapped(sender)
+    }
+    @IBAction func slider1TouchUp(_ sender: UISlider) {
+        videoView1.seekbarTouchUp(sender)
+    }
+    @IBAction func slider1TouchDown(_ sender: UISlider) {
+        videoView1.seekbarTouchDown(sender)
+    }
+    @IBAction func slider1ValueChanged(_ sender: UISlider) {
+        videoView1.seekbarValueChanged(sender)
+    }
+    @IBAction func slider2TouchUp(_ sender: UISlider) {
+        videoView2.seekbarTouchUp(sender)
+    }
+    @IBAction func slider2TouchDown(_ sender: UISlider) {
+        videoView2.seekbarTouchDown(sender)
+    }
+    @IBAction func slider2ValueChanged(_ sender: UISlider) {
+        videoView2.seekbarValueChanged(sender)
+    }
+
     @objc private func handleNavigation(_ notification: Notification) {
         let videoSearchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideoSearchViewController") as! VideoSearchViewController
         videoSearchVC.delegate = self
