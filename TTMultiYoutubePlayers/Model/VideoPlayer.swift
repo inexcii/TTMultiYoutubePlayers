@@ -113,11 +113,12 @@ class VideoPlayer {
         labelCurrentTime.text = seekTime.toDisplay()
     }
     func handleSeekbarTouchup(_ seekbar: UISlider) {
-        isSeekBarBeingTouched = false
-
         guard let duration = player.currentItem?.duration else { return }
         let seekTime = getSeekTime(seekbar.value, by: duration)
-        player.seek(to: seekTime, completionHandler: { (_) in })
+
+        player.seek(to: seekTime, completionHandler: { (_) in
+            self.isSeekBarBeingTouched = false
+        })
     }
     func handleSeekbarTouchDown(_ seekbar: UISlider) {
         isSeekBarBeingTouched = true
