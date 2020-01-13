@@ -32,6 +32,7 @@ class VideoView: UIView {
     @IBOutlet private(set) weak var controlPanel: UIView!
 
     @IBOutlet private weak var paintView: PaintView!
+    @IBOutlet private weak var undoButton: UIButton!
     @IBOutlet private weak var buttonMute: UIButton!
 
     @IBOutlet private weak var labelAngle: UILabel!
@@ -67,6 +68,7 @@ class VideoView: UIView {
         buttonPlay.setBackgroundImage(R.image.play(), for: .normal)
         buttonMute.setBackgroundImage(R.image.unmute(), for: .normal)
         labelAngle.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
+        undoButton.isHidden = true
 
 //        initTapGestures()
 //        playerView.addGestureRecognizer(singleTapGesture)
@@ -160,6 +162,11 @@ extension VideoView: PaintViewDelegate {
 
     func didGenerateLineAngle(angle: Double, view: PaintView) {
         labelAngle.text = String(angle)
+
+        // display undo button when line is drawn
+        if undoButton.isHidden {
+            undoButton.isHidden = false
+        }
     }
 
 }

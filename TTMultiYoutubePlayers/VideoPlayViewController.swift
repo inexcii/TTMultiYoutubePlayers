@@ -18,11 +18,30 @@ final class VideoPlayViewController: UIViewController {
     @IBOutlet weak var currentTime2Label: UILabel!
     @IBOutlet weak var duration2Label: UILabel!
     @IBOutlet weak var seekBar2: UISlider!
+    @IBOutlet weak var play2Button: UIButton!
+    @IBOutlet weak var rewind2Button: UIButton!
+    @IBOutlet weak var forward2Button: UIButton!
 
     @IBOutlet private weak var commonPlayButton: UIButton!
 
     var videoPlayer1: VideoPlayer!
     var videoPlayer2: VideoPlayer!
+
+    private var isSyncEnabled: Bool = false {
+        didSet {
+            play2Button.isEnabled = !isSyncEnabled
+            rewind2Button.isEnabled = !isSyncEnabled
+            forward2Button.isEnabled = !isSyncEnabled
+            seekBar2.isEnabled = !isSyncEnabled
+
+            if isSyncEnabled {
+                // sync Play2 button with Play1 button's status
+                if (videoPlayer1.isPlaying != videoPlayer2.isPlaying) {
+                    videoPlayer2.handlePlayPause(play2Button)
+                }
+            }
+        }
+    }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -59,15 +78,24 @@ final class VideoPlayViewController: UIViewController {
 
     @IBAction func play1ButtonTapped(_ sender: UIButton) {
         videoPlayer1.handlePlayPause(sender)
+        if isSyncEnabled {
+            videoPlayer2.handlePlayPause(play2Button)
+        }
     }
     @IBAction func play2ButtonTapped(_ sender: UIButton) {
         videoPlayer2.handlePlayPause(sender)
     }
     @IBAction func oneFrameForward1ButtonTapped(_ sender: UIButton) {
         videoPlayer1.handleOneFrameSeek(.fastForward)
+        if isSyncEnabled {
+            videoPlayer2.handleOneFrameSeek(.fastForward)
+        }
     }
     @IBAction func oneFrameRewind1ButtonTapped(_ sender: UIButton) {
         videoPlayer1.handleOneFrameSeek(.rewind)
+        if isSyncEnabled {
+            videoPlayer2.handleOneFrameSeek(.rewind)
+        }
     }
     @IBAction func oneFrameForward2ButtonTapped(_ sender: UIButton) {
         videoPlayer2.handleOneFrameSeek(.fastForward)
@@ -83,12 +111,21 @@ final class VideoPlayViewController: UIViewController {
     }
     @IBAction func slider1TouchUp(_ sender: UISlider) {
         videoPlayer1.handleSeekbarTouchup(sender)
+        if isSyncEnabled {
+            videoPlayer2.handleSeekbarTouchup(sender)
+        }
     }
     @IBAction func slider1TouchDown(_ sender: UISlider) {
         videoPlayer1.handleSeekbarTouchDown(sender)
+        if isSyncEnabled {
+            videoPlayer2.handleSeekbarTouchDown(sender)
+        }
     }
     @IBAction func slider1ValueChanged(_ sender: UISlider) {
         videoPlayer1.handleSeekbarValueChanged(sender)
+        if isSyncEnabled {
+            videoPlayer2.handleSeekbarValueChanged(sender)
+        }
     }
     @IBAction func slider2TouchUp(_ sender: UISlider) {
         videoPlayer2.handleSeekbarTouchup(sender)
@@ -105,6 +142,9 @@ final class VideoPlayViewController: UIViewController {
     }
     @IBAction func search2ButtonTapped(_ sender: UIButton) {
         videoView2.videoSourceButtonTapped(sender)
+    }
+    @IBAction func syncSwitchValueChanged(_ sender: UISwitch) {
+        isSyncEnabled = sender.isOn
     }
 
     @objc private func handleNavigation(_ notification: Notification) {
