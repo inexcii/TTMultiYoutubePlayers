@@ -84,7 +84,7 @@
                                             <constraint firstAttribute="width" secondItem="Upa-Eo-jDQ" secondAttribute="height" multiplier="1:1" id="BaK-qm-oah"/>
                                             <constraint firstAttribute="width" constant="44" id="MFZ-Hz-8uq"/>
                                         </constraints>
-                                        <state key="normal" title="&lt;F"/>
+                                        <state key="normal" backgroundImage="rewind"/>
                                         <connections>
                                             <action selector="oneFrameRewind1ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="eDr-Vi-GGp"/>
                                         </connections>
@@ -106,7 +106,7 @@
                                             <constraint firstAttribute="width" secondItem="BlW-04-Qws" secondAttribute="height" multiplier="1:1" id="jpP-zN-5za"/>
                                             <constraint firstAttribute="width" constant="44" id="vVu-3q-edW"/>
                                         </constraints>
-                                        <state key="normal" title="F&gt;"/>
+                                        <state key="normal" backgroundImage="forward"/>
                                         <connections>
                                             <action selector="oneFrameForward1ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="gvl-0p-Znb"/>
                                         </connections>
@@ -163,7 +163,7 @@
                                             <constraint firstAttribute="width" constant="44" id="7wX-cz-c4h"/>
                                             <constraint firstAttribute="width" secondItem="ku3-fo-NXU" secondAttribute="height" multiplier="1:1" id="pyO-tM-a8J"/>
                                         </constraints>
-                                        <state key="normal" title="&lt;F"/>
+                                        <state key="normal" backgroundImage="rewind"/>
                                         <connections>
                                             <action selector="oneFrameRewind2ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="7q9-yP-N3A"/>
                                         </connections>
@@ -185,7 +185,7 @@
                                             <constraint firstAttribute="width" constant="44" id="bWj-3G-ed8"/>
                                             <constraint firstAttribute="width" secondItem="2e3-By-6It" secondAttribute="height" multiplier="1:1" id="eyM-oV-lyv"/>
                                         </constraints>
-                                        <state key="normal" title="F&gt;"/>
+                                        <state key="normal" backgroundImage="forward"/>
                                         <connections>
                                             <action selector="oneFrameForward2ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="oD8-VF-QHp"/>
                                         </connections>
@@ -539,7 +539,9 @@ aaa</string>
         </scene>
     </scenes>
     <resources>
+        <image name="forward" width="60" height="60"/>
         <image name="play" width="60" height="60"/>
+        <image name="rewind" width="60" height="60"/>
         <image name="search" width="44" height="44"/>
         <image name="unmute" width="44" height="44"/>
     </resources>
