@@ -20,7 +20,7 @@
                 <outlet property="labelDuration" destination="lT2-uh-ckQ" id="kF8-Yi-sDm"/>
                 <outlet property="paintView" destination="xkJ-BN-oC8" id="BQK-Q6-cdr"/>
                 <outlet property="playerView" destination="fhE-W2-CfF" id="bX8-qj-JIY"/>
-                <outlet property="seekbar" destination="7K0-JQ-2h9" id="pYX-iw-DRC"/>
+                <outlet property="undoButton" destination="8wk-of-47g" id="uHk-XR-8sq"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -72,14 +72,27 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wk-of-47g" userLabel="Undo">
+                                    <rect key="frame" x="365" y="5" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="8wk-of-47g" secondAttribute="height" multiplier="1:1" id="YhT-gN-eoe"/>
+                                        <constraint firstAttribute="width" constant="44" id="bzt-8K-9ln"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="undo"/>
+                                    <connections>
+                                        <action selector="undoPaintButtonTapped:" destination="-1" eventType="touchUpInside" id="AYP-3i-9dE"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Bpc-M8-U9T" firstAttribute="top" secondItem="xkJ-BN-oC8" secondAttribute="top" constant="5" id="CvA-Hg-IiE"/>
+                                <constraint firstAttribute="trailing" secondItem="8wk-of-47g" secondAttribute="trailing" constant="5" id="Rm8-G8-hj2"/>
+                                <constraint firstItem="8wk-of-47g" firstAttribute="top" secondItem="xkJ-BN-oC8" secondAttribute="top" constant="5" id="ep0-6F-tlH"/>
                                 <constraint firstItem="Bpc-M8-U9T" firstAttribute="leading" secondItem="xkJ-BN-oC8" secondAttribute="leading" constant="5" id="vsz-zg-YE5"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pD9-rA-NF0" userLabel="Control Panel">
+                        <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pD9-rA-NF0" userLabel="Control Panel">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                             <subviews>
                                 <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-ge-w9T" userLabel="Background">
@@ -133,12 +146,6 @@
                                 </button>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7K0-JQ-2h9" userLabel="Seek Bar">
                                     <rect key="frame" x="3" y="203" width="408" height="31"/>
-                                    <connections>
-                                        <action selector="seekbarTouchDown:" destination="-1" eventType="touchDown" id="Ybo-Py-MLV"/>
-                                        <action selector="seekbarTouchUp:" destination="-1" eventType="touchUpOutside" id="Lj9-YE-X4x"/>
-                                        <action selector="seekbarTouchUp:" destination="-1" eventType="touchUpInside" id="Yha-PQ-LRX"/>
-                                        <action selector="seekbarValueChanged:" destination="-1" eventType="valueChanged" id="obe-Bk-bji"/>
-                                    </connections>
                                 </slider>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8OS-Ek-W5V" userLabel="Current Time">
                                     <rect key="frame" x="5" y="185" width="75.5" height="16"/>
