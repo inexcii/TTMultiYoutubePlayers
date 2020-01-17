@@ -48,6 +48,7 @@ class VideoPlayer {
     }
 
     var player = AVQueuePlayer()
+    var looper: AVPlayerLooper?
     var timeObserverToken: Any?
     
     // Status Control
@@ -159,6 +160,7 @@ class VideoPlayer {
             // setup AVPlayer
             let item = AVPlayerItem(asset: asset)
             self.player.insert(item, after: nil)
+            self.looper = AVPlayerLooper(player: self.player, templateItem: item)
             self.addPeriodicTimeObserver()
         }
     }
