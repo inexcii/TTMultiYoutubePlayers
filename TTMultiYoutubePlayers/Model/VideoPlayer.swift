@@ -32,11 +32,21 @@ class VideoPlayer {
     var labelDuration: UILabel!
     var seekBar: UISlider!
 
-    var entity: YoutubeEntity? {
+    var videoId: String? {
         didSet {
-            resetPlayer()
+            if let videoId = videoId {
+                setupPlayer(by: videoId)
+            }
         }
     }
+    var videoUrl: URL? {
+        didSet {
+            if let url = videoUrl {
+                setupPlayer(by: url)
+            }
+        }
+    }
+
     var player = AVQueuePlayer()
     var timeObserverToken: Any?
     
@@ -128,18 +138,28 @@ class VideoPlayer {
     
     private func setupPlayer(by videoId: String) {
         let transfer = YoutubeStreamUrlTransfer(videoId: videoId)
-        transfer.transfer { (url) in
-            if let url = url {
-                // setup AVAsset
-                let asset = AVURLAsset(url: url)
-                self.videoFrameRate = asset.frameRate
-                self.loadValuesInAsset(asset) {
-                    // setup AVPlayer
-                    let item = AVPlayerItem(asset: asset)
-                    self.player.insert(item, after: nil)
-                    self.addPeriodicTimeObserver()
-                }
+        transfer.transfer { [weak self] url in
+            guard let url = url else {
+                print("warning, url not exists")
+                return
             }
+            guard let self = self else { return }
+            self.setupPlayer(by: url)
+        }
+    }
+
+    private func setupPlayer(by url: URL) {
+
+        resetPlayer()
+
+        // setup AVAsset
+        let asset = AVURLAsset(url: url)
+        self.videoFrameRate = asset.frameRate
+        self.loadValuesInAsset(asset) {
+            // setup AVPlayer
+            let item = AVPlayerItem(asset: asset)
+            self.player.insert(item, after: nil)
+            self.addPeriodicTimeObserver()
         }
     }
 
@@ -149,11 +169,6 @@ class VideoPlayer {
         if let token = timeObserverToken {
             player.removeTimeObserver(token)
             timeObserverToken = nil
-        }
-
-        // set new things
-        if let videoId = entity?.videoId {
-            setupPlayer(by: videoId)
         }
     }
     

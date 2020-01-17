@@ -27,6 +27,7 @@ final class VideoPlayViewController: UIViewController {
     var videoPlayer1: VideoPlayer!
     var videoPlayer2: VideoPlayer!
 
+    private var picker: VideoPicker?
     private var isSyncEnabled: Bool = false {
         didSet {
             play2Button.isEnabled = !isSyncEnabled
@@ -148,12 +149,31 @@ final class VideoPlayViewController: UIViewController {
     }
 
     @objc private func handleNavigation(_ notification: Notification) {
-        let videoSearchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideoSearchViewController") as! VideoSearchViewController
-        videoSearchVC.delegate = self
-        videoSearchVC.source = notification.object
-        self.present(videoSearchVC, animated: true) {
-            DLog("finish presenting search VC")
+
+        let optionMenu = UIAlertController(title: nil, message: "Import Video From", preferredStyle: .actionSheet)
+        let youtubeSearch = UIAlertAction(title: "Youtube", style: .default) { action in
+            let videoSearchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideoSearchViewController") as! VideoSearchViewController
+            videoSearchVC.delegate = self
+            videoSearchVC.source = notification.object
+            self.present(videoSearchVC, animated: true) {
+                DLog("finish presenting search VC")
+            }
         }
+        let photoAlbum = UIAlertAction(title: "Photo Album", style: .default) { action in
+            if let picker = VideoPicker(src: .photoLibrary) {
+                picker.delegate = self
+                picker.source = notification.object
+                self.present(picker.controller, animated: true) {
+
+                }
+                self.picker = picker
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        optionMenu.addAction(youtubeSearch)
+        optionMenu.addAction(photoAlbum)
+        optionMenu.addAction(cancel)
+        self.present(optionMenu, animated: true, completion: nil)
     }
 }
 
@@ -164,9 +184,30 @@ extension VideoPlayViewController: VideoSearchViewControllerDelegate {
     func didChooseVideo(_ entity: YoutubeEntity, source: Any?) {
         guard let source = source as? VideoView else { return }
         if source == videoView1 {
-            videoPlayer1.entity = entity
+            videoPlayer1.videoId = entity.videoId
         } else if source == videoView2 {
-            videoPlayer2.entity = entity
+            videoPlayer2.videoId = entity.videoId
         }
+    }
+}
+
+// MARK: - VideoPickerDelegate
+
+extension VideoPlayViewController: VideoPickerDelegate {
+    func didRetrieveVideoUrl(_ controller: UIImagePickerController, _ url: URL, _ source: Any?) {
+        guard let source = source as? VideoView else { return }
+        if source == videoView1 {
+            videoPlayer1.videoUrl = url
+        } else if source == videoView2 {
+            videoPlayer2.videoUrl = url
+        }
+        controller.dismiss(animated: true) {
+            print("finished to dismiss imagePickerController")
+            self.picker = nil
+        }
+    }
+
+    func didCancelPicking(_ controller: UIImagePickerController) {
+        print("cancel picking")
     }
 }

@@ -23,6 +23,7 @@
 		0048DAD0234B1F8200875758 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DACF234B1F8200875758 /* AVPlayerView.swift */; };
 		005C0BBB2388F89D0044E02F /* YoutubeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C0BBA2388F89D0044E02F /* YoutubeEntity.swift */; };
 		005C6EC1235B08AF002A165B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C6EC0235B08AE002A165B /* Utility.swift */; };
+		005E17B423CDF50800711D65 /* VideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E17B323CDF50800711D65 /* VideoPicker.swift */; };
 		0061E161234D3EF400740069 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061E160234D3EF400740069 /* Extensions.swift */; };
 		0061E164234D483200740069 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061E163234D483200740069 /* VideoPlayer.swift */; };
 		006CBC5523560928009D781F /* PaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006CBC5423560928009D781F /* PaintView.swift */; };
@@ -79,6 +80,7 @@
 		0048DACF234B1F8200875758 /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
 		005C0BBA2388F89D0044E02F /* YoutubeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeEntity.swift; sourceTree = "<group>"; };
 		005C6EC0235B08AE002A165B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		005E17B323CDF50800711D65 /* VideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPicker.swift; sourceTree = "<group>"; };
 		0061E160234D3EF400740069 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0061E163234D483200740069 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		006CBC5423560928009D781F /* PaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				0048DAC8234AABD300875758 /* VideoPlaylistFactory.swift */,
 				0048DACC234ADEC600875758 /* YoutubeStreamUrlTransfer.swift */,
+				005E17B323CDF50800711D65 /* VideoPicker.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0048DAC6234AAB6F00875758 /* VideoSearchViewController.swift in Sources */,
+				005E17B423CDF50800711D65 /* VideoPicker.swift in Sources */,
 				00BF2DCA238F36CF00D2FA94 /* VideoPlayViewController.swift in Sources */,
 				0048DACD234ADEC600875758 /* YoutubeStreamUrlTransfer.swift in Sources */,
 				0048DAC9234AABD300875758 /* VideoPlaylistFactory.swift in Sources */,
