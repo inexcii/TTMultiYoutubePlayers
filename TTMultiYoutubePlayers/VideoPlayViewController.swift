@@ -15,6 +15,8 @@ final class VideoPlayViewController: UIViewController {
     @IBOutlet weak var currentTime1Label: UILabel!
     @IBOutlet weak var duration1Label: UILabel!
     @IBOutlet weak var seekBar1: UISlider!
+    @IBOutlet weak var rewind1Button: UIButton!
+    @IBOutlet weak var forward1Button: UIButton!
     @IBOutlet weak var currentTime2Label: UILabel!
     @IBOutlet weak var duration2Label: UILabel!
     @IBOutlet weak var seekBar2: UISlider!
@@ -44,6 +46,8 @@ final class VideoPlayViewController: UIViewController {
         }
     }
 
+    private var longPressTimer: Timer?
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -64,6 +68,15 @@ final class VideoPlayViewController: UIViewController {
                                    currentTimeLabel: currentTime2Label,
                                    durationLabel: duration2Label,
                                    seekBar: seekBar2)
+
+        let forward1LongPress = UILongPressGestureRecognizer(target: self, action: #selector(forward1LongPress(_:)))
+        forward1Button.addGestureRecognizer(forward1LongPress)
+        let forward2LongPress = UILongPressGestureRecognizer(target: self, action: #selector(forward2LongPress(_:)))
+        forward2Button.addGestureRecognizer(forward2LongPress)
+        let rewind1LongPress = UILongPressGestureRecognizer(target: self, action: #selector(rewind1LongPress(_:)))
+        rewind1Button.addGestureRecognizer(rewind1LongPress)
+        let rewind2LongPress = UILongPressGestureRecognizer(target: self, action: #selector(rewind2LongPress(_:)))
+        rewind2Button.addGestureRecognizer(rewind2LongPress)
     }
 
     @IBAction func commonPlayButtonTapped(_ sender: Any) {
@@ -208,5 +221,70 @@ extension VideoPlayViewController: VideoPickerDelegate {
         controller.dismiss(animated: true) {
             self.picker = nil
         }
+    }
+}
+
+// MARK: - 1-Frame buttons Long-press Gesture
+
+extension VideoPlayViewController {
+
+    @objc private func forward1LongPress(_ sender: UILongPressGestureRecognizer? = nil) {
+        guard let longPress = sender else { return }
+
+        switch longPress.state {
+        case .began:
+            initLongPressGestureTimer { _ in
+                self.oneFrameForward1ButtonTapped(UIButton())
+            }
+        case .ended:
+            longPressTimer?.invalidate()
+        default: break
+        }
+    }
+
+    @objc private func forward2LongPress(_ sender: UILongPressGestureRecognizer? = nil) {
+        guard let longPress = sender else { return }
+
+        switch longPress.state {
+        case .began:
+            initLongPressGestureTimer { _ in
+                self.oneFrameForward2ButtonTapped(UIButton())
+            }
+        case .ended:
+            longPressTimer?.invalidate()
+        default: break
+        }
+    }
+
+    @objc private func rewind1LongPress(_ sender: UILongPressGestureRecognizer? = nil) {
+        guard let longPress = sender else { return }
+
+        switch longPress.state {
+        case .began:
+            initLongPressGestureTimer { _ in
+                self.oneFrameRewind1ButtonTapped(UIButton())
+            }
+        case .ended:
+            longPressTimer?.invalidate()
+        default: break
+        }
+    }
+
+    @objc private func rewind2LongPress(_ sender: UILongPressGestureRecognizer? = nil) {
+        guard let longPress = sender else { return }
+
+        switch longPress.state {
+        case .began:
+            initLongPressGestureTimer { _ in
+                self.oneFrameRewind2ButtonTapped(UIButton())
+            }
+        case .ended:
+            longPressTimer?.invalidate()
+        default: break
+        }
+    }
+
+    private func initLongPressGestureTimer(_ action: @escaping ((Timer) -> Void)) {
+        self.longPressTimer = Timer.scheduledTimer(withTimeInterval: 0.175, repeats: true, block: action)
     }
 }

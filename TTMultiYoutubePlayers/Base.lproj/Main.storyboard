@@ -403,8 +403,10 @@
                         <outlet property="currentTime2Label" destination="Ymh-Px-RYl" id="wsr-jB-heO"/>
                         <outlet property="duration1Label" destination="NT2-yh-jck" id="M84-G0-Nhf"/>
                         <outlet property="duration2Label" destination="MZL-KB-Kr6" id="usR-3X-XiD"/>
+                        <outlet property="forward1Button" destination="BlW-04-Qws" id="IG6-3c-kzC"/>
                         <outlet property="forward2Button" destination="2e3-By-6It" id="Ny9-VF-BQs"/>
                         <outlet property="play2Button" destination="lgp-hr-FXz" id="J9v-Lq-8cE"/>
+                        <outlet property="rewind1Button" destination="Upa-Eo-jDQ" id="pM6-R3-sGz"/>
                         <outlet property="rewind2Button" destination="ku3-fo-NXU" id="Rwl-aS-t8X"/>
                         <outlet property="seekBar1" destination="6X3-Gf-Jun" id="xMG-J6-GQB"/>
                         <outlet property="seekBar2" destination="Eqs-p7-WR0" id="svN-80-MCd"/>
