@@ -156,7 +156,6 @@ final class VideoPlayViewController: UIViewController {
             videoSearchVC.delegate = self
             videoSearchVC.source = notification.object
             self.present(videoSearchVC, animated: true) {
-                DLog("finish presenting search VC")
             }
         }
         let photoAlbum = UIAlertAction(title: "Photo Album", style: .default) { action in
@@ -164,7 +163,6 @@ final class VideoPlayViewController: UIViewController {
                 picker.delegate = self
                 picker.source = notification.object
                 self.present(picker.controller, animated: true) {
-
                 }
                 self.picker = picker
             }
@@ -202,12 +200,13 @@ extension VideoPlayViewController: VideoPickerDelegate {
             videoPlayer2.videoUrl = url
         }
         controller.dismiss(animated: true) {
-            print("finished to dismiss imagePickerController")
             self.picker = nil
         }
     }
 
     func didCancelPicking(_ controller: UIImagePickerController) {
-        print("cancel picking")
+        controller.dismiss(animated: true) {
+            self.picker = nil
+        }
     }
 }
