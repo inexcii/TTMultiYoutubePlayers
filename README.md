@@ -29,11 +29,14 @@ Major:
 - [X] user can seek video at a rate as low as 1 frame
 - [X] support dark-mode
 - [X] user can access to the watched-video history, and quickly replay it from there
-- [X] a single play/pause button to control both players
+- [X] a sync button to control to play/pause, 1-frame fast forward, 1-frame rewind buttons for both players
+- [X] support to choose video from Photo Album
+- [X] video is played in auto-loop mode
+- [X] when in landscape mode, app should also support two video players side-by-side
 ---
-v2.0.0
+v1.1.0
 - [ ] user can input a time value and video should be played from that point
-- [ ] when in landscape mode, app should also support two video players side-by-side
+- [ ] long-press 1-frame fast forward/rewind button can skip several frames as the time of pressing.
 
 Minor:
 - [ ] User can pick a color to draw lines on the screen. Also, the lines drawn by user before should be shown again once the same video is selected later.
