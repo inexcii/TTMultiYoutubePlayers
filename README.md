@@ -33,7 +33,7 @@ Major:
 - [X] support to choose video from Photo Album
 - [X] video is played in auto-loop mode
 - [X] when in landscape mode, app should also support two video players side-by-side
-- [ ] long-press 1-frame fast forward/rewind button can skip several frames as the time of pressing.
+- [X] long-press 1-frame fast forward/rewind button can skip several frames as the time of pressing.
 ---
 v1.1.0
 - [ ] user can input a time value and video should be played from that point
