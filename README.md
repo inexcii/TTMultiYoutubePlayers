@@ -37,6 +37,7 @@ Major:
 ---
 v1.1.0
 - [ ] user can input a time value and video should be played from that point
+- [ ] support both angles with horizontal and verticle(currently only horizontal)
 
 Minor:
 - [ ] User can pick a color to draw lines on the screen. Also, the lines drawn by user before should be shown again once the same video is selected later.
