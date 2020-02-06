@@ -163,7 +163,7 @@ final class VideoPlayViewController: UIViewController {
 
     @objc private func handleNavigation(_ notification: Notification) {
 
-        let optionMenu = UIAlertController(title: nil, message: "Import Video From", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Search Video In", preferredStyle: .actionSheet)
         let youtubeSearch = UIAlertAction(title: "Youtube", style: .default) { action in
             let videoSearchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideoSearchViewController") as! VideoSearchViewController
             videoSearchVC.delegate = self
