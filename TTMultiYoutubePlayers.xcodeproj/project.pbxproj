@@ -59,7 +59,7 @@
 		0022DE8B236FAE4400479231 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		0022DE8E2370587300479231 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
 		003C69F723C0033100FD7C76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0048DA8E234A244300875758 /* TTMultiYoutubePlayers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTMultiYoutubePlayers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0048DA8E234A244300875758 /* 1F Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1F Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0048DA91234A244300875758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0048DA96234A244300875758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0048DA98234A244400875758 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		0048DA8F234A244300875758 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0048DA8E234A244300875758 /* TTMultiYoutubePlayers.app */,
+				0048DA8E234A244300875758 /* 1F Player.app */,
 				0048DAA2234A244400875758 /* TTMultiYoutubePlayersTests.xctest */,
 				0048DAAD234A244400875758 /* TTMultiYoutubePlayersUITests.xctest */,
 			);
@@ -277,7 +277,7 @@
 			);
 			name = TTMultiYoutubePlayers;
 			productName = TTMultiYoutubePlayers;
-			productReference = 0048DA8E234A244300875758 /* TTMultiYoutubePlayers.app */;
+			productReference = 0048DA8E234A244300875758 /* 1F Player.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0048DAA1234A244400875758 /* TTMultiYoutubePlayersTests */ = {
@@ -765,7 +765,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = work.zhouyuan.multiyoutube;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "1F Player";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -791,7 +791,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = work.zhouyuan.multiyoutube;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "1F Player";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
