@@ -11,7 +11,7 @@
         <!--Video Play View Controller-->
         <scene sceneID="STh-t6-wcY">
             <objects>
-                <viewController id="2Nh-hV-QnB" customClass="VideoPlayViewController" customModule="TTMultiYoutubePlayers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Nh-hV-QnB" customClass="VideoPlayViewController" customModule="_F_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nw0-qi-YCf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,14 +30,14 @@
                                     <constraint firstAttribute="width" secondItem="qKc-vC-qDE" secondAttribute="height" multiplier="16:9" id="pGz-Ce-Kff"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvs-pf-kCA" customClass="VideoView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvs-pf-kCA" customClass="VideoView" customModule="_F_Player" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="233"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Uvs-pf-kCA" secondAttribute="height" multiplier="16:9" id="Wwt-14-2qI"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-jz-Ph8" userLabel="Video View 2" customClass="VideoView" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-jz-Ph8" userLabel="Video View 2" customClass="VideoView" customModule="_F_Player" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="277.5" width="414" height="233"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -266,9 +266,9 @@
                                         <exclude reference="ggn-IB-46P"/>
                                         <exclude reference="rWW-s6-tb0"/>
                                         <exclude reference="SSn-Kl-sP1"/>
-                                        <exclude reference="pRI-I3-A4V"/>
                                         <exclude reference="ArU-9J-edr"/>
                                         <exclude reference="tKV-nU-SLo"/>
+                                        <exclude reference="pRI-I3-A4V"/>
                                         <exclude reference="3C3-O3-v0z"/>
                                         <exclude reference="F0c-ry-uMp"/>
                                         <exclude reference="Ka1-qS-HBL"/>
@@ -311,8 +311,8 @@
                                         <include reference="CX6-Kn-QC0"/>
                                         <include reference="ggn-IB-46P"/>
                                         <include reference="SSn-Kl-sP1"/>
-                                        <include reference="pRI-I3-A4V"/>
                                         <include reference="ArU-9J-edr"/>
+                                        <include reference="pRI-I3-A4V"/>
                                         <include reference="3C3-O3-v0z"/>
                                         <include reference="Ka1-qS-HBL"/>
                                         <include reference="YOW-eT-yx4"/>
@@ -421,7 +421,7 @@
         <!--Video Search View Controller-->
         <scene sceneID="tjF-WY-z1g">
             <objects>
-                <viewController storyboardIdentifier="VideoSearchViewController" id="H53-X1-OKZ" customClass="VideoSearchViewController" customModule="TTMultiYoutubePlayers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoSearchViewController" id="H53-X1-OKZ" customClass="VideoSearchViewController" customModule="_F_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KsM-eI-I6F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -452,7 +452,7 @@
                                 <rect key="frame" x="0.0" y="101" width="414" height="761"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoSearchTableViewCell" rowHeight="240" id="EHT-Ij-lT5" customClass="VideoSearchTableViewCell" customModule="TTMultiYoutubePlayers" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoSearchTableViewCell" rowHeight="240" id="EHT-Ij-lT5" customClass="VideoSearchTableViewCell" customModule="_F_Player" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EHT-Ij-lT5" id="QGH-PW-lWJ">
