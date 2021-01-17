@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,12 @@
 		00BF2DC4238C1BDA00D2FA94 /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BF2DC3238C1BDA00D2FA94 /* VideoView.xib */; };
 		00BF2DC8238C1C0C00D2FA94 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF2DC7238C1C0C00D2FA94 /* VideoView.swift */; };
 		00BF2DCA238F36CF00D2FA94 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF2DC9238F36CF00D2FA94 /* VideoPlayViewController.swift */; };
+		00E5D98325B4335400E44E77 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98225B4335400E44E77 /* RxSwift */; };
+		00E5D98725B4335400E44E77 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98625B4335400E44E77 /* RxRelay */; };
+		00E5D98925B4335400E44E77 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98825B4335400E44E77 /* RxCocoa */; };
+		00E5D98B25B4335400E44E77 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98A25B4335400E44E77 /* RxBlocking */; };
+		00E5D99125B433A600E44E77 /* XCDYouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D99025B433A600E44E77 /* XCDYouTubeKit */; };
+		00E5D99725B4344400E44E77 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D99625B4344400E44E77 /* Nuke */; };
 		8D61EB7F2EFBF13F64B4946A /* Pods_TTMultiYoutubePlayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085F2037CADE28FA54728E3 /* Pods_TTMultiYoutubePlayers.framework */; };
 		B21AA067CE8EC3DE8B5D8E0A /* Pods_TTMultiYoutubePlayersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E6F21FBC2965A3C136A07E /* Pods_TTMultiYoutubePlayersTests.framework */; };
 		F10C6288874CB691A8F4E1EA /* Pods_TTMultiYoutubePlayers_TTMultiYoutubePlayersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10799088535B90DD910F487 /* Pods_TTMultiYoutubePlayers_TTMultiYoutubePlayersUITests.framework */; };
@@ -53,11 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0022DE80236F929A00479231 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		0022DE84236F92A200479231 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		0022DE87236F92AB00479231 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
-		0022DE8B236FAE4400479231 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
-		0022DE8E2370587300479231 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
 		003C69F723C0033100FD7C76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0048DA8E234A244300875758 /* 1F Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1F Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0048DA91234A244300875758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +104,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E5D98325B4335400E44E77 /* RxSwift in Frameworks */,
+				00E5D98B25B4335400E44E77 /* RxBlocking in Frameworks */,
+				00E5D99125B433A600E44E77 /* XCDYouTubeKit in Frameworks */,
+				00E5D98925B4335400E44E77 /* RxCocoa in Frameworks */,
+				00E5D98725B4335400E44E77 /* RxRelay in Frameworks */,
 				8D61EB7F2EFBF13F64B4946A /* Pods_TTMultiYoutubePlayers.framework in Frameworks */,
+				00E5D99725B4344400E44E77 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,11 +237,6 @@
 		090BCFA59BCA23247D21578B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0022DE8E2370587300479231 /* XCDYouTubeKit.framework */,
-				0022DE8B236FAE4400479231 /* Nuke.framework */,
-				0022DE87236F92AB00479231 /* RxRelay.framework */,
-				0022DE84236F92A200479231 /* RxCocoa.framework */,
-				0022DE80236F929A00479231 /* RxSwift.framework */,
 				7085F2037CADE28FA54728E3 /* Pods_TTMultiYoutubePlayers.framework */,
 				A10799088535B90DD910F487 /* Pods_TTMultiYoutubePlayers_TTMultiYoutubePlayersUITests.framework */,
 				92E6F21FBC2965A3C136A07E /* Pods_TTMultiYoutubePlayersTests.framework */,
@@ -263,7 +265,6 @@
 			buildConfigurationList = 0048DAB6234A244400875758 /* Build configuration list for PBXNativeTarget "TTMultiYoutubePlayers" */;
 			buildPhases = (
 				1B56B6AEB78E9FF4275883D3 /* [CP] Check Pods Manifest.lock */,
-				0022DE9123706A8900479231 /* Carthage */,
 				0048DABF234A25CB00875758 /* R.swift */,
 				0048DA8A234A244300875758 /* Sources */,
 				0048DA8B234A244300875758 /* Frameworks */,
@@ -276,6 +277,14 @@
 			dependencies = (
 			);
 			name = TTMultiYoutubePlayers;
+			packageProductDependencies = (
+				00E5D98225B4335400E44E77 /* RxSwift */,
+				00E5D98625B4335400E44E77 /* RxRelay */,
+				00E5D98825B4335400E44E77 /* RxCocoa */,
+				00E5D98A25B4335400E44E77 /* RxBlocking */,
+				00E5D99025B433A600E44E77 /* XCDYouTubeKit */,
+				00E5D99625B4344400E44E77 /* Nuke */,
+			);
 			productName = TTMultiYoutubePlayers;
 			productReference = 0048DA8E234A244300875758 /* 1F Player.app */;
 			productType = "com.apple.product-type.application";
@@ -326,7 +335,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "GEN SHU";
 				TargetAttributes = {
 					0048DA8D234A244300875758 = {
@@ -351,6 +360,11 @@
 				Base,
 			);
 			mainGroup = 0048DA85234A244300875758;
+			packageReferences = (
+				00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				00E5D98F25B433A600E44E77 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */,
+				00E5D99525B4344400E44E77 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = 0048DA8F234A244300875758 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -392,26 +406,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0022DE9123706A8900479231 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"$(SRCROOT)/input.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = Carthage;
-			outputFileListPaths = (
-				"$(SRCROOT)/output.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
 		0048DABF234A25CB00875758 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -654,6 +648,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -715,6 +710,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -923,6 +919,66 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		00E5D98F25B433A600E44E77 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/0xced/XCDYouTubeKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.15.2;
+			};
+		};
+		00E5D99525B4344400E44E77 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00E5D98225B4335400E44E77 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		00E5D98625B4335400E44E77 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		00E5D98825B4335400E44E77 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		00E5D98A25B4335400E44E77 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		00E5D99025B433A600E44E77 /* XCDYouTubeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00E5D98F25B433A600E44E77 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */;
+			productName = XCDYouTubeKit;
+		};
+		00E5D99625B4344400E44E77 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00E5D99525B4344400E44E77 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0048DA86234A244300875758 /* Project object */;
 }

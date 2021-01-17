@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "6001489d22e5f41a4956c1b6cd4cf7cbe8f44dff",
+          "version": "8.4.1"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "package": "XCDYouTubeKit",
+        "repositoryURL": "https://github.com/0xced/XCDYouTubeKit.git",
+        "state": {
+          "branch": null,
+          "revision": "23f765941b36d6d28215ab81a37af1039d29138b",
+          "version": "2.15.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
