@@ -4,7 +4,7 @@ A project that shows multiple youtube players that is natively(no Webview) imple
 ### Environment
 * macOS 10.14(Mojave)~
 * Xcode 10.0~
-* iPhone with iOS 11.0~
+* iPhone with iOS 13.0~
 
 ### Build Step
 1. Clone the project.
