@@ -7,11 +7,11 @@ target 'TTMultiYoutubePlayers' do
 
   # Pods for TTMultiYoutubePlayers
 
-# change to use Carthage to manage these dependencies
-#  pod 'RxSwift', '~> 5'
-#  pod 'RxCocoa', '~> 5'
+# change to use Swift Package Manager to manage these dependencies
+#  pod 'RxSwift'
+#  pod 'RxCocoa'
 #  pod 'Nuke'
-#  pod 'XCDYouTubeKit', '~> 2.8'
+#  pod 'XCDYouTubeKit'
 
   pod 'R.swift'
   pod 'GoogleAPIClientForREST/YouTube'
