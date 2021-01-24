@@ -32,11 +32,9 @@ class VideoSearchViewController: UIViewController {
         super.viewDidLoad()
 
         // dark-mode対応
-        if #available(iOS 13, *) {
-            searchTextField.backgroundColor = UIColor.systemGray5
-            searchTextField.attributedPlaceholder = NSAttributedString(string: searchTextField.placeholder ?? "",
-                                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
-        }
+        searchTextField.backgroundColor = UIColor.systemGray5
+        searchTextField.attributedPlaceholder = NSAttributedString(string: searchTextField.placeholder ?? "",
+                                                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
 
         bindData()
         bindUI()
