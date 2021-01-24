@@ -1,7 +1,4 @@
 PODS:
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
-  - Fabric (1.10.2)
   - Firebase/Analytics (6.14.0):
     - Firebase/Core
   - Firebase/Core (6.14.0):
@@ -82,16 +79,12 @@ PODS:
   - R.swift.Library (5.3.0)
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
   - Firebase/Analytics
   - GoogleAPIClientForREST/YouTube
   - R.swift
 
 SPEC REPOS:
   trunk:
-    - Crashlytics
-    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -109,8 +102,6 @@ SPEC REPOS:
     - R.swift.Library
 
 SPEC CHECKSUMS:
-  Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
-  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   Firebase: 0219bb4782eb1406f1b9b0628a2e625484ce910d
   FirebaseAnalytics: f68b9f3f1241385129ae0a83b63627fc420c05e5
   FirebaseCore: 632e05cc5e1199d9147122c16d92305eb04c34bd
@@ -127,6 +118,6 @@ SPEC CHECKSUMS:
   R.swift: 56ec7e3aef34b9eee47a659e42462db2c1cc5ac3
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
 
-PODFILE CHECKSUM: 5f2d1adfe8410619da5db0efd59bcf1dd3f62da5
+PODFILE CHECKSUM: 03d7a4afbc7544fb697dce867d7c4d23021ec6b7
 
 COCOAPODS: 1.10.1

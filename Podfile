@@ -16,8 +16,6 @@ target 'TTMultiYoutubePlayers' do
   pod 'R.swift'
   pod 'GoogleAPIClientForREST/YouTube'
 
-  pod 'Fabric'
-  pod 'Crashlytics'
   pod 'Firebase/Analytics'
 
   target 'TTMultiYoutubePlayersTests' do

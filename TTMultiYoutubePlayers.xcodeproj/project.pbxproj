@@ -30,12 +30,12 @@
 		00BF2DC4238C1BDA00D2FA94 /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BF2DC3238C1BDA00D2FA94 /* VideoView.xib */; };
 		00BF2DC8238C1C0C00D2FA94 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF2DC7238C1C0C00D2FA94 /* VideoView.swift */; };
 		00BF2DCA238F36CF00D2FA94 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF2DC9238F36CF00D2FA94 /* VideoPlayViewController.swift */; };
-		00E5D98325B4335400E44E77 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98225B4335400E44E77 /* SwiftPackageProductDependency */; };
-		00E5D98725B4335400E44E77 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98625B4335400E44E77 /* SwiftPackageProductDependency */; };
-		00E5D98925B4335400E44E77 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98825B4335400E44E77 /* SwiftPackageProductDependency */; };
-		00E5D98B25B4335400E44E77 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98A25B4335400E44E77 /* SwiftPackageProductDependency */; };
-		00E5D99125B433A600E44E77 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D99025B433A600E44E77 /* SwiftPackageProductDependency */; };
-		00E5D99725B4344400E44E77 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D99625B4344400E44E77 /* SwiftPackageProductDependency */; };
+		00E5D98325B4335400E44E77 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98225B4335400E44E77 /* RxSwift */; };
+		00E5D98725B4335400E44E77 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98625B4335400E44E77 /* RxRelay */; };
+		00E5D98925B4335400E44E77 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98825B4335400E44E77 /* RxCocoa */; };
+		00E5D98B25B4335400E44E77 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98A25B4335400E44E77 /* RxBlocking */; };
+		00E5D99125B433A600E44E77 /* XCDYouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D99025B433A600E44E77 /* XCDYouTubeKit */; };
+		00E5D99725B4344400E44E77 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D99625B4344400E44E77 /* Nuke */; };
 		8D61EB7F2EFBF13F64B4946A /* Pods_TTMultiYoutubePlayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085F2037CADE28FA54728E3 /* Pods_TTMultiYoutubePlayers.framework */; };
 		B21AA067CE8EC3DE8B5D8E0A /* Pods_TTMultiYoutubePlayersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E6F21FBC2965A3C136A07E /* Pods_TTMultiYoutubePlayersTests.framework */; };
 		F9C9FF1156B37B276C37E4DB /* Pods_TTMultiYoutubePlayersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CF207FC0600B161CF104E4 /* Pods_TTMultiYoutubePlayersUITests.framework */; };
@@ -106,13 +106,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E5D98325B4335400E44E77 /* BuildFile in Frameworks */,
-				00E5D98B25B4335400E44E77 /* BuildFile in Frameworks */,
-				00E5D99125B433A600E44E77 /* BuildFile in Frameworks */,
-				00E5D98925B4335400E44E77 /* BuildFile in Frameworks */,
-				00E5D98725B4335400E44E77 /* BuildFile in Frameworks */,
+				00E5D98325B4335400E44E77 /* RxSwift in Frameworks */,
+				00E5D98B25B4335400E44E77 /* RxBlocking in Frameworks */,
+				00E5D99125B433A600E44E77 /* XCDYouTubeKit in Frameworks */,
+				00E5D98925B4335400E44E77 /* RxCocoa in Frameworks */,
+				00E5D98725B4335400E44E77 /* RxRelay in Frameworks */,
 				8D61EB7F2EFBF13F64B4946A /* Pods_TTMultiYoutubePlayers.framework in Frameworks */,
-				00E5D99725B4344400E44E77 /* BuildFile in Frameworks */,
+				00E5D99725B4344400E44E77 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +274,6 @@
 				0048DA8B234A244300875758 /* Frameworks */,
 				0048DA8C234A244300875758 /* Resources */,
 				D2D98F7068DE8A7405EF0DBD /* [CP] Embed Pods Frameworks */,
-				0057D74D23BCD33800ABAF4A /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -282,12 +281,12 @@
 			);
 			name = TTMultiYoutubePlayers;
 			packageProductDependencies = (
-				00E5D98225B4335400E44E77 /* SwiftPackageProductDependency */,
-				00E5D98625B4335400E44E77 /* SwiftPackageProductDependency */,
-				00E5D98825B4335400E44E77 /* SwiftPackageProductDependency */,
-				00E5D98A25B4335400E44E77 /* SwiftPackageProductDependency */,
-				00E5D99025B433A600E44E77 /* SwiftPackageProductDependency */,
-				00E5D99625B4344400E44E77 /* SwiftPackageProductDependency */,
+				00E5D98225B4335400E44E77 /* RxSwift */,
+				00E5D98625B4335400E44E77 /* RxRelay */,
+				00E5D98825B4335400E44E77 /* RxCocoa */,
+				00E5D98A25B4335400E44E77 /* RxBlocking */,
+				00E5D99025B433A600E44E77 /* XCDYouTubeKit */,
+				00E5D99625B4344400E44E77 /* Nuke */,
 			);
 			productName = TTMultiYoutubePlayers;
 			productReference = 0048DA8E234A244300875758 /* 1F Player.app */;
@@ -364,9 +363,9 @@
 			);
 			mainGroup = 0048DA85234A244300875758;
 			packageReferences = (
-				00E5D98125B4335400E44E77 /* RemoteSwiftPackageReference */,
-				00E5D98F25B433A600E44E77 /* RemoteSwiftPackageReference */,
-				00E5D99525B4344400E44E77 /* RemoteSwiftPackageReference */,
+				00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				00E5D98F25B433A600E44E77 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */,
+				00E5D99525B4344400E44E77 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 0048DA8F234A244300875758 /* Products */;
 			projectDirPath = "";
@@ -423,30 +422,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
-		};
-		0057D74D23BCD33800ABAF4A /* Fabric */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = Fabric;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		1B56B6AEB78E9FF4275883D3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -907,7 +887,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		00E5D98125B4335400E44E77 /* RemoteSwiftPackageReference */ = {
+		00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -915,7 +895,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		00E5D98F25B433A600E44E77 /* RemoteSwiftPackageReference */ = {
+		00E5D98F25B433A600E44E77 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/0xced/XCDYouTubeKit.git";
 			requirement = {
@@ -923,7 +903,7 @@
 				minimumVersion = 2.15.2;
 			};
 		};
-		00E5D99525B4344400E44E77 /* RemoteSwiftPackageReference */ = {
+		00E5D99525B4344400E44E77 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke.git";
 			requirement = {
@@ -934,34 +914,34 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		00E5D98225B4335400E44E77 /* SwiftPackageProductDependency */ = {
+		00E5D98225B4335400E44E77 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 00E5D98125B4335400E44E77 /* RemoteSwiftPackageReference */;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		00E5D98625B4335400E44E77 /* SwiftPackageProductDependency */ = {
+		00E5D98625B4335400E44E77 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 00E5D98125B4335400E44E77 /* RemoteSwiftPackageReference */;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
 		};
-		00E5D98825B4335400E44E77 /* SwiftPackageProductDependency */ = {
+		00E5D98825B4335400E44E77 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 00E5D98125B4335400E44E77 /* RemoteSwiftPackageReference */;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		00E5D98A25B4335400E44E77 /* SwiftPackageProductDependency */ = {
+		00E5D98A25B4335400E44E77 /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 00E5D98125B4335400E44E77 /* RemoteSwiftPackageReference */;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxBlocking;
 		};
-		00E5D99025B433A600E44E77 /* SwiftPackageProductDependency */ = {
+		00E5D99025B433A600E44E77 /* XCDYouTubeKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 00E5D98F25B433A600E44E77 /* RemoteSwiftPackageReference */;
+			package = 00E5D98F25B433A600E44E77 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */;
 			productName = XCDYouTubeKit;
 		};
-		00E5D99625B4344400E44E77 /* SwiftPackageProductDependency */ = {
+		00E5D99625B4344400E44E77 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 00E5D99525B4344400E44E77 /* RemoteSwiftPackageReference */;
+			package = 00E5D99525B4344400E44E77 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
