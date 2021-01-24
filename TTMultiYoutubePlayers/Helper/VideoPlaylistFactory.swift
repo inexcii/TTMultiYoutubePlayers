@@ -13,9 +13,9 @@ class VideoPlaylistFactory {
     let result = BehaviorSubject<[YoutubeEntity]>(value: UserDefaultsStore.youtubeEntities)
     
     func search(keyword: String? = "バイク", maxResult: UInt = 50) {
-        let query = GTLRYouTubeQuery_SearchList.query(withPart: "snippet")
+        let query = GTLRYouTubeQuery_SearchList.query(withPart: ["snippet"])
         query.q = keyword
-        query.type = "video"
+        query.type = ["video"]
         query.maxResults = maxResult
         
         let service = GTLRYouTubeService()
