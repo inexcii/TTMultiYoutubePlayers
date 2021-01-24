@@ -8,10 +8,10 @@ target 'TTMultiYoutubePlayers' do
   # Pods for TTMultiYoutubePlayers
 
 # change to use Swift Package Manager to manage these dependencies
-#  pod 'RxSwift'
-#  pod 'RxCocoa'
-#  pod 'Nuke'
-#  pod 'XCDYouTubeKit'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Nuke'
+  pod 'XCDYouTubeKit'
 
   pod 'R.swift'
   pod 'GoogleAPIClientForREST/YouTube'

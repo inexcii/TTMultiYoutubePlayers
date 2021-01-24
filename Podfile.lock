@@ -71,15 +71,27 @@ PODS:
     - nanopb/encode (= 2.30907.0)
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
+  - Nuke (9.2.4)
   - PromisesObjC (1.2.12)
   - R.swift (5.3.1):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
+  - XCDYouTubeKit (2.15.2)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - GoogleAPIClientForREST/YouTube
+  - Nuke
   - R.swift
+  - RxCocoa
+  - RxSwift
+  - XCDYouTubeKit
 
 SPEC REPOS:
   trunk:
@@ -94,9 +106,14 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
+    - Nuke
     - PromisesObjC
     - R.swift
     - R.swift.Library
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - XCDYouTubeKit
 
 SPEC CHECKSUMS:
   Firebase: 09fb40287b6dfc8ee65f726fa0b788719d3f2a07
@@ -110,10 +127,15 @@ SPEC CHECKSUMS:
   GoogleUtilities: d866834472f1324d080496bc67ab3ce5d0d46027
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
+  Nuke: 44439f7a92e665a4f927ecd73cb51f91d93b0e0c
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   R.swift: 56ec7e3aef34b9eee47a659e42462db2c1cc5ac3
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
 
-PODFILE CHECKSUM: 03d7a4afbc7544fb697dce867d7c4d23021ec6b7
+PODFILE CHECKSUM: 0aceb740509d08e3b6acbcfda3d023139d76dea5
 
 COCOAPODS: 1.10.1
