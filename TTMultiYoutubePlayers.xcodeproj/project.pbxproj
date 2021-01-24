@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001108CF25BD38AF00DA5197 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 001108CE25BD38AF00DA5197 /* RxBlocking */; };
+		001108D125BD38AF00DA5197 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 001108D025BD38AF00DA5197 /* RxCocoa */; };
+		001108D325BD38AF00DA5197 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 001108D225BD38AF00DA5197 /* RxRelay */; };
+		001108D525BD38AF00DA5197 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 001108D425BD38AF00DA5197 /* RxSwift */; };
 		003C69F823C0033100FD7C76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 003C69F723C0033100FD7C76 /* GoogleService-Info.plist */; };
 		0048DA92234A244300875758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DA91234A244300875758 /* AppDelegate.swift */; };
 		0048DA97234A244300875758 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0048DA95234A244300875758 /* Main.storyboard */; };
@@ -30,10 +34,6 @@
 		00BF2DC4238C1BDA00D2FA94 /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BF2DC3238C1BDA00D2FA94 /* VideoView.xib */; };
 		00BF2DC8238C1C0C00D2FA94 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF2DC7238C1C0C00D2FA94 /* VideoView.swift */; };
 		00BF2DCA238F36CF00D2FA94 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF2DC9238F36CF00D2FA94 /* VideoPlayViewController.swift */; };
-		00E5D98325B4335400E44E77 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98225B4335400E44E77 /* RxSwift */; };
-		00E5D98725B4335400E44E77 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98625B4335400E44E77 /* RxRelay */; };
-		00E5D98925B4335400E44E77 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98825B4335400E44E77 /* RxCocoa */; };
-		00E5D98B25B4335400E44E77 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D98A25B4335400E44E77 /* RxBlocking */; };
 		00E5D99125B433A600E44E77 /* XCDYouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D99025B433A600E44E77 /* XCDYouTubeKit */; };
 		00E5D99725B4344400E44E77 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 00E5D99625B4344400E44E77 /* Nuke */; };
 		8D61EB7F2EFBF13F64B4946A /* Pods_TTMultiYoutubePlayers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085F2037CADE28FA54728E3 /* Pods_TTMultiYoutubePlayers.framework */; };
@@ -106,13 +106,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E5D98325B4335400E44E77 /* RxSwift in Frameworks */,
-				00E5D98B25B4335400E44E77 /* RxBlocking in Frameworks */,
+				001108D325BD38AF00DA5197 /* RxRelay in Frameworks */,
 				00E5D99125B433A600E44E77 /* XCDYouTubeKit in Frameworks */,
-				00E5D98925B4335400E44E77 /* RxCocoa in Frameworks */,
-				00E5D98725B4335400E44E77 /* RxRelay in Frameworks */,
+				001108CF25BD38AF00DA5197 /* RxBlocking in Frameworks */,
+				001108D125BD38AF00DA5197 /* RxCocoa in Frameworks */,
 				8D61EB7F2EFBF13F64B4946A /* Pods_TTMultiYoutubePlayers.framework in Frameworks */,
 				00E5D99725B4344400E44E77 /* Nuke in Frameworks */,
+				001108D525BD38AF00DA5197 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,12 +281,12 @@
 			);
 			name = TTMultiYoutubePlayers;
 			packageProductDependencies = (
-				00E5D98225B4335400E44E77 /* RxSwift */,
-				00E5D98625B4335400E44E77 /* RxRelay */,
-				00E5D98825B4335400E44E77 /* RxCocoa */,
-				00E5D98A25B4335400E44E77 /* RxBlocking */,
 				00E5D99025B433A600E44E77 /* XCDYouTubeKit */,
 				00E5D99625B4344400E44E77 /* Nuke */,
+				001108CE25BD38AF00DA5197 /* RxBlocking */,
+				001108D025BD38AF00DA5197 /* RxCocoa */,
+				001108D225BD38AF00DA5197 /* RxRelay */,
+				001108D425BD38AF00DA5197 /* RxSwift */,
 			);
 			productName = TTMultiYoutubePlayers;
 			productReference = 0048DA8E234A244300875758 /* 1F Player.app */;
@@ -892,7 +892,7 @@
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 6.0.0;
 			};
 		};
 		00E5D98F25B433A600E44E77 /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */ = {
@@ -914,25 +914,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		00E5D98225B4335400E44E77 /* RxSwift */ = {
+		001108CE25BD38AF00DA5197 /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
+			productName = RxBlocking;
 		};
-		00E5D98625B4335400E44E77 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		00E5D98825B4335400E44E77 /* RxCocoa */ = {
+		001108D025BD38AF00DA5197 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		00E5D98A25B4335400E44E77 /* RxBlocking */ = {
+		001108D225BD38AF00DA5197 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
+			productName = RxRelay;
+		};
+		001108D425BD38AF00DA5197 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00E5D98125B4335400E44E77 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		00E5D99025B433A600E44E77 /* XCDYouTubeKit */ = {
 			isa = XCSwiftPackageProductDependency;
