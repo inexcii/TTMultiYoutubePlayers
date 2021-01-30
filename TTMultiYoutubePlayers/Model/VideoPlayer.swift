@@ -53,6 +53,10 @@ class VideoPlayer {
     
     // Status Control
     var isSeekBarBeingTouched = false
+
+    /// UI setup handler for rewind and forward buttons
+    /// - Parameter: Bool whether the video is HTTP Live Streaming or not
+    var rewindForwardSetupHandler: ((Bool) -> ())? = nil
     
     // MARK: - Life Cycle
 
@@ -139,39 +143,50 @@ class VideoPlayer {
     
     private func setupPlayer(by videoId: String) {
         let transfer = YoutubeStreamUrlTransfer(videoId: videoId)
-        transfer.transfer { [weak self] url in
+        transfer.transfer { [weak self] isLive, url in
             guard let url = url else {
                 print("warning, url not exists")
                 return
             }
             guard let self = self else { return }
-            self.setupPlayer(by: url)
+            self.setupPlayer(by: url, isLive: isLive)
+            self.rewindForwardSetupHandler?(isLive)
         }
     }
 
-    private func setupPlayer(by url: URL) {
+    private func setupPlayer(by url: URL, isLive: Bool = false) {
+        resetPlayer(isLive: isLive)
 
-        resetPlayer()
+        DLog("video url: \(url)")
 
         // setup AVAsset
         let asset = AVURLAsset(url: url)
         self.videoFrameRate = asset.frameRate
-        self.loadValuesInAsset(asset) {
+        self.loadValuesInAsset(asset) { [weak self] in
+            guard let self = self else { return }
             // setup AVPlayer
             let item = AVPlayerItem(asset: asset)
             self.player.insert(item, after: nil)
-            self.looper = AVPlayerLooper(player: self.player, templateItem: item)
-            self.addPeriodicTimeObserver()
+
+            if isLive == false {
+                self.looper = AVPlayerLooper(player: self.player, templateItem: item)
+                self.addPeriodicTimeObserver()
+            }
         }
     }
 
-    private func resetPlayer() {
+    private func resetPlayer(isLive: Bool = false) {
         // remove all the old things
         player.removeAllItems()
         if let token = timeObserverToken {
             player.removeTimeObserver(token)
             timeObserverToken = nil
         }
+
+        // reset UI
+        seekBar.isEnabled = isLive == false
+        labelDuration.isHidden = isLive
+        labelCurrentTime.isHidden = isLive
     }
     
     private func loadValuesInAsset(_ asset: AVAsset, completion: @escaping () -> Void) {
@@ -187,6 +202,7 @@ class VideoPlayer {
                     if key == keyPlayable {
                         DLog("playable key finished loading")
                     } else if key == keyDuration {
+                        DLog("video duration of AVAsset: \(CMTimeGetSeconds(asset.duration))")
                         DispatchQueue.main.async {
                             self.labelDuration.text = asset.duration.toDisplay()
                         }

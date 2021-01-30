@@ -77,6 +77,15 @@ final class VideoPlayViewController: UIViewController {
         rewind1Button.addGestureRecognizer(rewind1LongPress)
         let rewind2LongPress = UILongPressGestureRecognizer(target: self, action: #selector(rewind2LongPress(_:)))
         rewind2Button.addGestureRecognizer(rewind2LongPress)
+
+        videoPlayer1.rewindForwardSetupHandler = { [weak self] isLive in
+            self?.rewind1Button.isEnabled = isLive == false
+            self?.forward1Button.isEnabled = isLive == false
+        }
+        videoPlayer2.rewindForwardSetupHandler = { [weak self] isLive in
+            self?.rewind2Button.isEnabled = isLive == false
+            self?.forward2Button.isEnabled = isLive == false
+        }
     }
 
     @IBAction func commonPlayButtonTapped(_ sender: Any) {

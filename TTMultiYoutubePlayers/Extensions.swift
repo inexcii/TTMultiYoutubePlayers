@@ -11,6 +11,8 @@ import AVFoundation
 
 extension CMTime {
     func toDisplay() -> String {
+        guard CMTIME_IS_INDEFINITE(self) == false else { return "00:00:00" }
+
         let totalSeconds = CMTimeGetSeconds(self)
         let secondsText = String(format: "%02d", Int(totalSeconds) % 60)
         let decimal = totalSeconds.truncatingRemainder(dividingBy: 1)
