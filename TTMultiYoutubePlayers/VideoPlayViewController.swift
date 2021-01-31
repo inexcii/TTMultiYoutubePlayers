@@ -33,9 +33,9 @@ final class VideoPlayViewController: UIViewController {
     private var isSyncEnabled: Bool = false {
         didSet {
             play2Button.isEnabled = !isSyncEnabled
-            rewind2Button.isEnabled = !isSyncEnabled
-            forward2Button.isEnabled = !isSyncEnabled
-            seekBar2.isEnabled = !isSyncEnabled
+            rewind2Button.isEnabled = !isSyncEnabled && !isLiveVideoInPlayer2
+            forward2Button.isEnabled = !isSyncEnabled && !isLiveVideoInPlayer2
+            seekBar2.isEnabled = !isSyncEnabled && !isLiveVideoInPlayer2
 
             if isSyncEnabled {
                 // sync Play2 button with Play1 button's status
@@ -43,6 +43,14 @@ final class VideoPlayViewController: UIViewController {
                     videoPlayer2.handlePlayPause(play2Button)
                 }
             }
+        }
+    }
+
+    private var isLiveVideoInPlayer2: Bool = false {
+        didSet {
+            rewind2Button.isEnabled = !isLiveVideoInPlayer2 && !isSyncEnabled
+            forward2Button.isEnabled = !isLiveVideoInPlayer2 && !isSyncEnabled
+            seekBar2.isEnabled = !isLiveVideoInPlayer2 && !isSyncEnabled
         }
     }
 
@@ -83,8 +91,7 @@ final class VideoPlayViewController: UIViewController {
             self?.forward1Button.isEnabled = isLive == false
         }
         videoPlayer2.rewindForwardSetupHandler = { [weak self] isLive in
-            self?.rewind2Button.isEnabled = isLive == false
-            self?.forward2Button.isEnabled = isLive == false
+            self?.isLiveVideoInPlayer2 = isLive
         }
     }
 
