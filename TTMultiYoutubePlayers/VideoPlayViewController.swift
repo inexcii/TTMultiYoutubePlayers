@@ -117,13 +117,13 @@ final class VideoPlayViewController: UIViewController {
     }
     @IBAction func oneFrameForward1ButtonTapped(_ sender: UIButton) {
         videoPlayer1.handleOneFrameSeek(.fastForward)
-        if isSyncEnabled {
+        if shouldSyncSameActionInPlayer2 {
             videoPlayer2.handleOneFrameSeek(.fastForward)
         }
     }
     @IBAction func oneFrameRewind1ButtonTapped(_ sender: UIButton) {
         videoPlayer1.handleOneFrameSeek(.rewind)
-        if isSyncEnabled {
+        if shouldSyncSameActionInPlayer2 {
             videoPlayer2.handleOneFrameSeek(.rewind)
         }
     }
@@ -141,19 +141,19 @@ final class VideoPlayViewController: UIViewController {
     }
     @IBAction func slider1TouchUp(_ sender: UISlider) {
         videoPlayer1.handleSeekbarTouchup(sender)
-        if isSyncEnabled {
+        if shouldSyncSameActionInPlayer2 {
             videoPlayer2.handleSeekbarTouchup(sender)
         }
     }
     @IBAction func slider1TouchDown(_ sender: UISlider) {
         videoPlayer1.handleSeekbarTouchDown(sender)
-        if isSyncEnabled {
+        if shouldSyncSameActionInPlayer2 {
             videoPlayer2.handleSeekbarTouchDown(sender)
         }
     }
     @IBAction func slider1ValueChanged(_ sender: UISlider) {
         videoPlayer1.handleSeekbarValueChanged(sender)
-        if isSyncEnabled {
+        if shouldSyncSameActionInPlayer2 {
             videoPlayer2.handleSeekbarValueChanged(sender)
         }
     }
@@ -302,5 +302,12 @@ extension VideoPlayViewController {
 
     private func initLongPressGestureTimer(_ action: @escaping ((Timer) -> Void)) {
         self.longPressTimer = Timer.scheduledTimer(withTimeInterval: 0.175, repeats: true, block: action)
+    }
+}
+
+// MARK: - Private
+extension VideoPlayViewController {
+    private var shouldSyncSameActionInPlayer2: Bool {
+        return isSyncEnabled && isLiveVideoInPlayer2 == false
     }
 }
