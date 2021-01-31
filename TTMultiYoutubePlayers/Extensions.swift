@@ -14,12 +14,27 @@ extension CMTime {
         guard CMTIME_IS_INDEFINITE(self) == false else { return "00:00:00" }
 
         let totalSeconds = CMTimeGetSeconds(self)
-        let secondsText = String(format: "%02d", Int(totalSeconds) % 60)
         let decimal = totalSeconds.truncatingRemainder(dividingBy: 1)
         let secondsDecimal = String(format: "%02d", Int(round(decimal * 100)))
-        let minutesText = String(format: "%02d", Int(totalSeconds) / 60)
-        let hoursText = String(format: "%02d", Int(totalSeconds) / 60 / 60)
-        return  "\(hoursText):\(minutesText):\(secondsText).\(secondsDecimal)"
+
+        return "\(Int(totalSeconds).displayedTime).\(secondsDecimal)"
+    }
+}
+
+// Int extension for calculating displayed time(hh:mm:ss)
+extension Int {
+    fileprivate var displayedTime: String {
+        let hour = String(format: "%02d", secondsToHour)
+        let minute = String(format: "%02d", secondsToMinute)
+        let second = String(format: "%02d", secondsToSecond)
+        return "\(hour):\(minute):\(second)"
+    }
+
+    private var secondsToHour: Int { return self / 60 / 60 }
+    private var secondsToSecond: Int { return self % 60 }
+    private var secondsToMinute: Int {
+        let secondsOfHour = secondsToHour * 3600
+        return (self - secondsOfHour) / 60
     }
 }
 
