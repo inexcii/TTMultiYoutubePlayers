@@ -38,6 +38,9 @@ v1.1.0
 - [X] support YouTube Live videos
 ---
 v1.2.0
+- [ ] user can adjust the volume of each video separately
+---
+v1.3.0
 - [ ] user can input a time value and video should be played from that point
 - [ ] support both angles with horizontal and verticle(currently only horizontal)
 
