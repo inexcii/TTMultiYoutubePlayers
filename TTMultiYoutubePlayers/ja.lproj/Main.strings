@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "Ebc-BL-JcM"; */
+"Ebc-BL-JcM.normalTitle" = "X";
+
+/* Class = "UILabel"; text = "00:00:00.00"; ObjectID = "MZL-KB-Kr6"; */
+"MZL-KB-Kr6.text" = "00:00:00.00";
+
+/* Class = "UILabel"; text = "00:00:00.00"; ObjectID = "NT2-yh-jck"; */
+"NT2-yh-jck.text" = "00:00:00.00";
+
+/* Class = "UILabel"; text = "00:00:00.00"; ObjectID = "Ymh-Px-RYl"; */
+"Ymh-Px-RYl.text" = "00:00:00.00";
+
+/* Class = "UITextField"; placeholder = "バイク、音楽など"; ObjectID = "aKh-cS-2ce"; */
+"aKh-cS-2ce.placeholder" = "バイク、音楽など";
+
+/* Class = "UILabel"; text = "00:00:00.00"; ObjectID = "bDj-1a-QXf"; */
+"bDj-1a-QXf.text" = "00:00:00.00";
+
+/* Class = "UILabel"; text = "label\naaa"; ObjectID = "r4E-X0-wCZ"; */
+"r4E-X0-wCZ.text" = "label\naaa";

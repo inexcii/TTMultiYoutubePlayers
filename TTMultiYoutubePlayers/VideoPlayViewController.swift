@@ -178,16 +178,26 @@ final class VideoPlayViewController: UIViewController {
     }
 
     @objc private func handleNavigation(_ notification: Notification) {
+        let optionMenu = UIAlertController(
+            title: nil,
+            message: R.string.localizable.videoplayvcSearchActionMessage(),
+            preferredStyle: .actionSheet
+        )
 
-        let optionMenu = UIAlertController(title: nil, message: "Search Video In", preferredStyle: .actionSheet)
-        let youtubeSearch = UIAlertAction(title: "YouTube", style: .default) { action in
-            let videoSearchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideoSearchViewController") as! VideoSearchViewController
+        let youtubeSearch = UIAlertAction(
+            title: R.string.localizable.videoplayvcSearchActionOptionYoutubePublic(),
+            style: .default
+        ) { _ in
+            let videoSearchVC = R.storyboard.main.videoSearchViewController()!
             videoSearchVC.delegate = self
             videoSearchVC.source = notification.object
             self.present(videoSearchVC, animated: true) {
             }
         }
-        let photoAlbum = UIAlertAction(title: "Photo Album", style: .default) { action in
+        let photoAlbum = UIAlertAction(
+            title: R.string.localizable.videoplayvcSearchActionOptionPhotoalbum(),
+            style: .default
+        ) { _ in
             if let picker = VideoPicker(src: .photoLibrary) {
                 picker.delegate = self
                 picker.source = notification.object
@@ -196,7 +206,7 @@ final class VideoPlayViewController: UIViewController {
                 self.picker = picker
             }
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         optionMenu.addAction(youtubeSearch)
         optionMenu.addAction(photoAlbum)
         optionMenu.addAction(cancel)

@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  TTMultiYoutubePlayers
+
+  Created by Yuan Zhou on 2021/03/22.
+  Copyright © 2021 GEN SHU. All rights reserved.
+*/
+
+// common
+"cancel" = "キャンセル";
+
+// search action in VideoPlayViewController
+"videoplayvc.search.action.message" = "以下の方法で動画を検索する";
+"videoplayvc.search.action.option.youtube.public" = "YouTube(公開)";
+"videoplayvc.search.action.option.youtube.unlisted" = "YouTube(限定公開)";
+"videoplayvc.search.action.option.photoalbum" = "アルバム";
