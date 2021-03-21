@@ -39,6 +39,7 @@ v1.1.0
 ---
 v1.2.0
 - [ ] user can adjust the volume of each video separately
+- [ ] support to play YouTube Unlisted videos through a URL provided by user
 ---
 v1.3.0
 - [ ] user can input a time value and video should be played from that point
