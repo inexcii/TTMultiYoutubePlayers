@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -397,13 +397,13 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0048DABF234A25CB00875758 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
 			);
 			name = R.swift;
 			outputFileListPaths = (
