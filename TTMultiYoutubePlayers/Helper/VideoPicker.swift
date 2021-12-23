@@ -10,7 +10,7 @@ import UIKit
 
 import MobileCoreServices
 
-protocol VideoPickerDelegate: class {
+protocol VideoPickerDelegate: AnyObject {
     func didRetrieveVideoUrl(_ controller: UIImagePickerController, _ url: URL, _ source: Any?)
     func didCancelPicking(_ controller: UIImagePickerController)
 }

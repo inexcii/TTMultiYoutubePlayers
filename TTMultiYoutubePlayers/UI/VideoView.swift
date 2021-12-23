@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VideoViewDelegate: class {
+protocol VideoViewDelegate: AnyObject {
     func didTapPlayButton(_ button: UIButton)
     func didTapMuteButton(_ button: UIButton)
     func didChangedSeekbarValue(_ seekbar: UISlider)

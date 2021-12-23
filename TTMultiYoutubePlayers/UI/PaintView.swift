@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PaintViewDelegate: class {
+protocol PaintViewDelegate: AnyObject {
     func didGenerateLineAngle(angle: Double, view: PaintView)
 }
 
