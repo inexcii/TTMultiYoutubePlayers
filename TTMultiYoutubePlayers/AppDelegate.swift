@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Firebase
+import XCDYouTubeKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DLog("error in setting AVAudioSession's category: \(error)")
         }
 
+        XCDYouTubeClient.setInnertubeApiKey(Constants.API.accessKey)
         FirebaseApp.configure()
 
         return true

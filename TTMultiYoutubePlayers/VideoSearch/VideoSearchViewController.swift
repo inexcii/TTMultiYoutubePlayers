@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol VideoSearchViewControllerDelegate: class {
+protocol VideoSearchViewControllerDelegate: AnyObject {
     func didChooseVideo(_ entity: YoutubeEntity, source: Any?)
 }
 

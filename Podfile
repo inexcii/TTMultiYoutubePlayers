@@ -11,7 +11,7 @@ target 'TTMultiYoutubePlayers' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Nuke'
-  pod 'XCDYouTubeKit'
+  pod 'XCDYouTubeKit',  :git => 'https://github.com/armendh/XCDYouTubeKit', :branch => 'master', :commit => '651a6a51c695c5819eb51ba2f98d0b64094315b9'
 
   pod 'R.swift'
   pod 'GoogleAPIClientForREST/YouTube'
