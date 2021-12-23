@@ -184,7 +184,7 @@ final class VideoPlayViewController: UIViewController {
             preferredStyle: .actionSheet
         )
 
-        let youtubeSearch = UIAlertAction(
+        let youtubePublic = UIAlertAction(
             title: R.string.localizable.videoplayvcSearchActionOptionYoutubePublic(),
             style: .default
         ) { _ in
@@ -193,6 +193,12 @@ final class VideoPlayViewController: UIViewController {
             videoSearchVC.source = notification.object
             self.present(videoSearchVC, animated: true) {
             }
+        }
+        let youtubeUnlisted = UIAlertAction(
+            title: R.string.localizable.videoplayvcSearchActionOptionYoutubeUnlisted(),
+            style: .default
+        ) { _ in
+            DLog("navigate to youtube Unlisted search")
         }
         let photoAlbum = UIAlertAction(
             title: R.string.localizable.videoplayvcSearchActionOptionPhotoalbum(),
@@ -207,7 +213,8 @@ final class VideoPlayViewController: UIViewController {
             }
         }
         let cancel = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
-        optionMenu.addAction(youtubeSearch)
+        optionMenu.addAction(youtubePublic)
+        optionMenu.addAction(youtubeUnlisted)
         optionMenu.addAction(photoAlbum)
         optionMenu.addAction(cancel)
         self.present(optionMenu, animated: true, completion: nil)
