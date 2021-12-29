@@ -26,8 +26,8 @@ final class VideoPlayViewController: UIViewController {
 
     @IBOutlet private weak var commonPlayButton: UIButton!
 
-    var videoPlayer1: VideoPlayer!
-    var videoPlayer2: VideoPlayer!
+    private var videoPlayer1: VideoPlayer!
+    private var videoPlayer2: VideoPlayer!
 
     private var picker: VideoPicker?
     private var isSyncEnabled: Bool = false {
@@ -59,6 +59,8 @@ final class VideoPlayViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +96,8 @@ final class VideoPlayViewController: UIViewController {
             self?.isLiveVideoInPlayer2 = isLive
         }
     }
+
+    // MARK: - IBActions
 
     @IBAction func commonPlayButtonTapped(_ sender: Any) {
         videoPlayer1.handlePlayPause(videoView1.buttonPlay)
