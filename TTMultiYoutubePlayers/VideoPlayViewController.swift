@@ -12,22 +12,85 @@ final class VideoPlayViewController: UIViewController {
 
     @IBOutlet weak var videoView1: VideoView!
     @IBOutlet weak var videoView2: VideoView!
+    @IBOutlet weak var commonControlView: UIView!
     @IBOutlet weak var currentTime1Label: UILabel!
     @IBOutlet weak var duration1Label: UILabel!
     @IBOutlet weak var seekBar1: UISlider!
+    @IBOutlet weak var volume1Button: UIButton!
     @IBOutlet weak var rewind1Button: UIButton!
     @IBOutlet weak var forward1Button: UIButton!
     @IBOutlet weak var currentTime2Label: UILabel!
     @IBOutlet weak var duration2Label: UILabel!
     @IBOutlet weak var seekBar2: UISlider!
     @IBOutlet weak var play2Button: UIButton!
+    @IBOutlet weak var volume2Button: UIButton!
     @IBOutlet weak var rewind2Button: UIButton!
     @IBOutlet weak var forward2Button: UIButton!
 
     @IBOutlet private weak var commonPlayButton: UIButton!
 
-    var videoPlayer1: VideoPlayer!
-    var videoPlayer2: VideoPlayer!
+    private lazy var volumeChangeView1: VolumeChangeView = {
+        let viewHeight = 32.0
+        let view = VolumeChangeView()
+
+        // round corner
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = viewHeight / 2.0
+
+        view.isHidden = true
+        view.delegate = self
+
+        self.commonControlView.insertSubview(view, aboveSubview: self.volume1Button)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.leftAnchor.constraint(equalTo: volume1Button.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: volume1Button.centerYAnchor, constant: -(viewHeight / 2.0)).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        view.heightAnchor.constraint(equalToConstant: viewHeight).isActive = true
+
+        return view
+    }()
+    private lazy var volumeChangeView2: VolumeChangeView = {
+        let viewHeight = 32.0
+        let view = VolumeChangeView()
+
+        // round corner
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = viewHeight / 2.0
+
+        view.isHidden = true
+        view.delegate = self
+
+        self.commonControlView.insertSubview(view, aboveSubview: self.volume2Button)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.leftAnchor.constraint(equalTo: volume2Button.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: volume2Button.centerYAnchor, constant: -(viewHeight / 2.0)).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        view.heightAnchor.constraint(equalToConstant: viewHeight).isActive = true
+
+        return view
+    }()
+
+    private lazy var tappingView: TappingView = {
+        let view = TappingView()
+
+        view.isHidden = true
+        view.delegate = self
+
+        self.commonControlView.insertSubview(view, belowSubview: volume1Button)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: self.commonControlView.topAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: self.commonControlView.rightAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: self.commonControlView.bottomAnchor).isActive = true
+        view.leftAnchor.constraint(equalTo: self.commonControlView.leftAnchor).isActive = true
+
+        return view
+    }()
+
+    private var videoPlayer1: VideoPlayer!
+    private var videoPlayer2: VideoPlayer!
 
     private var picker: VideoPicker?
     private var isSyncEnabled: Bool = false {
@@ -54,11 +117,38 @@ final class VideoPlayViewController: UIViewController {
         }
     }
 
+    private var player1Volume: Float = 0.0 {
+        didSet {
+            videoPlayer1.handleVolumeChange(player1Volume)
+
+            if oldValue == 0.0 && player1Volume > 0.0 {
+                volume1Button.setBackgroundImage(R.image.unmute(), for: .normal)
+            }
+            if oldValue > 0.0 && player1Volume == 0.0 {
+                volume1Button.setBackgroundImage(R.image.mute(), for: .normal)
+            }
+        }
+    }
+    private var player2Volume: Float = 0.0 {
+        didSet {
+            videoPlayer2.handleVolumeChange(player2Volume)
+
+            if oldValue == 0.0 && player2Volume > 0.0 {
+                volume2Button.setBackgroundImage(R.image.unmute(), for: .normal)
+            }
+            if oldValue > 0.0 && player2Volume == 0.0 {
+                volume2Button.setBackgroundImage(R.image.mute(), for: .normal)
+            }
+        }
+    }
+
     private var longPressTimer: Timer?
 
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +184,8 @@ final class VideoPlayViewController: UIViewController {
             self?.isLiveVideoInPlayer2 = isLive
         }
     }
+
+    // MARK: - IBActions
 
     @IBAction func commonPlayButtonTapped(_ sender: Any) {
         videoPlayer1.handlePlayPause(videoView1.buttonPlay)
@@ -133,11 +225,11 @@ final class VideoPlayViewController: UIViewController {
     @IBAction func oneFrameRewind2ButtonTapped(_ sender: UIButton) {
         videoPlayer2.handleOneFrameSeek(.rewind)
     }
-    @IBAction func mute1ButtonTapped(_ sender: UIButton) {
-        videoPlayer1.handleMute(sender)
+    @IBAction func volume1ButtonTapped(_ sender: UIButton) {
+        toggleVolumeChangeView1()
     }
-    @IBAction func mute2ButtonTapped(_ sender: UIButton) {
-        videoPlayer2.handleMute(sender)
+    @IBAction func volume2ButtonTapped(_ sender: UIButton) {
+        toggleVolumeChangeView2()
     }
     @IBAction func slider1TouchUp(_ sender: UISlider) {
         videoPlayer1.handleSeekbarTouchup(sender)
@@ -257,6 +349,25 @@ extension VideoPlayViewController: VideoPickerDelegate {
     }
 }
 
+extension VideoPlayViewController: VolumeChangeViewDelegate {
+    func didChangeVolume(in view: VolumeChangeView, volume: Float) {
+        if view == volumeChangeView1 {
+            player1Volume = volume
+        } else if view == volumeChangeView2 {
+            player2Volume = volume
+        }
+    }
+}
+
+// MARK: - TappingViewDelegate
+
+extension VideoPlayViewController: TappingViewDelegate {
+    func didTapTappingView() {
+        toggleVolumeChangeView1(isHidden: true)
+        toggleVolumeChangeView2(isHidden: true)
+    }
+}
+
 // MARK: - 1-Frame buttons Long-press Gesture
 
 extension VideoPlayViewController {
@@ -326,5 +437,28 @@ extension VideoPlayViewController {
 extension VideoPlayViewController {
     private var shouldSyncSameActionInPlayer2: Bool {
         return isSyncEnabled && isLiveVideoInPlayer2 == false
+    }
+
+    private func toggleVolumeChangeView1(isHidden: Bool? = nil) {
+        guard let isHidden = isHidden else {
+            let isVolumeChangeViewHidden = volumeChangeView1.isHidden
+            volumeChangeView1.isHidden = !isVolumeChangeViewHidden
+            tappingView.isHidden = !isVolumeChangeViewHidden && volumeChangeView2.isHidden
+            return
+        }
+
+        volumeChangeView1.isHidden = isHidden
+        tappingView.isHidden = isHidden && volumeChangeView2.isHidden
+    }
+    private func toggleVolumeChangeView2(isHidden: Bool? = nil) {
+        guard let isHidden = isHidden else {
+            let isVolumeChangeViewHidden = volumeChangeView2.isHidden
+            volumeChangeView2.isHidden = !isVolumeChangeViewHidden
+            tappingView.isHidden = !isVolumeChangeViewHidden && volumeChangeView1.isHidden
+            return
+        }
+
+        volumeChangeView2.isHidden = isHidden
+        tappingView.isHidden = isHidden && volumeChangeView1.isHidden
     }
 }

@@ -2,8 +2,8 @@
 A project that shows multiple youtube players that is natively(no Webview) implemented. Made, by a friend's idea, in Japan:p
 
 ### Environment
-* macOS 10.15.7(Catalina)~
-* Xcode 12.3~
+* macOS 11.3(Big Sur)~
+* Xcode 13~
 * iPhone with iOS 13.0~
 
 ### Build Step
