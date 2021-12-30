@@ -31,13 +31,7 @@ final class VideoPlayViewController: UIViewController {
 
     private lazy var volumeChangeView1: VolumeChangeView = {
         let viewHeight = 32.0
-        let view = VolumeChangeView(
-            frame: CGRect.init(
-                x: volume1Button.center.x,
-                y: volume1Button.center.y - viewHeight,
-                width: 150,
-                height: viewHeight)
-        )
+        let view = VolumeChangeView()
 
         // round corner
         view.layer.masksToBounds = true
@@ -45,18 +39,20 @@ final class VideoPlayViewController: UIViewController {
 
         view.isHidden = true
         view.delegate = self
+
+        self.commonControlView.insertSubview(view, aboveSubview: self.volume1Button)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.leftAnchor.constraint(equalTo: volume1Button.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: volume1Button.centerYAnchor, constant: -(viewHeight / 2.0)).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        view.heightAnchor.constraint(equalToConstant: viewHeight).isActive = true
 
         return view
     }()
     private lazy var volumeChangeView2: VolumeChangeView = {
         let viewHeight = 32.0
-        let view = VolumeChangeView(
-            frame: CGRect.init(
-                x: volume2Button.center.x,
-                y: volume2Button.center.y - viewHeight,
-                width: 150,
-                height: viewHeight)
-        )
+        let view = VolumeChangeView()
 
         // round corner
         view.layer.masksToBounds = true
@@ -65,16 +61,30 @@ final class VideoPlayViewController: UIViewController {
         view.isHidden = true
         view.delegate = self
 
+        self.commonControlView.insertSubview(view, aboveSubview: self.volume2Button)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.leftAnchor.constraint(equalTo: volume2Button.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: volume2Button.centerYAnchor, constant: -(viewHeight / 2.0)).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        view.heightAnchor.constraint(equalToConstant: viewHeight).isActive = true
+
         return view
     }()
 
     private lazy var tappingView: TappingView = {
-        let view = TappingView(
-            frame: UIScreen.main.bounds
-        )
+        let view = TappingView()
 
         view.isHidden = true
         view.delegate = self
+
+        self.commonControlView.insertSubview(view, belowSubview: volume1Button)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: self.commonControlView.topAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: self.commonControlView.rightAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: self.commonControlView.bottomAnchor).isActive = true
+        view.leftAnchor.constraint(equalTo: self.commonControlView.leftAnchor).isActive = true
 
         return view
     }()
@@ -165,10 +175,6 @@ final class VideoPlayViewController: UIViewController {
         rewind1Button.addGestureRecognizer(rewind1LongPress)
         let rewind2LongPress = UILongPressGestureRecognizer(target: self, action: #selector(rewind2LongPress(_:)))
         rewind2Button.addGestureRecognizer(rewind2LongPress)
-
-        self.commonControlView.insertSubview(tappingView, belowSubview: volume1Button)
-        self.volume1Button.superview?.addSubview(volumeChangeView1)
-        self.volume2Button.superview?.addSubview(volumeChangeView2)
 
         videoPlayer1.rewindForwardSetupHandler = { [weak self] isLive in
             self?.rewind1Button.isEnabled = isLive == false
