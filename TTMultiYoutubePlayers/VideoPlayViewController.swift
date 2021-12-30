@@ -436,22 +436,22 @@ extension VideoPlayViewController {
         guard let isHidden = isHidden else {
             let isVolumeChangeViewHidden = volumeChangeView1.isHidden
             volumeChangeView1.isHidden = !isVolumeChangeViewHidden
-            tappingView.isHidden = !isVolumeChangeViewHidden
+            tappingView.isHidden = !isVolumeChangeViewHidden && volumeChangeView2.isHidden
             return
         }
 
         volumeChangeView1.isHidden = isHidden
-        tappingView.isHidden = isHidden
+        tappingView.isHidden = isHidden && volumeChangeView2.isHidden
     }
     private func toggleVolumeChangeView2(isHidden: Bool? = nil) {
         guard let isHidden = isHidden else {
             let isVolumeChangeViewHidden = volumeChangeView2.isHidden
             volumeChangeView2.isHidden = !isVolumeChangeViewHidden
-            tappingView.isHidden = !isVolumeChangeViewHidden
+            tappingView.isHidden = !isVolumeChangeViewHidden && volumeChangeView1.isHidden
             return
         }
 
         volumeChangeView2.isHidden = isHidden
-        tappingView.isHidden = isHidden
+        tappingView.isHidden = isHidden && volumeChangeView1.isHidden
     }
 }
