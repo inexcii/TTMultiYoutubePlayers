@@ -116,7 +116,7 @@ DEPENDENCIES:
   - R.swift
   - RxCocoa
   - RxSwift
-  - XCDYouTubeKit (from `https://github.com/armendh/XCDYouTubeKit`, commit `651a6a51c695c5819eb51ba2f98d0b64094315b9`, branch `master`)
+  - XCDYouTubeKit (from `https://github.com/inexcii/XCDYouTubeKit`)
 
 SPEC REPOS:
   trunk:
@@ -141,14 +141,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   XCDYouTubeKit:
-    :branch: master
-    :commit: 651a6a51c695c5819eb51ba2f98d0b64094315b9
-    :git: https://github.com/armendh/XCDYouTubeKit
+    :git: https://github.com/inexcii/XCDYouTubeKit
 
 CHECKOUT OPTIONS:
   XCDYouTubeKit:
-    :commit: 651a6a51c695c5819eb51ba2f98d0b64094315b9
-    :git: https://github.com/armendh/XCDYouTubeKit
+    :commit: 46ccd811f6b5939f5cc9edb161d79f8223bc3e9e
+    :git: https://github.com/inexcii/XCDYouTubeKit
 
 SPEC CHECKSUMS:
   Firebase: 44213362f1dcc52555b935dc925ed35ac55f1b20
@@ -171,6 +169,6 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
 
-PODFILE CHECKSUM: 5b743ec2c8d99128f0d82813aa4bf90dfb9b1f67
+PODFILE CHECKSUM: 48492f7101be40e6e3e66f02ad5bcbd3f1aeb9c0
 
 COCOAPODS: 1.11.2
