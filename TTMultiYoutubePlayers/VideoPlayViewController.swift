@@ -290,7 +290,10 @@ final class VideoPlayViewController: UIViewController {
             title: R.string.localizable.videoplayvcSearchActionOptionYoutubeUnlisted(),
             style: .default
         ) { _ in
-            DLog("navigate to youtube Unlisted search")
+            let vc = R.storyboard.youTubeUnlistedInputViewController.youTubeUnlistedInputViewController()!
+            vc.delegate = self
+            vc.source = notification.object
+            self.present(vc, animated: true)
         }
         let photoAlbum = UIAlertAction(
             title: R.string.localizable.videoplayvcSearchActionOptionPhotoalbum(),
@@ -365,6 +368,21 @@ extension VideoPlayViewController: TappingViewDelegate {
     func didTapTappingView() {
         toggleVolumeChangeView1(isHidden: true)
         toggleVolumeChangeView2(isHidden: true)
+    }
+}
+
+// MARK: - YouTubeUnlistedInputViewControllerDelegate
+
+extension VideoPlayViewController: YouTubeUnlistedInputViewControllerDelegate {
+    func didTapOKButton(videoId: String, source: Any?) {
+        DLog("videoId from YouTubeUnlistedInputViewControllerDelegate: \(videoId)")
+
+        guard let source = source as? VideoView else { return }
+        if source == videoView1 {
+            videoPlayer1.videoId = videoId
+        } else if source == videoView2 {
+            videoPlayer2.videoId = videoId
+        }
     }
 }
 
