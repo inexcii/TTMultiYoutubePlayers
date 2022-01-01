@@ -47,14 +47,25 @@ extension YouTubeUnlistedInputViewController: UITextFieldDelegate {
 
 extension YouTubeUnlistedInputViewController {
     private func dismissWithCallingDelegate() {
-        self.delegate?.didTapOKButton(
-            videoId: extractVideoIdFromUrl(textField.text),
-            source: self.source
-        )
+        guard let videoId = extractVideoIdFromUrl(textField.text),
+              !videoId.isEmpty else {
+                  let alert = UIAlertController(
+                    title: nil,
+                    message: R.string.localizable.youtubeunlistedinputvcErrorEmptyVideourlMessage(),
+                    preferredStyle: .alert
+                  )
+                  alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                  self.present(alert, animated: true, completion: nil)
+                  return
+              }
+
+        self.delegate?.didTapOKButton(videoId: videoId, source: self.source)
         self.dismiss(animated: true, completion: nil)
     }
 
-    private func extractVideoIdFromUrl(_ urlString: String?) -> String {
-        return String(urlString?.split(separator: "/").last ?? "")
+    private func extractVideoIdFromUrl(_ urlString: String?) -> String? {
+        guard let urlString = urlString,
+              let videoId = urlString.split(separator: "/").last else { return nil }
+        return String(videoId)
     }
 }
