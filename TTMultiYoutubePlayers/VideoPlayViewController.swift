@@ -276,7 +276,7 @@ final class VideoPlayViewController: UIViewController {
             preferredStyle: .actionSheet
         )
 
-        let youtubeSearch = UIAlertAction(
+        let youtubePublic = UIAlertAction(
             title: R.string.localizable.videoplayvcSearchActionOptionYoutubePublic(),
             style: .default
         ) { _ in
@@ -285,6 +285,15 @@ final class VideoPlayViewController: UIViewController {
             videoSearchVC.source = notification.object
             self.present(videoSearchVC, animated: true) {
             }
+        }
+        let youtubeUnlisted = UIAlertAction(
+            title: R.string.localizable.videoplayvcSearchActionOptionYoutubeUnlisted(),
+            style: .default
+        ) { _ in
+            let vc = R.storyboard.youTubeUnlistedInputViewController.youTubeUnlistedInputViewController()!
+            vc.delegate = self
+            vc.source = notification.object
+            self.present(vc, animated: true)
         }
         let photoAlbum = UIAlertAction(
             title: R.string.localizable.videoplayvcSearchActionOptionPhotoalbum(),
@@ -299,7 +308,8 @@ final class VideoPlayViewController: UIViewController {
             }
         }
         let cancel = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
-        optionMenu.addAction(youtubeSearch)
+        optionMenu.addAction(youtubePublic)
+        optionMenu.addAction(youtubeUnlisted)
         optionMenu.addAction(photoAlbum)
         optionMenu.addAction(cancel)
         self.present(optionMenu, animated: true, completion: nil)
@@ -358,6 +368,21 @@ extension VideoPlayViewController: TappingViewDelegate {
     func didTapTappingView() {
         toggleVolumeChangeView1(isHidden: true)
         toggleVolumeChangeView2(isHidden: true)
+    }
+}
+
+// MARK: - YouTubeUnlistedInputViewControllerDelegate
+
+extension VideoPlayViewController: YouTubeUnlistedInputViewControllerDelegate {
+    func didTapOKButton(videoId: String, source: Any?) {
+        DLog("videoId from YouTubeUnlistedInputViewControllerDelegate: \(videoId)")
+
+        guard let source = source as? VideoView else { return }
+        if source == videoView1 {
+            videoPlayer1.videoId = videoId
+        } else if source == videoView2 {
+            videoPlayer2.videoId = videoId
+        }
     }
 }
 
