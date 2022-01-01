@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHV-Zn-nZH" userLabel="Close">
-                                <rect key="frame" x="20" y="44" width="60" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHV-Zn-nZH" userLabel="Close">
+                                <rect key="frame" x="0.0" y="44" width="80" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Fcn-cu-JSW"/>
-                                    <constraint firstAttribute="width" secondItem="PHV-Zn-nZH" secondAttribute="height" multiplier="1:1" id="JGg-pO-wcK"/>
+                                    <constraint firstAttribute="width" constant="80" id="Fcn-cu-JSW"/>
+                                    <constraint firstAttribute="height" constant="60" id="RCV-F0-LTi"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <buttonConfiguration key="configuration" style="plain" title="X"/>
                                 <connections>
                                     <action selector="closeButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="peq-Jo-mun"/>
                                 </connections>
@@ -69,7 +69,7 @@
                             <constraint firstItem="DPU-uG-WRu" firstAttribute="leading" secondItem="hlb-W1-0yB" secondAttribute="trailing" constant="8" id="hnS-2A-1nA"/>
                             <constraint firstItem="UdR-hE-jl1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="lBB-dh-8D2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DPU-uG-WRu" secondAttribute="trailing" constant="20" id="u4q-Z7-YcW"/>
-                            <constraint firstItem="PHV-Zn-nZH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="z9j-WF-cPp"/>
+                            <constraint firstItem="PHV-Zn-nZH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="z9j-WF-cPp"/>
                         </constraints>
                     </view>
                     <connections>
