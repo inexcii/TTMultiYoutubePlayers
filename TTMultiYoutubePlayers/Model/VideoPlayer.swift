@@ -116,10 +116,8 @@ class VideoPlayer {
         }
     }
 
-    func handleMute(_ button: UIButton) {
-        player.volume = player.volume == 0.0 ? 1.0: 0.0
-        button.setBackgroundImage(player.volume == 0.0 ? R.image.mute(): R.image.unmute(),
-                                  for: .normal)
+    func handleVolumeChange(_ volume: Float) {
+        player.volume = volume
     }
 
     func handleSeekbarValueChanged(_ seekbar: UISlider) {
@@ -187,6 +185,7 @@ class VideoPlayer {
         seekBar.isEnabled = isLive == false
         labelDuration.isHidden = isLive
         labelCurrentTime.isHidden = isLive
+        rewindForwardSetupHandler?(isLive)
     }
     
     private func loadValuesInAsset(_ asset: AVAsset, completion: @escaping () -> Void) {

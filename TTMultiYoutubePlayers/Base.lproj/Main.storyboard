@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Nh-hV-QnB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Nh-hV-QnB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,14 +33,14 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvs-pf-kCA" customClass="VideoView" customModule="_F_Player" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="233"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Uvs-pf-kCA" secondAttribute="height" multiplier="16:9" id="Wwt-14-2qI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-jz-Ph8" userLabel="Video View 2" customClass="VideoView" customModule="_F_Player" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="277.5" width="414" height="233"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cwZ-jz-Ph8" secondAttribute="height" multiplier="16:9" id="rIv-BH-Y2Y"/>
                                 </constraints>
@@ -67,18 +68,7 @@
                                             <action selector="slider1ValueChanged:" destination="2Nh-hV-QnB" eventType="valueChanged" id="HTf-lO-o11"/>
                                         </connections>
                                     </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YU-01-yPK" userLabel="Volume 1">
-                                        <rect key="frame" x="10" y="53" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="9ZX-De-dRP"/>
-                                            <constraint firstAttribute="width" secondItem="5YU-01-yPK" secondAttribute="height" multiplier="1:1" id="ocE-NR-uh3"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="unmute"/>
-                                        <connections>
-                                            <action selector="mute1ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="gNY-eX-ZDZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upa-Eo-jDQ" userLabel="1 Frame Rewind 1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upa-Eo-jDQ" userLabel="1 Frame Rewind 1">
                                         <rect key="frame" x="92" y="53" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Upa-Eo-jDQ" secondAttribute="height" multiplier="1:1" id="BaK-qm-oah"/>
@@ -100,7 +90,7 @@
                                             <action selector="play1ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="70r-MS-YXf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlW-04-Qws" userLabel="1 Frame Forward 1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlW-04-Qws" userLabel="1 Frame Forward 1">
                                         <rect key="frame" x="272" y="53" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="BlW-04-Qws" secondAttribute="height" multiplier="1:1" id="jpP-zN-5za"/>
@@ -111,7 +101,7 @@
                                             <action selector="oneFrameForward1ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="gvl-0p-Znb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db4-YU-zQf" userLabel="Search 1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db4-YU-zQf" userLabel="Search 1">
                                         <rect key="frame" x="360" y="53" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Db4-YU-zQf" secondAttribute="height" multiplier="1:1" id="aOp-M3-joF"/>
@@ -149,18 +139,7 @@
                                             <action selector="slider2ValueChanged:" destination="2Nh-hV-QnB" eventType="valueChanged" id="Swo-Pw-qrv"/>
                                         </connections>
                                     </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4q-Hf-nPg" userLabel="Volume 2">
-                                        <rect key="frame" x="10" y="163" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="Wyz-cB-y5J"/>
-                                            <constraint firstAttribute="width" secondItem="R4q-Hf-nPg" secondAttribute="height" multiplier="1:1" id="lFU-Kh-T8Y"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="unmute"/>
-                                        <connections>
-                                            <action selector="mute2ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="oU4-Ho-6og"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku3-fo-NXU" userLabel="1 Frame Rewind 2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ku3-fo-NXU" userLabel="1 Frame Rewind 2">
                                         <rect key="frame" x="92" y="163" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="7wX-cz-c4h"/>
@@ -182,7 +161,7 @@
                                             <action selector="play2ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="Pow-v1-3WD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2e3-By-6It" userLabel="1 Frame Forward 2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2e3-By-6It" userLabel="1 Frame Forward 2">
                                         <rect key="frame" x="272" y="163" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="bWj-3G-ed8"/>
@@ -193,7 +172,7 @@
                                             <action selector="oneFrameForward2ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="oD8-VF-QHp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whm-tA-ZxR" userLabel="Search 2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whm-tA-ZxR" userLabel="Search 2">
                                         <rect key="frame" x="360" y="163" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="XMF-ze-Hhk"/>
@@ -203,8 +182,30 @@
                                             <action selector="search2ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="SVF-q1-Ebb"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YU-01-yPK" userLabel="Volume 1">
+                                        <rect key="frame" x="10" y="53" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="9ZX-De-dRP"/>
+                                            <constraint firstAttribute="width" secondItem="5YU-01-yPK" secondAttribute="height" multiplier="1:1" id="ocE-NR-uh3"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="unmute"/>
+                                        <connections>
+                                            <action selector="volume1ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="szS-8K-FlM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4q-Hf-nPg" userLabel="Volume 2">
+                                        <rect key="frame" x="10" y="163" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="Wyz-cB-y5J"/>
+                                            <constraint firstAttribute="width" secondItem="R4q-Hf-nPg" secondAttribute="height" multiplier="1:1" id="lFU-Kh-T8Y"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="unmute"/>
+                                        <connections>
+                                            <action selector="volume2ButtonTapped:" destination="2Nh-hV-QnB" eventType="touchUpInside" id="o2H-TR-r7U"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Eqs-p7-WR0" firstAttribute="centerX" secondItem="3R0-ex-fc3" secondAttribute="centerX" id="11H-Qk-bPv"/>
                                     <constraint firstItem="dQx-fA-Vge" firstAttribute="top" secondItem="56V-6z-R3W" secondAttribute="bottom" constant="2" id="3C3-O3-v0z"/>
@@ -322,7 +323,8 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uPM-xO-ddy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3R0-ex-fc3" firstAttribute="top" secondItem="cwZ-jz-Ph8" secondAttribute="bottom" constant="0.5" id="19o-u1-gSZ"/>
                             <constraint firstItem="cwZ-jz-Ph8" firstAttribute="top" secondItem="Uvs-pf-kCA" secondAttribute="bottom" constant="0.5" id="3l0-P5-g5W"/>
@@ -349,7 +351,6 @@
                             <constraint firstItem="Uvs-pf-kCA" firstAttribute="leading" secondItem="uPM-xO-ddy" secondAttribute="leading" id="zI1-ws-VZ8"/>
                             <constraint firstItem="56V-6z-R3W" firstAttribute="centerX" secondItem="Uvs-pf-kCA" secondAttribute="centerX" id="zqI-6g-btq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="uPM-xO-ddy"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="NnL-pw-Yia"/>
@@ -398,6 +399,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="commonControlView" destination="3R0-ex-fc3" id="scX-QB-Og1"/>
                         <outlet property="commonPlayButton" destination="56V-6z-R3W" id="09M-oa-Qgp"/>
                         <outlet property="currentTime1Label" destination="bDj-1a-QXf" id="UGa-RQ-T2T"/>
                         <outlet property="currentTime2Label" destination="Ymh-Px-RYl" id="wsr-jB-heO"/>
@@ -412,6 +414,8 @@
                         <outlet property="seekBar2" destination="Eqs-p7-WR0" id="svN-80-MCd"/>
                         <outlet property="videoView1" destination="Uvs-pf-kCA" id="0dz-dd-SjV"/>
                         <outlet property="videoView2" destination="cwZ-jz-Ph8" id="z5k-Jh-9go"/>
+                        <outlet property="volume1Button" destination="5YU-01-yPK" id="sBp-gn-YsF"/>
+                        <outlet property="volume2Button" destination="R4q-Hf-nPg" id="63Y-OA-zzT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRp-RF-X9a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -426,7 +430,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebc-BL-JcM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebc-BL-JcM">
                                 <rect key="frame" x="8" y="49" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ebc-BL-JcM" secondAttribute="height" multiplier="1:1" id="98v-QV-rwE"/>
@@ -453,7 +457,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoSearchTableViewCell" rowHeight="240" id="EHT-Ij-lT5" customClass="VideoSearchTableViewCell" customModule="_F_Player" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="240"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EHT-Ij-lT5" id="QGH-PW-lWJ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
@@ -521,7 +525,8 @@ aaa</string>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="P8X-Yk-ZPK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ebc-BL-JcM" firstAttribute="top" secondItem="aKh-cS-2ce" secondAttribute="top" id="2cV-1q-bWC"/>
                             <constraint firstItem="Ebc-BL-JcM" firstAttribute="leading" secondItem="P8X-Yk-ZPK" secondAttribute="leading" constant="8" id="4YB-21-AdI"/>
@@ -534,7 +539,6 @@ aaa</string>
                             <constraint firstItem="LeE-CU-BDJ" firstAttribute="leading" secondItem="P8X-Yk-ZPK" secondAttribute="leading" id="jpK-fZ-JhR"/>
                             <constraint firstItem="Ebc-BL-JcM" firstAttribute="bottom" secondItem="aKh-cS-2ce" secondAttribute="bottom" id="zsM-He-gcc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="P8X-Yk-ZPK"/>
                     </view>
                     <connections>
                         <outlet property="searchTextField" destination="aKh-cS-2ce" id="MUs-DL-z6K"/>
@@ -552,5 +556,8 @@ aaa</string>
         <image name="rewind" width="60" height="60"/>
         <image name="search" width="44" height="44"/>
         <image name="unmute" width="44" height="44"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
