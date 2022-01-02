@@ -185,6 +185,7 @@ class VideoPlayer {
         seekBar.isEnabled = isLive == false
         labelDuration.isHidden = isLive
         labelCurrentTime.isHidden = isLive
+        rewindForwardSetupHandler?(isLive)
     }
     
     private func loadValuesInAsset(_ asset: AVAsset, completion: @escaping () -> Void) {
