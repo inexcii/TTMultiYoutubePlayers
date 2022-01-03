@@ -14,3 +14,6 @@
 "videoplayvc.search.action.option.youtube.public" = "YouTube(公開)";
 "videoplayvc.search.action.option.youtube.unlisted" = "YouTube(限定公開)";
 "videoplayvc.search.action.option.photoalbum" = "アルバム";
+
+// error message for empty video URL in YouTubeUnlistedInputViewController
+"youtubeunlistedinputvc.error.empty.videourl.message" = "空のURLで限定公開動画の再生ができません。";

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VolumeChangeView" customModule="_F_Player" customModuleProvider="target">
+            <connections>
+                <outlet property="content" destination="iN0-l3-epB" id="cl1-p8-vZ5"/>
+                <outlet property="slider" destination="dgY-Ym-uAA" id="AXQ-nM-W2Y"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="32"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J42-AU-Gje" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="32"/>
+                    <color key="backgroundColor" white="0.74771399153418194" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dgY-Ym-uAA">
+                    <rect key="frame" x="-2" y="1" width="154" height="31"/>
+                    <connections>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="E9v-wP-OsM"/>
+                    </connections>
+                </slider>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="J42-AU-Gje" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8cX-NJ-zfM"/>
+                <constraint firstItem="J42-AU-Gje" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Ixh-km-Bz5"/>
+                <constraint firstItem="dgY-Ym-uAA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QeE-7V-MkJ"/>
+                <constraint firstItem="dgY-Ym-uAA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ul1-OW-UsT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dgY-Ym-uAA" secondAttribute="trailing" id="g7O-wS-fwH"/>
+                <constraint firstItem="J42-AU-Gje" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="p8Z-Fb-ooi"/>
+                <constraint firstItem="J42-AU-Gje" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="vST-lV-oBO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="27.536231884057973" y="381.69642857142856"/>
+        </view>
+    </objects>
+</document>
