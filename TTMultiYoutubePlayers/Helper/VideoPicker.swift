@@ -7,12 +7,11 @@
 //
 
 import UIKit
-
-import MobileCoreServices
+import PhotosUI
 
 protocol VideoPickerDelegate: AnyObject {
-    func didRetrieveVideoUrl(_ controller: UIImagePickerController, _ url: URL, _ source: Any?)
-    func didCancelPicking(_ controller: UIImagePickerController)
+    func didRetrieveVideoUrl(_ controller: UIViewController, _ url: URL, _ source: Any?)
+    func didCancelPicking(_ controller: UIViewController)
 }
 
 /**
@@ -21,45 +20,45 @@ protocol VideoPickerDelegate: AnyObject {
  For accessing the video's url, using the delegate method `didRetrieveVideoUrl(controller:url:)`
  */
 class VideoPicker: NSObject {
-
-    let controller = UIImagePickerController()
+    let controller: PHPickerViewController
 
     weak var delegate: VideoPickerDelegate?
     var source: Any?
 
     deinit {
-        print("deinit VideoPicker")
+        print(self, #function)
     }
 
-    init?(src: UIImagePickerController.SourceType) {
+    override init() {
+        var config = PHPickerConfiguration()
+        config.filter = .videos
+        config.preferredAssetRepresentationMode = .current
+
+        controller = PHPickerViewController(configuration: config)
+
         super.init()
 
-        guard UIImagePickerController.isSourceTypeAvailable(src) else {
-            print("source type not available")
-            return nil
-        }
-
-        controller.sourceType = src
-        controller.mediaTypes = [(kUTTypeMovie as String)]
         controller.delegate = self
     }
 }
 
-extension VideoPicker: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard info[.mediaType] as? String == (kUTTypeMovie as String) else {
-            fatalError("not a movie")
-        }
-        guard let url = info[.mediaURL] as? URL else {
-            fatalError("not a media URL")
+extension VideoPicker: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        guard let result = results.first else {
+            self.delegate?.didCancelPicking(picker)
+            return
         }
 
-        self.delegate?.didRetrieveVideoUrl(picker, url, source)
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.delegate?.didCancelPicking(picker)
+        let movie = UTType.movie.identifier
+        let provider = result.itemProvider
+        if provider.hasItemConformingToTypeIdentifier(movie) {
+            provider.loadFileRepresentation(forTypeIdentifier: movie) { [weak self] url, error in
+                guard let self = self, let url = url else { return }
+                DLog("camera roll video url: \(url)")
+                DispatchQueue.main.sync {
+                    self.delegate?.didRetrieveVideoUrl(picker, url, self.source)
+                }
+            }
+        }
     }
 }
-
-extension VideoPicker: UINavigationControllerDelegate {}
