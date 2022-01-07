@@ -299,13 +299,11 @@ final class VideoPlayViewController: UIViewController {
             title: R.string.localizable.videoplayvcSearchActionOptionPhotoalbum(),
             style: .default
         ) { _ in
-            if let picker = VideoPicker(src: .photoLibrary) {
-                picker.delegate = self
-                picker.source = notification.object
-                self.present(picker.controller, animated: true) {
-                }
-                self.picker = picker
-            }
+            let picker = VideoPicker()
+            picker.delegate = self
+            picker.source = notification.object
+            self.present(picker.controller, animated: true)
+            self.picker = picker
         }
         let cancel = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         optionMenu.addAction(youtubePublic)
@@ -333,7 +331,7 @@ extension VideoPlayViewController: VideoSearchViewControllerDelegate {
 // MARK: - VideoPickerDelegate
 
 extension VideoPlayViewController: VideoPickerDelegate {
-    func didRetrieveVideoUrl(_ controller: UIImagePickerController, _ url: URL, _ source: Any?) {
+    func didRetrieveVideoUrl(_ controller: UIViewController, _ url: URL, _ source: Any?) {
         guard let source = source as? VideoView else { return }
         if source == videoView1 {
             videoPlayer1.videoUrl = url
@@ -345,7 +343,7 @@ extension VideoPlayViewController: VideoPickerDelegate {
         }
     }
 
-    func didCancelPicking(_ controller: UIImagePickerController) {
+    func didCancelPicking(_ controller: UIViewController) {
         controller.dismiss(animated: true) {
             self.picker = nil
         }
