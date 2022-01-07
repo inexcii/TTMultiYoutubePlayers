@@ -157,12 +157,14 @@ final class VideoPlayViewController: UIViewController {
                                                name: VideoView.didTapSourceButtonNotification, object: nil)
 
         videoPlayer1 = VideoPlayer(videoView: videoView1,
-                                   videoId: Constants.sampleVideoId1,
+                                   // no default video for production app
+//                                   videoId: Constants.sampleVideoId1,
                                    currentTimeLabel: currentTime1Label,
                                    durationLabel: duration1Label,
                                    seekBar: seekBar1)
         videoPlayer2 = VideoPlayer(videoView: videoView2,
-                                   videoId: Constants.sampleVideoId2,
+                                   // no default video for production app
+//                                   videoId: Constants.sampleVideoId2,
                                    currentTimeLabel: currentTime2Label,
                                    durationLabel: duration2Label,
                                    seekBar: seekBar2)
