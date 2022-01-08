@@ -28,7 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         XCDYouTubeClient.setInnertubeApiKey(Constants.API.accessKey)
+
+        #if DEBUG
+        #else
+        // use Firebase only in production app
         FirebaseApp.configure()
+        #endif
 
         return true
     }
