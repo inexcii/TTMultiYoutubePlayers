@@ -761,12 +761,12 @@
 				DEVELOPMENT_TEAM = 58F85N59D3;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TTMultiYoutubePlayers/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = work.zhouyuan.multiyoutube;
 				PRODUCT_NAME = "1F Player";
 				SWIFT_VERSION = 5.0;
@@ -784,12 +784,12 @@
 				DEVELOPMENT_TEAM = 58F85N59D3;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TTMultiYoutubePlayers/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = work.zhouyuan.multiyoutube;
 				PRODUCT_NAME = "1F Player";
 				SWIFT_VERSION = 5.0;
