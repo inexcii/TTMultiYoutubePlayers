@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		003524CB2607981900D2F150 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 003524CD2607981900D2F150 /* Localizable.strings */; };
+		0037A368279D8310009A77A2 /* VideoPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037A367279D8310009A77A2 /* VideoPlaying.swift */; };
 		003C69F823C0033100FD7C76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 003C69F723C0033100FD7C76 /* GoogleService-Info.plist */; };
 		0048DA92234A244300875758 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048DA91234A244300875758 /* AppDelegate.swift */; };
 		0048DA97234A244300875758 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0048DA95234A244300875758 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		003524D12607984E00D2F150 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		003524D22607984F00D2F150 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		003524D32607984F00D2F150 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0037A367279D8310009A77A2 /* VideoPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlaying.swift; sourceTree = "<group>"; };
 		003C69F723C0033100FD7C76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0048DA8E234A244300875758 /* 1F Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1F Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0048DA91234A244300875758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0037A366279D82F6009A77A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0037A367279D8310009A77A2 /* VideoPlaying.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0048DA85234A244300875758 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 				0061E160234D3EF400740069 /* Extensions.swift */,
 				005C6EC0235B08AE002A165B /* Utility.swift */,
 				00BF2DC9238F36CF00D2FA94 /* VideoPlayViewController.swift */,
+				0037A366279D82F6009A77A2 /* Services */,
 				00C26BD527804DA7008DC8BB /* Modules */,
 				0061E162234D481200740069 /* Model */,
 				0048DACE234B1F7300875758 /* UI */,
@@ -560,6 +571,7 @@
 				0048DAD0234B1F8200875758 /* AVPlayerView.swift in Sources */,
 				005C0BBB2388F89D0044E02F /* YoutubeEntity.swift in Sources */,
 				00C26BD827804DF2008DC8BB /* YouTubeUnlistedInputViewController.swift in Sources */,
+				0037A368279D8310009A77A2 /* VideoPlaying.swift in Sources */,
 				00BF2DC8238C1C0C00D2FA94 /* VideoView.swift in Sources */,
 				0048DAC3234AA8F000875758 /* Constants.swift in Sources */,
 				0061E164234D483200740069 /* VideoPlayer.swift in Sources */,

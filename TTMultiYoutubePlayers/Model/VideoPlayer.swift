@@ -89,7 +89,7 @@ class VideoPlayer {
     // MARK: - Internal
 
     func handleOneFrameSeek(_ type: SeekType) {
-        guard let duration = player.currentItem?.duration else { return }
+        guard let duration = duration else { return }
 
         let seekValue = currentSeekValue(seekBar.value, duration: duration)
         var toBeSeekValue: Float64
@@ -99,8 +99,7 @@ class VideoPlayer {
         case .fastForward:
             toBeSeekValue = seekValue + oneFrame
         }
-        let time = seekTime(toBeSeekValue)
-        player.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero) { _ in
+        seek(to: toBeSeekValue) { _ in
             // update seekbar's value
             self.seekBar.value = Float(toBeSeekValue / CMTimeGetSeconds(duration))
         }
@@ -108,10 +107,10 @@ class VideoPlayer {
 
     func handlePlayPause(_ button: UIButton) {
         if isPlaying {
-            player.pause()
+            pause()
             button.setBackgroundImage(R.image.play(), for: .normal)
         } else {
-            player.play()
+            play()
             button.setBackgroundImage(R.image.pause(), for: .normal)
         }
     }
@@ -121,22 +120,21 @@ class VideoPlayer {
     }
 
     func handleSeekbarValueChanged(_ seekbar: UISlider) {
-        guard let duration = player.currentItem?.duration else { return }
+        guard let duration = duration else { return }
         let seekTime = getSeekTime(seekbar.value, by: duration)
         labelCurrentTime.text = seekTime.toDisplay()
     }
     func handleSeekbarTouchup(_ seekbar: UISlider) {
-        guard let duration = player.currentItem?.duration else { return }
-        let seekTime = getSeekTime(seekbar.value, by: duration)
-
-        player.seek(to: seekTime, completionHandler: { (_) in
+        guard let duration = duration else { return }
+        let time = currentSeekValue(seekbar.value, duration: duration)
+        seek(to: time) { _ in
             self.isSeekBarBeingTouched = false
-        })
+        }
     }
     func handleSeekbarTouchDown(_ seekbar: UISlider) {
         isSeekBarBeingTouched = true
     }
-    
+
     // MARK: - Private
     
     private func setupPlayer(by videoId: String) {
@@ -233,7 +231,7 @@ class VideoPlayer {
     }
     
     private func setSeekBarValue(progress: CMTime) {
-        guard let duration = player.currentItem?.duration else { return }
+        guard let duration = duration else { return }
         let totalSeconds = CMTimeGetSeconds(duration)
         let progressSeconds = CMTimeGetSeconds(progress)
         seekBar.value = Float(progressSeconds / totalSeconds)
@@ -289,11 +287,27 @@ extension VideoPlayer : VideoViewDelegate {
 }
  */
 
-// MARK: Status
+// MARK: - VideoPlaying
 
-extension VideoPlayer {
+extension VideoPlayer: VideoPlaying {
+    var duration: CMTime? {
+        return player.currentItem?.duration
+    }
 
     var isPlaying: Bool {
         return player.rate > 0.0
+    }
+
+    func play() {
+        player.play()
+    }
+
+    func pause() {
+        player.pause()
+    }
+
+    func seek(to time: Float64, completion: @escaping (Bool) -> Void) {
+        let cmTime = seekTime(time)
+        player.seek(to: cmTime, toleranceBefore: .zero, toleranceAfter: .zero, completionHandler: completion)
     }
 }
