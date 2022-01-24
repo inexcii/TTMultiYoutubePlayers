@@ -127,7 +127,8 @@ class VideoPlayer {
     func handleSeekbarTouchup(_ seekbar: UISlider) {
         guard let duration = duration else { return }
         let time = currentSeekValue(seekbar.value, duration: duration)
-        seek(to: time) { _ in
+        Task.init {
+            let _ = await seek(to: time)
             self.isSeekBarBeingTouched = false
         }
     }
@@ -306,8 +307,16 @@ extension VideoPlayer: VideoPlaying {
         player.pause()
     }
 
+    @available(*, deprecated, renamed: "seek(to:)")
     func seek(to time: Float64, completion: @escaping (Bool) -> Void) {
         let cmTime = seekTime(time)
         player.seek(to: cmTime, toleranceBefore: .zero, toleranceAfter: .zero, completionHandler: completion)
+    }
+    private func seek(to time: Float64) async -> Bool {
+        return await withCheckedContinuation({ continuation in
+            seek(to: time) { result in
+                continuation.resume(returning: result)
+            }
+        })
     }
 }
